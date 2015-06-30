@@ -134,6 +134,11 @@ namespace Phalcon\DI {
  		 * @var \Phalcon\Mvc\View|\Phalcon\Mvc\ViewInterface
  		 */
 		public $view;
+
+        /**
+         * @var  \Phalcon\Logger\AdapterInterface;
+         */
+        public $log;
 		
 		/**
 		 * Sets the dependency injector
