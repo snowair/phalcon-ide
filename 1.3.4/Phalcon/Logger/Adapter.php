@@ -87,7 +87,7 @@ namespace Phalcon\Logger {
 		 * @param array $context
 		 * @return \Phalcon\Logger\Adapter
 		 */
-		public function log($type, $message, $context=null){ }
+		public function log($type, $message,array $context=null){ }
 
 
 		/**
