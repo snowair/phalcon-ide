@@ -32,6 +32,6 @@ class Confirmation extends \Phalcon\Validation\Validator
      * @param string $b 
      * @return bool 
      */
-    protected function compare($a, $b) {}
+    protected final function compare($a, $b) {}
 
 }
