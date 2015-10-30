@@ -45,6 +45,13 @@ interface ViewInterface extends \Phalcon\Mvc\ViewBaseInterface
     public function setBasePath($basePath);
 
     /**
+     * Gets base path
+     *
+     * @return string 
+     */
+    public function getBasePath();
+
+    /**
      * Sets the render level for the view
      *
      * @param string $level 
@@ -153,17 +160,6 @@ interface ViewInterface extends \Phalcon\Mvc\ViewBaseInterface
     public function pick($renderView);
 
     /**
-<<<<<<< HEAD
-=======
-     * Renders a partial view
-     *
-     * @param string $partialPath 
-     * @return string 
-     */
-    public function partial($partialPath);
-
-    /**
->>>>>>> 5cd73180ea748c3d5e180a24610161d9730cd146
      * Finishes the render process by stopping the output buffering
      */
     public function finish();

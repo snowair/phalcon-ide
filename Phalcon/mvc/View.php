@@ -101,7 +101,9 @@ class View extends \Phalcon\Di\Injectable implements \Phalcon\Mvc\ViewInterface
 
     protected $_engines = false;
 
-
+    /**
+     * @var array
+     */
     protected $_registeredEngines;
 
 
@@ -138,7 +140,9 @@ class View extends \Phalcon\Di\Injectable implements \Phalcon\Mvc\ViewInterface
 
     public function getCurrentRenderLevel() {}
 
-
+    /**
+     * @return array 
+     */
     public function getRegisteredEngines() {}
 
     /**
@@ -209,6 +213,13 @@ class View extends \Phalcon\Di\Injectable implements \Phalcon\Mvc\ViewInterface
      * @return View 
      */
     public function setBasePath($basePath) {}
+
+    /**
+     * Gets base path
+     *
+     * @return string 
+     */
+    public function getBasePath() {}
 
     /**
      * Sets the render level for the view

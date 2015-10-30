@@ -74,7 +74,6 @@ class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      */
     public function useExplicitIdValue() {}
 
-<<<<<<< HEAD
     /**
      * Returns the default value to make the RBDM use the default value declared in the table definition
      * <code>
@@ -90,6 +89,4 @@ class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      */
     public function getDefaultValue() {}
 
-=======
->>>>>>> 5cd73180ea748c3d5e180a24610161d9730cd146
 }

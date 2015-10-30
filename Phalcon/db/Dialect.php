@@ -87,26 +87,31 @@ abstract class Dialect implements \Phalcon\Db\DialectInterface
      * </code>
      *
      * @param array $columnList 
+     * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    public final function getColumnList($columnList) {}
+    public final function getColumnList($columnList, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve Column expressions
      *
      * @param mixed $column 
+     * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    public final function getSqlColumn($column) {}
+    public final function getSqlColumn($column, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Transforms an intermediate representation for a expression into a database system valid expression
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    public function getSqlExpression($expression, $escapeChar = null) {}
+    public function getSqlExpression($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Transform an intermediate representation of a schema/table into a database system valid expression
@@ -168,18 +173,20 @@ abstract class Dialect implements \Phalcon\Db\DialectInterface
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionScalar($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionScalar($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve object expressions
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionObject($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionObject($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve qualified expressions
@@ -195,36 +202,40 @@ abstract class Dialect implements \Phalcon\Db\DialectInterface
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionBinaryOperations($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionBinaryOperations($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve unary operations expressions
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionUnaryOperations($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionUnaryOperations($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve function calls
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionFunctionCall($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionFunctionCall($expression, $escapeChar = null, $bindCounts) {}
 
     /**
      * Resolve Lists
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionList($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionList($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve
@@ -240,27 +251,30 @@ abstract class Dialect implements \Phalcon\Db\DialectInterface
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionCastValue($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionCastValue($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve CONVERT of values encodings
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionConvertValue($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionConvertValue($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve CASE expressions
      *
      * @param array $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionCase($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionCase($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve a FROM clause
@@ -276,63 +290,70 @@ abstract class Dialect implements \Phalcon\Db\DialectInterface
      *
      * @param mixed $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionJoins($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionJoins($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve a WHERE clause
      *
      * @param mixed $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionWhere($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionWhere($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve a GROUP BY clause
      *
      * @param mixed $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionGroupBy($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionGroupBy($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve a HAVING clause
      *
      * @param mixed $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionHaving($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionHaving($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve a ORDER BY clause
      *
      * @param mixed $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionOrderBy($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionOrderBy($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Resolve a LIMIT clause
      *
      * @param mixed $expression 
      * @param string $escapeChar 
+     * @param mixed $bindCounts 
      * @return string 
      */
-    protected final function getSqlExpressionLimit($expression, $escapeChar = null) {}
+    protected final function getSqlExpressionLimit($expression, $escapeChar = null, $bindCounts = null) {}
 
     /**
      * Prepares column for this RDBMS
      *
      * @param string $qualified 
      * @param string $alias 
+     * @param string $escapeChar 
      * @return string 
      */
-    protected function prepareColumnAlias($qualified, $alias = null) {}
+    protected function prepareColumnAlias($qualified, $alias = null, $escapeChar = null) {}
 
     /**
      * Prepares table for this RDBMS
