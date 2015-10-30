@@ -138,10 +138,6 @@ abstract class Injectable implements \Phalcon\Di\InjectionAwareInterface, \Phalc
      */
     public $view;
 
-    /**
-     * @var  \Phalcon\Logger\AdapterInterface;
-     */
-    public $log;
 
     /**
      * Sets the dependency injector
