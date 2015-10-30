@@ -140,6 +140,7 @@ class Di implements \Phalcon\DiInterface
     /**
      * Resolves the service based on its configuration
      *
+     * @return mixed
      * @param string $name 
      * @param mixed $parameters 
      */
