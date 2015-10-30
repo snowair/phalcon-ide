@@ -2,6 +2,10 @@
 
 namespace Phalcon\Acl;
 
+/**
+ * Phalcon\Acl\ResourceInterface
+ * Interface for Phalcon\Acl\Resource
+ */
 interface ResourceInterface
 {
 
@@ -11,27 +15,27 @@ interface ResourceInterface
      * @param string $name 
      * @param mixed $description 
      */
-	public function __construct($name, $description = null);
+    public function __construct($name, $description = null);
 
     /**
      * Returns the resource name
      *
      * @return string 
      */
-	public function getName();
+    public function getName();
 
     /**
      * Returns resource description
      *
      * @return string 
      */
-	public function getDescription();
+    public function getDescription();
 
     /**
      * Magic method __toString
      *
      * @return string 
      */
-	public function __toString();
+    public function __toString();
 
 }

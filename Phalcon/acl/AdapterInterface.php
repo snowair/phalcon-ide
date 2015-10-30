@@ -2,6 +2,10 @@
 
 namespace Phalcon\Acl;
 
+/**
+ * Phalcon\Acl\AdapterInterface
+ * Interface for Phalcon\Acl adapters
+ */
 interface AdapterInterface
 {
 
@@ -10,14 +14,14 @@ interface AdapterInterface
      *
      * @param int $defaultAccess 
      */
-	public function setDefaultAction($defaultAccess);
+    public function setDefaultAction($defaultAccess);
 
     /**
      * Returns the default ACL access level
      *
      * @return int 
      */
-	public function getDefaultAction();
+    public function getDefaultAction();
 
     /**
      * Adds a role to the ACL list. Second parameter lets to inherit access data from other existing role
@@ -26,15 +30,16 @@ interface AdapterInterface
      * @param mixed $accessInherits 
      * @return bool 
      */
-	public function addRole($role, $accessInherits = null);
+    public function addRole($role, $accessInherits = null);
 
     /**
      * Do a role inherit from another existing role
      *
      * @param string $roleName 
      * @param mixed $roleToInherit 
+     * @return bool 
      */
-	public function addInherit($roleName, $roleToInherit);
+    public function addInherit($roleName, $roleToInherit);
 
     /**
      * Check whether role exist in the roles list
@@ -42,7 +47,7 @@ interface AdapterInterface
      * @param string $roleName 
      * @return bool 
      */
-	public function isRole($roleName);
+    public function isRole($roleName);
 
     /**
      * Check whether resource exist in the resources list
@@ -50,7 +55,7 @@ interface AdapterInterface
      * @param string $resourceName 
      * @return bool 
      */
-	public function isResource($resourceName);
+    public function isResource($resourceName);
 
     /**
      * Adds a resource to the ACL list
@@ -61,7 +66,7 @@ interface AdapterInterface
      * @param mixed $accessList 
      * @return bool 
      */
-	public function addResource($resourceObject, $accessList = null);
+    public function addResource($resourceObject, $accessList);
 
     /**
      * Adds access to resources
@@ -69,7 +74,7 @@ interface AdapterInterface
      * @param string $resourceName 
      * @param mixed $accessList 
      */
-	public function addResourceAccess($resourceName, $accessList);
+    public function addResourceAccess($resourceName, $accessList);
 
     /**
      * Removes an access from a resource
@@ -77,7 +82,7 @@ interface AdapterInterface
      * @param string $resourceName 
      * @param mixed $accessList 
      */
-	public function dropResourceAccess($resourceName, $accessList);
+    public function dropResourceAccess($resourceName, $accessList);
 
     /**
      * Allow access to a role on a resource
@@ -86,7 +91,7 @@ interface AdapterInterface
      * @param string $resourceName 
      * @param mixed $access 
      */
-	public function allow($roleName, $resourceName, $access);
+    public function allow($roleName, $resourceName, $access);
 
     /**
      * Deny access to a role on a resource
@@ -95,7 +100,7 @@ interface AdapterInterface
      * @param string $resourceName 
      * @param mixed $access 
      */
-	public function deny($roleName, $resourceName, $access);
+    public function deny($roleName, $resourceName, $access);
 
     /**
      * Check whether a role is allowed to access an action from a resource
@@ -105,41 +110,41 @@ interface AdapterInterface
      * @param mixed $access 
      * @return bool 
      */
-	public function isAllowed($roleName, $resourceName, $access);
+    public function isAllowed($roleName, $resourceName, $access);
 
     /**
      * Returns the role which the list is checking if it's allowed to certain resource/access
      *
      * @return string 
      */
-	public function getActiveRole();
+    public function getActiveRole();
 
     /**
      * Returns the resource which the list is checking if some role can access it
      *
      * @return string 
      */
-	public function getActiveResource();
+    public function getActiveResource();
 
     /**
      * Returns the access which the list is checking if some role can access it
      *
      * @return string 
      */
-	public function getActiveAccess();
+    public function getActiveAccess();
 
     /**
      * Return an array with every role registered in the list
      *
-     * @return \Phalcon\Acl\RoleInterface[] 
+     * @return RoleInterface 
      */
-	public function getRoles();
+    public function getRoles();
 
     /**
      * Return an array with every resource registered in the list
      *
-     * @return \Phalcon\Acl\ResourceInterface[] 
+     * @return ResourceInterface 
      */
-	public function getResources();
+    public function getResources();
 
 }

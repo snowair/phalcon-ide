@@ -2,6 +2,10 @@
 
 namespace Phalcon\Mvc\Micro;
 
+/**
+ * Phalcon\Mvc\Micro\CollectionInterface
+ * Interface for Phalcon\Mvc\Micro\Collection
+ */
 interface CollectionInterface
 {
 
@@ -9,23 +13,23 @@ interface CollectionInterface
      * Sets a prefix for all routes added to the collection
      *
      * @param string $prefix 
-     * @return \Phalcon\Mvc\Micro\Collection 
+     * @return CollectionInterface 
      */
-	public function setPrefix($prefix);
+    public function setPrefix($prefix);
 
     /**
      * Returns the collection prefix if any
      *
      * @return string 
      */
-	public function getPrefix();
+    public function getPrefix();
 
     /**
      * Returns the registered handlers
      *
      * @return array 
      */
-	public function getHandlers();
+    public function getHandlers();
 
     /**
      * Sets the main handler
@@ -34,29 +38,29 @@ interface CollectionInterface
      * @param boolean $lazy 
      * @return \Phalcon\Mvc\Micro\Collection 
      */
-	public function setHandler($handler, $lazy = false);
+    public function setHandler($handler, $lazy = false);
 
     /**
      * Sets if the main handler must be lazy loaded
      *
-     * @param boolean $lazy 
-     * @return \Phalcon\Mvc\Micro\Collection 
+     * @param bool $lazy 
+     * @return CollectionInterface 
      */
-	public function setLazy($lazy);
+    public function setLazy($lazy);
 
     /**
      * Returns if the main handler must be lazy loaded
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isLazy();
+    public function isLazy();
 
     /**
      * Returns the main handler
      *
      * @return mixed 
      */
-	public function getHandler();
+    public function getHandler();
 
     /**
      * Maps a route to a handler
@@ -66,7 +70,7 @@ interface CollectionInterface
      * @param string $name 
      * @return \Phalcon\Mvc\Router\RouteInterface 
      */
-	public function map($routePattern, $handler, $name = null);
+    public function map($routePattern, $handler, $name = null);
 
     /**
      * Maps a route to a handler that only matches if the HTTP method is GET
@@ -76,7 +80,7 @@ interface CollectionInterface
      * @param string $name 
      * @return \Phalcon\Mvc\Router\RouteInterface 
      */
-	public function get($routePattern, $handler, $name = null);
+    public function get($routePattern, $handler, $name = null);
 
     /**
      * Maps a route to a handler that only matches if the HTTP method is POST
@@ -86,7 +90,7 @@ interface CollectionInterface
      * @param string $name 
      * @return \Phalcon\Mvc\Router\RouteInterface 
      */
-	public function post($routePattern, $handler, $name = null);
+    public function post($routePattern, $handler, $name = null);
 
     /**
      * Maps a route to a handler that only matches if the HTTP method is PUT
@@ -96,7 +100,7 @@ interface CollectionInterface
      * @param string $name 
      * @return \Phalcon\Mvc\Router\RouteInterface 
      */
-	public function put($routePattern, $handler, $name = null);
+    public function put($routePattern, $handler, $name = null);
 
     /**
      * Maps a route to a handler that only matches if the HTTP method is PATCH
@@ -106,7 +110,7 @@ interface CollectionInterface
      * @param string $name 
      * @return \Phalcon\Mvc\Router\RouteInterface 
      */
-	public function patch($routePattern, $handler, $name = null);
+    public function patch($routePattern, $handler, $name = null);
 
     /**
      * Maps a route to a handler that only matches if the HTTP method is HEAD
@@ -116,7 +120,7 @@ interface CollectionInterface
      * @param string $name 
      * @return \Phalcon\Mvc\Router\RouteInterface 
      */
-	public function head($routePattern, $handler, $name = null);
+    public function head($routePattern, $handler, $name = null);
 
     /**
      * Maps a route to a handler that only matches if the HTTP method is DELETE
@@ -126,7 +130,7 @@ interface CollectionInterface
      * @param string $name 
      * @return \Phalcon\Mvc\Router\RouteInterface 
      */
-	public function delete($routePattern, $handler, $name = null);
+    public function delete($routePattern, $handler, $name = null);
 
     /**
      * Maps a route to a handler that only matches if the HTTP method is OPTIONS
@@ -136,6 +140,6 @@ interface CollectionInterface
      * @param string $name 
      * @return \Phalcon\Mvc\Router\RouteInterface 
      */
-	public function options($routePattern, $handler, $name = null);
+    public function options($routePattern, $handler, $name = null);
 
 }

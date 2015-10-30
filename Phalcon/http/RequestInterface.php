@@ -2,6 +2,10 @@
 
 namespace Phalcon\Http;
 
+/**
+ * Phalcon\Http\RequestInterface
+ * Interface for Phalcon\Http\Request
+ */
 interface RequestInterface
 {
 
@@ -13,7 +17,7 @@ interface RequestInterface
      * @param mixed $defaultValue 
      * @return mixed 
      */
-	public function get($name = null, $filters = null, $defaultValue = null);
+    public function get($name = null, $filters = null, $defaultValue = null);
 
     /**
      * Gets a variable from the $_POST superglobal applying filters if needed
@@ -23,7 +27,7 @@ interface RequestInterface
      * @param mixed $defaultValue 
      * @return mixed 
      */
-	public function getPost($name = null, $filters = null, $defaultValue = null);
+    public function getPost($name = null, $filters = null, $defaultValue = null);
 
     /**
      * Gets variable from $_GET superglobal applying filters if needed
@@ -33,7 +37,7 @@ interface RequestInterface
      * @param mixed $defaultValue 
      * @return mixed 
      */
-	public function getQuery($name = null, $filters = null, $defaultValue = null);
+    public function getQuery($name = null, $filters = null, $defaultValue = null);
 
     /**
      * Gets variable from $_SERVER superglobal
@@ -41,7 +45,7 @@ interface RequestInterface
      * @param string $name 
      * @return mixed 
      */
-	public function getServer($name);
+    public function getServer($name);
 
     /**
      * Checks whether $_SERVER superglobal has certain index
@@ -49,7 +53,7 @@ interface RequestInterface
      * @param string $name 
      * @return bool 
      */
-	public function has($name);
+    public function has($name);
 
     /**
      * Checks whether $_POST superglobal has certain index
@@ -57,7 +61,15 @@ interface RequestInterface
      * @param string $name 
      * @return bool 
      */
-	public function hasPost($name);
+    public function hasPost($name);
+
+    /**
+     * Checks whether the PUT data has certain index
+     *
+     * @param string $name 
+     * @return bool 
+     */
+    public function hasPut($name);
 
     /**
      * Checks whether $_GET superglobal has certain index
@@ -65,7 +77,7 @@ interface RequestInterface
      * @param string $name 
      * @return bool 
      */
-	public function hasQuery($name);
+    public function hasQuery($name);
 
     /**
      * Checks whether $_SERVER superglobal has certain index
@@ -73,7 +85,7 @@ interface RequestInterface
      * @param string $name 
      * @return bool 
      */
-	public function hasServer($name);
+    public function hasServer($name);
 
     /**
      * Gets HTTP header from request data
@@ -81,63 +93,63 @@ interface RequestInterface
      * @param string $header 
      * @return string 
      */
-	public function getHeader($header);
+    public function getHeader($header);
 
     /**
      * Gets HTTP schema (http/https)
      *
      * @return string 
      */
-	public function getScheme();
+    public function getScheme();
 
     /**
      * Checks whether request has been made using ajax. Checks if $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'
      *
      * @return bool 
      */
-	public function isAjax();
+    public function isAjax();
 
     /**
      * Checks whether request has been made using SOAP
      *
      * @return bool 
      */
-	public function isSoapRequested();
+    public function isSoapRequested();
 
     /**
      * Checks whether request has been made using any secure layer
      *
      * @return bool 
      */
-	public function isSecureRequest();
+    public function isSecureRequest();
 
     /**
      * Gets HTTP raws request body
      *
      * @return string 
      */
-	public function getRawBody();
+    public function getRawBody();
 
     /**
      * Gets active server address IP
      *
      * @return string 
      */
-	public function getServerAddress();
+    public function getServerAddress();
 
     /**
      * Gets active server name
      *
      * @return string 
      */
-	public function getServerName();
+    public function getServerName();
 
     /**
      * Gets information about schema, host and port used by the request
      *
      * @return string 
      */
-	public function getHttpHost();
+    public function getHttpHost();
 
     /**
      * Gets most possibly client IPv4 Address. This methods search in $_SERVER['REMOTE_ADDR'] and optionally in $_SERVER['HTTP_X_FORWARDED_FOR']
@@ -145,21 +157,21 @@ interface RequestInterface
      * @param bool $trustForwardedHeader 
      * @return string 
      */
-	public function getClientAddress($trustForwardedHeader = false);
+    public function getClientAddress($trustForwardedHeader = false);
 
     /**
      * Gets HTTP method which request has been made
      *
      * @return string 
      */
-	public function getMethod();
+    public function getMethod();
 
     /**
      * Gets HTTP user agent used to made the request
      *
      * @return string 
      */
-	public function getUserAgent();
+    public function getUserAgent();
 
     /**
      * Check if HTTP method match any of the passed methods
@@ -167,127 +179,127 @@ interface RequestInterface
      * @param string|array $methods 
      * @return boolean 
      */
-	public function isMethod($methods);
+    public function isMethod($methods);
 
     /**
      * Checks whether HTTP method is POST. if $_SERVER['REQUEST_METHOD']=='POST'
      *
      * @return bool 
      */
-	public function isPost();
+    public function isPost();
 
     /**
      * Checks whether HTTP method is GET. if $_SERVER['REQUEST_METHOD']=='GET'
      *
      * @return bool 
      */
-	public function isGet();
+    public function isGet();
 
     /**
      * Checks whether HTTP method is PUT. if $_SERVER['REQUEST_METHOD']=='PUT'
      *
      * @return bool 
      */
-	public function isPut();
+    public function isPut();
 
     /**
      * Checks whether HTTP method is HEAD. if $_SERVER['REQUEST_METHOD']=='HEAD'
      *
      * @return bool 
      */
-	public function isHead();
+    public function isHead();
 
     /**
      * Checks whether HTTP method is DELETE. if $_SERVER['REQUEST_METHOD']=='DELETE'
      *
      * @return bool 
      */
-	public function isDelete();
+    public function isDelete();
 
     /**
      * Checks whether HTTP method is OPTIONS. if $_SERVER['REQUEST_METHOD']=='OPTIONS'
      *
      * @return bool 
      */
-	public function isOptions();
+    public function isOptions();
 
     /**
      * Checks whether request include attached files
      *
-     * @param boolean $notErrored 
+     * @param boolean $onlySuccessful 
      * @return boolean 
      */
-	public function hasFiles($notErrored = false);
+    public function hasFiles($onlySuccessful = false);
 
     /**
      * Gets attached files as Phalcon\Http\Request\FileInterface compatible instances
      *
-     * @param bool $notErrored 
+     * @param bool $onlySuccessful 
      * @return \Phalcon\Http\Request\FileInterface 
      */
-	public function getUploadedFiles($notErrored = false);
+    public function getUploadedFiles($onlySuccessful = false);
 
     /**
      * Gets web page that refers active request. ie: http://www.google.com
      *
      * @return string 
      */
-	public function getHTTPReferer();
+    public function getHTTPReferer();
 
     /**
      * Gets array with mime/types and their quality accepted by the browser/client from $_SERVER['HTTP_ACCEPT']
      *
      * @return array 
      */
-	public function getAcceptableContent();
+    public function getAcceptableContent();
 
     /**
      * Gets best mime/type accepted by the browser/client from $_SERVER['HTTP_ACCEPT']
      *
-     * @return array 
+     * @return string 
      */
-	public function getBestAccept();
+    public function getBestAccept();
 
     /**
      * Gets charsets array and their quality accepted by the browser/client from $_SERVER['HTTP_ACCEPT_CHARSET']
      *
      * @return array 
      */
-	public function getClientCharsets();
+    public function getClientCharsets();
 
     /**
      * Gets best charset accepted by the browser/client from $_SERVER['HTTP_ACCEPT_CHARSET']
      *
      * @return string 
      */
-	public function getBestCharset();
+    public function getBestCharset();
 
     /**
      * Gets languages array and their quality accepted by the browser/client from _SERVER['HTTP_ACCEPT_LANGUAGE']
      *
      * @return array 
      */
-	public function getLanguages();
+    public function getLanguages();
 
     /**
      * Gets best language accepted by the browser/client from $_SERVER['HTTP_ACCEPT_LANGUAGE']
      *
      * @return string 
      */
-	public function getBestLanguage();
+    public function getBestLanguage();
 
     /**
      * Gets auth info accepted by the browser/client from $_SERVER['PHP_AUTH_USER']
      *
      * @return array 
      */
-	public function getBasicAuth();
+    public function getBasicAuth();
 
     /**
      * Gets auth info accepted by the browser/client from $_SERVER['PHP_AUTH_DIGEST']
      *
      * @return array 
      */
-	public function getDigestAuth();
+    public function getDigestAuth();
 
 }

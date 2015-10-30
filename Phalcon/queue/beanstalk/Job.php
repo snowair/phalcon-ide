@@ -2,6 +2,10 @@
 
 namespace Phalcon\Queue\Beanstalk;
 
+/**
+ * Phalcon\Queue\Beanstalk\Job
+ * Represents a job in a beanstalk queue
+ */
 class Job
 {
 
@@ -15,10 +19,10 @@ class Job
 
 
 
-	public function getId() {}
+    public function getId() {}
 
 
-	public function getBody() {}
+    public function getBody() {}
 
     /**
      * Phalcon\Queue\Beanstalk\Job
@@ -27,14 +31,14 @@ class Job
      * @param string $id 
      * @param string $body 
      */
-	public function __construct($queue, $id, $body) {}
+    public function __construct($queue, $id, $body) {}
 
     /**
      * Removes a job from the server entirely
      *
      * @return bool 
      */
-	public function delete() {}
+    public function delete() {}
 
     /**
      * The release command puts a reserved job back into the ready queue (and marks
@@ -45,7 +49,7 @@ class Job
      * @param int $delay 
      * @return bool 
      */
-	public function release($priority = 100, $delay = 0) {}
+    public function release($priority = 100, $delay = 0) {}
 
     /**
      * The bury command puts a job into the "buried" state. Buried jobs are put into
@@ -55,7 +59,7 @@ class Job
      * @param int $priority 
      * @return bool 
      */
-	public function bury($priority = 100) {}
+    public function bury($priority = 100) {}
 
     /**
      * The `touch` command allows a worker to request more time to work on a job.
@@ -67,18 +71,25 @@ class Job
      *
      * @return bool 
      */
-	public function touch() {}
+    public function touch() {}
 
     /**
      * Move the job to the ready queue if it is delayed or buried.
      *
      * @return bool 
      */
-	public function kick() {}
+    public function kick() {}
+
+    /**
+     * Get stats of the job.
+     *
+     * @return bool|array 
+     */
+    public function stats() {}
 
     /**
      * Checks if the job has been modified after unserializing the object
      */
-	public function __wakeup() {}
+    public function __wakeup() {}
 
 }

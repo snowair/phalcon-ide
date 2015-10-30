@@ -2,6 +2,21 @@
 
 namespace Phalcon\Cli;
 
+/**
+ * Phalcon\Cli\Dispatcher
+ * Dispatching is the process of taking the command-line arguments, extracting the module name,
+ * task name, action name, and optional parameters contained in it, and then
+ * instantiating a task and calling an action on it.
+ * <code>
+ * $di = new \Phalcon\Di();
+ * $dispatcher = new \Phalcon\Cli\Dispatcher();
+ * $dispatcher->setDi(di);
+ * $dispatcher->setTaskName('posts');
+ * $dispatcher->setActionName('index');
+ * $dispatcher->setParams(array());
+ * $handle = dispatcher->dispatch();
+ * </code>
+ */
 class Dispatcher extends \Phalcon\Dispatcher
 {
 
@@ -20,35 +35,35 @@ class Dispatcher extends \Phalcon\Dispatcher
     /**
      * Phalcon\Cli\Dispatcher constructor
      */
-	public function __construct() {}
+    public function __construct() {}
 
     /**
      * Sets the default task suffix
      *
      * @param string $taskSuffix 
      */
-	public function setTaskSuffix($taskSuffix) {}
+    public function setTaskSuffix($taskSuffix) {}
 
     /**
      * Sets the default task name
      *
      * @param string $taskName 
      */
-	public function setDefaultTask($taskName) {}
+    public function setDefaultTask($taskName) {}
 
     /**
      * Sets the task name to be dispatched
      *
      * @param string $taskName 
      */
-	public function setTaskName($taskName) {}
+    public function setTaskName($taskName) {}
 
     /**
      * Gets last dispatched task name
      *
      * @return string 
      */
-	public function getTaskName() {}
+    public function getTaskName() {}
 
     /**
      * Throws an internal exception
@@ -56,41 +71,41 @@ class Dispatcher extends \Phalcon\Dispatcher
      * @param string $message 
      * @param int $exceptionCode 
      */
-	protected function _throwDispatchException($message, $exceptionCode = 0) {}
+    protected function _throwDispatchException($message, $exceptionCode = 0) {}
 
     /**
      * Handles a user exception
      *
-     * @param \Exception $exception 
+     * @param mixed $exception 
      */
-	protected function _handleException(\Exception $exception) {}
+    protected function _handleException(\Exception $exception) {}
 
     /**
      * Returns the lastest dispatched controller
      *
-     * @return \Phalcon\CLI\Task 
+     * @return \Phalcon\Cli\Task 
      */
-	public function getLastTask() {}
+    public function getLastTask() {}
 
     /**
      * Returns the active task in the dispatcher
      *
-     * @return \Phalcon\CLI\Task 
+     * @return \Phalcon\Cli\Task 
      */
-	public function getActiveTask() {}
+    public function getActiveTask() {}
 
     /**
      * Set the options to be dispatched
      *
      * @param array $options 
      */
-	public function setOptions($options) {}
+    public function setOptions($options) {}
 
     /**
      * Get dispatched options
      *
      * @return array 
      */
-	public function getOptions() {}
+    public function getOptions() {}
 
 }

@@ -2,7 +2,11 @@
 
 namespace Phalcon\Validation;
 
-class Validator
+/**
+ * Phalcon\Validation\Validator
+ * This is a base class for validators
+ */
+abstract class Validator implements \Phalcon\Validation\ValidatorInterface
 {
 
     protected $_options;
@@ -13,24 +17,35 @@ class Validator
      *
      * @param mixed $options 
      */
-	public function __construct($options = null) {}
+    public function __construct($options = null) {}
+
+    /**
+     * Checks if an option is defined
+     *
+     * @deprecated since 2.1.0
+     * @see \Phalcon\Validation\Validator::hasOption()
+     * @param string $key 
+     * @return bool 
+     */
+    public function isSetOption($key) {}
 
     /**
      * Checks if an option is defined
      *
      * @param string $key 
-     * @return boolean 
+     * @return bool 
      */
-	public function isSetOption($key) {}
+    public function hasOption($key) {}
 
     /**
      * Returns an option in the validator's options
      * Returns null if the option hasn't set
      *
      * @param string $key 
-     * @return mixed 
+     * @param mixed $defaultValue 
+     * @return variable 
      */
-	public function getOption($key) {}
+    public function getOption($key, $defaultValue = null) {}
 
     /**
      * Sets an option in the validator
@@ -38,6 +53,15 @@ class Validator
      * @param string $key 
      * @param mixed $value 
      */
-	public function setOption($key, $value) {}
+    public function setOption($key, $value) {}
+
+    /**
+     * Executes the validation
+     *
+     * @param mixed $validation 
+     * @param string $attribute 
+     * @return bool 
+     */
+    abstract public function validate(\Phalcon\Validation $validation, $attribute);
 
 }

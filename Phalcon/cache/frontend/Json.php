@@ -2,6 +2,30 @@
 
 namespace Phalcon\Cache\Frontend;
 
+/**
+ * Phalcon\Cache\Frontend\Json
+ * Allows to cache data converting/deconverting them to JSON.
+ * This adapter uses the json_encode/json_decode PHP's functions
+ * As the data is encoded in JSON other systems accessing the same backend could
+ * process them
+ * <code>
+ * <?php
+ * // Cache the data for 2 days
+ * $frontCache = new \Phalcon\Cache\Frontend\Json(array(
+ * "lifetime" => 172800
+ * ));
+ * //Create the Cache setting memcached connection options
+ * $cache = new \Phalcon\Cache\Backend\Memcache($frontCache, array(
+ * 'host' => 'localhost',
+ * 'port' => 11211,
+ * 'persistent' => false
+ * ));
+ * //Cache arbitrary data
+ * $cache->save('my-data', array(1, 2, 3, 4, 5));
+ * //Get data
+ * $data = $cache->get('my-data');
+ * </code>
+ */
 class Json implements \Phalcon\Cache\FrontendInterface
 {
 
@@ -13,38 +37,38 @@ class Json implements \Phalcon\Cache\FrontendInterface
      *
      * @param array $frontendOptions 
      */
-	public function __construct($frontendOptions = null) {}
+    public function __construct($frontendOptions = null) {}
 
     /**
      * Returns the cache lifetime
      *
-     * @return integer 
+     * @return int 
      */
-	public function getLifetime() {}
+    public function getLifetime() {}
 
     /**
      * Check whether if frontend is buffering output
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isBuffering() {}
+    public function isBuffering() {}
 
     /**
      * Starts output frontend. Actually, does nothing
      */
-	public function start() {}
+    public function start() {}
 
     /**
      * Returns output cached content
      *
      * @return string 
      */
-	public function getContent() {}
+    public function getContent() {}
 
     /**
      * Stops output frontend
      */
-	public function stop() {}
+    public function stop() {}
 
     /**
      * Serializes data before storing them
@@ -52,7 +76,7 @@ class Json implements \Phalcon\Cache\FrontendInterface
      * @param mixed $data 
      * @return string 
      */
-	public function beforeStore($data) {}
+    public function beforeStore($data) {}
 
     /**
      * Unserializes data after retrieval
@@ -60,6 +84,6 @@ class Json implements \Phalcon\Cache\FrontendInterface
      * @param mixed $data 
      * @return mixed 
      */
-	public function afterRetrieve($data) {}
+    public function afterRetrieve($data) {}
 
 }

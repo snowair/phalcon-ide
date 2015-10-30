@@ -2,6 +2,9 @@
 
 namespace Phalcon\Forms;
 
+/**
+ * Phalcon\Forms\Manager
+ */
 class Manager
 {
 
@@ -15,7 +18,7 @@ class Manager
      * @param object $entity 
      * @return \Phalcon\Forms\Form 
      */
-	public function create($name = null, $entity = null) {}
+    public function create($name = null, $entity = null) {}
 
     /**
      * Returns a form by its name
@@ -23,7 +26,7 @@ class Manager
      * @param string $name 
      * @return Form 
      */
-	public function get($name) {}
+    public function get($name) {}
 
     /**
      * Checks if a form is registered in the forms manager
@@ -31,7 +34,7 @@ class Manager
      * @param string $name 
      * @return bool 
      */
-	public function has($name) {}
+    public function has($name) {}
 
     /**
      * Registers a form in the Forms Manager
@@ -40,6 +43,6 @@ class Manager
      * @param mixed $form 
      * @return FormManager 
      */
-	public function set($name, Form $form) {}
+    public function set($name, Form $form) {}
 
 }

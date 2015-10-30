@@ -2,16 +2,29 @@
 
 namespace Phalcon\Validation\Validator;
 
-class Between extends \Phalcon\Validation\Validator implements \Phalcon\Validation\ValidatorInterface
+/**
+ * Phalcon\Validation\Validator\Between
+ * Validates that a value is between an inclusive range of two values.
+ * For a value x, the test is passed if minimum<=x<=maximum.
+ * <code>
+ * use Phalcon\Validation\Validator\Between;
+ * validator->add('name', new Between(array(
+ * 'minimum' => 0,
+ * 'maximum' => 100,
+ * 'message' => 'The price must be between 0 and 100'
+ * )));
+ * </code>
+ */
+class Between extends \Phalcon\Validation\Validator
 {
 
     /**
      * Executes the validation
      *
-     * @param \Phalcon\Validation $validation 
+     * @param mixed $validation 
      * @param string $field 
-     * @return boolean 
+     * @return bool 
      */
-	public function validate(\Phalcon\Validation $validation, $field) {}
+    public function validate(\Phalcon\Validation $validation, $field) {}
 
 }

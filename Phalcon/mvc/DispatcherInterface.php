@@ -2,6 +2,10 @@
 
 namespace Phalcon\Mvc;
 
+/**
+ * Phalcon\Mvc\DispatcherInterface
+ * Interface for Phalcon\Mvc\Dispatcher
+ */
 interface DispatcherInterface extends \Phalcon\DispatcherInterface
 {
 
@@ -10,41 +14,41 @@ interface DispatcherInterface extends \Phalcon\DispatcherInterface
      *
      * @param string $controllerSuffix 
      */
-	public function setControllerSuffix($controllerSuffix);
+    public function setControllerSuffix($controllerSuffix);
 
     /**
      * Sets the default controller name
      *
      * @param string $controllerName 
      */
-	public function setDefaultController($controllerName);
+    public function setDefaultController($controllerName);
 
     /**
      * Sets the controller name to be dispatched
      *
      * @param string $controllerName 
      */
-	public function setControllerName($controllerName);
+    public function setControllerName($controllerName);
 
     /**
      * Gets last dispatched controller name
      *
      * @return string 
      */
-	public function getControllerName();
+    public function getControllerName();
 
     /**
      * Returns the lastest dispatched controller
      *
      * @return \Phalcon\Mvc\ControllerInterface 
      */
-	public function getLastController();
+    public function getLastController();
 
     /**
      * Returns the active controller in the dispatcher
      *
      * @return \Phalcon\Mvc\ControllerInterface 
      */
-	public function getActiveController();
+    public function getActiveController();
 
 }

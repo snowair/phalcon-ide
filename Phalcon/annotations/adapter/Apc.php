@@ -2,6 +2,13 @@
 
 namespace Phalcon\Annotations\Adapter;
 
+/**
+ * Phalcon\Annotations\Adapter\Apc
+ * Stores the parsed annotations in APC. This adapter is suitable for production
+ * <code>
+ * $annotations = new \Phalcon\Annotations\Adapter\Apc();
+ * </code>
+ */
 class Apc extends \Phalcon\Annotations\Adapter implements \Phalcon\Annotations\AdapterInterface
 {
 
@@ -16,7 +23,7 @@ class Apc extends \Phalcon\Annotations\Adapter implements \Phalcon\Annotations\A
      *
      * @param array $options 
      */
-	public function __construct($options = null) {}
+    public function __construct($options = null) {}
 
     /**
      * Reads parsed annotations from APC
@@ -24,14 +31,14 @@ class Apc extends \Phalcon\Annotations\Adapter implements \Phalcon\Annotations\A
      * @param string $key 
      * @return \Phalcon\Annotations\Reflection 
      */
-	public function read($key) {}
+    public function read($key) {}
 
     /**
      * Writes parsed annotations to APC
      *
      * @param string $key 
-     * @param \Phalcon\Annotations\Reflection $data 
+     * @param mixed $data 
      */
-	public function write($key, \Phalcon\Annotations\Reflection $data) {}
+    public function write($key, \Phalcon\Annotations\Reflection $data) {}
 
 }

@@ -2,6 +2,10 @@
 
 namespace Phalcon\Mvc\Model;
 
+/**
+ * Phalcon\Mvc\Model\Relation
+ * This class represents a relationship between two models
+ */
 class Relation implements \Phalcon\Mvc\Model\RelationInterface
 {
 
@@ -62,7 +66,7 @@ class Relation implements \Phalcon\Mvc\Model\RelationInterface
      * @param string|array $referencedFields 
      * @param array $options 
      */
-	public function __construct($type, $referencedModel, $fields, $referencedFields, $options = null) {}
+    public function __construct($type, $referencedModel, $fields, $referencedFields, $options = null) {}
 
     /**
      * Sets the intermediate model data for has-*-through relations
@@ -71,97 +75,97 @@ class Relation implements \Phalcon\Mvc\Model\RelationInterface
      * @param string $intermediateModel 
      * @param string $intermediateReferencedFields 
      */
-	public function setIntermediateRelation($intermediateFields, $intermediateModel, $intermediateReferencedFields) {}
+    public function setIntermediateRelation($intermediateFields, $intermediateModel, $intermediateReferencedFields) {}
 
     /**
      * Returns the relation type
      *
      * @return int 
      */
-	public function getType() {}
+    public function getType() {}
 
     /**
      * Returns the referenced model
      *
      * @return string 
      */
-	public function getReferencedModel() {}
+    public function getReferencedModel() {}
 
     /**
      * Returns the fields
      *
      * @return string|array 
      */
-	public function getFields() {}
+    public function getFields() {}
 
     /**
      * Returns the referenced fields
      *
      * @return string|array 
      */
-	public function getReferencedFields() {}
+    public function getReferencedFields() {}
 
     /**
      * Returns the options
      *
      * @return string|array 
      */
-	public function getOptions() {}
+    public function getOptions() {}
 
     /**
      * Check whether the relation act as a foreign key
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isForeignKey() {}
+    public function isForeignKey() {}
 
     /**
      * Returns the foreign key configuration
      *
      * @return string|array 
      */
-	public function getForeignKey() {}
+    public function getForeignKey() {}
 
     /**
      * Returns parameters that must be always used when the related records are obtained
      *
      * @return array 
      */
-	public function getParams() {}
+    public function getParams() {}
 
     /**
      * Check whether the relation is a 'many-to-many' relation or not
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isThrough() {}
+    public function isThrough() {}
 
     /**
      * Check if records returned by getting belongs-to/has-many are implicitly cached during the current request
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isReusable() {}
+    public function isReusable() {}
 
     /**
      * Gets the intermediate fields for has-*-through relations
      *
      * @return string|array 
      */
-	public function getIntermediateFields() {}
+    public function getIntermediateFields() {}
 
     /**
      * Gets the intermediate model for has-*-through relations
      *
      * @return string 
      */
-	public function getIntermediateModel() {}
+    public function getIntermediateModel() {}
 
     /**
      * Gets the intermediate referenced fields for has-*-through relations
      *
      * @return string|array 
      */
-	public function getIntermediateReferencedFields() {}
+    public function getIntermediateReferencedFields() {}
 
 }

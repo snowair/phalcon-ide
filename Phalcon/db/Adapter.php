@@ -2,6 +2,10 @@
 
 namespace Phalcon\Db;
 
+/**
+ * Phalcon\Db\Adapter
+ * Base class for Phalcon\Db adapters
+ */
 abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
 {
     /**
@@ -80,54 +84,54 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
     /**
      * Name of the dialect used
      */
-	public function getDialectType() {}
+    public function getDialectType() {}
 
     /**
      * Type of database system the adapter is used for
      */
-	public function getType() {}
+    public function getType() {}
 
     /**
      * Active SQL bound parameter variables
      *
      * @return string 
      */
-	public function getSqlVariables() {}
+    public function getSqlVariables() {}
 
     /**
      * Phalcon\Db\Adapter constructor
      *
      * @param array $descriptor 
      */
-	public function __construct(array $descriptor) {}
+    public function __construct($descriptor) {}
 
     /**
      * Sets the event manager
      *
      * @param mixed $eventsManager 
      */
-	public function setEventsManager(\Phalcon\Events\ManagerInterface $eventsManager) {}
+    public function setEventsManager(\Phalcon\Events\ManagerInterface $eventsManager) {}
 
     /**
      * Returns the internal event manager
      *
      * @return \Phalcon\Events\ManagerInterface 
      */
-	public function getEventsManager() {}
+    public function getEventsManager() {}
 
     /**
      * Sets the dialect used to produce the SQL
      *
      * @param mixed $dialect 
      */
-	public function setDialect(\Phalcon\Db\DialectInterface $dialect) {}
+    public function setDialect(DialectInterface $dialect) {}
 
     /**
      * Returns internal dialect instance
      *
-     * @return \Phalcon\Db\DialectInterface 
+     * @return DialectInterface 
      */
-	public function getDialect() {}
+    public function getDialect() {}
 
     /**
      * Returns the first row in a SQL query result
@@ -146,7 +150,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param array $bindTypes 
      * @return array 
      */
-	public function fetchOne($sqlQuery, $fetchMode = 2, $bindParams = null, $bindTypes = null) {}
+    public function fetchOne($sqlQuery, $fetchMode = Db::FETCH_BOTH, $bindParams = null, $bindTypes = null) {}
 
     /**
      * Dumps the complete result of a query into an array
@@ -172,7 +176,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param array $bindTypes 
      * @return array 
      */
-	public function fetchAll($sqlQuery, $fetchMode = 2, $bindParams = null, $bindTypes = null) {}
+    public function fetchAll($sqlQuery, $fetchMode = 2, $bindParams = null, $bindTypes = null) {}
 
     /**
      * Returns the n'th field of first row in a SQL query result
@@ -190,7 +194,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param int|string $column 
      * @return string| 
      */
-	public function fetchColumn($sqlQuery, $placeholders = null, $column = 0) {}
+    public function fetchColumn($sqlQuery, $placeholders = null, $column = 0) {}
 
     /**
      * Inserts data into a table using custom RBDM SQL syntax
@@ -212,7 +216,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param  $array dataTypes
      * @return  
      */
-	public function insert($table, $values, $fields = null, $dataTypes = null) {}
+    public function insert($table, $values, $fields = null, $dataTypes = null) {}
 
     /**
      * Inserts data into a table using custom RBDM SQL syntax
@@ -237,7 +241,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param  $array dataTypes
      * @return  
      */
-	public function insertAsDict($table, $data, $dataTypes = null) {}
+    public function insertAsDict($table, $data, $dataTypes = null) {}
 
     /**
      * Updates data on a table using custom RBDM SQL syntax
@@ -275,7 +279,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param  $string|array whereCondition
      * @return  
      */
-	public function update($table, $fields, $values, $whereCondition = null, $dataTypes = null) {}
+    public function update($table, $fields, $values, $whereCondition = null, $dataTypes = null) {}
 
     /**
      * Updates data on a table using custom RBDM SQL syntax
@@ -301,7 +305,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param  $array dataTypes
      * @return  
      */
-	public function updateAsDict($table, $data, $whereCondition = null, $dataTypes = null) {}
+    public function updateAsDict($table, $data, $whereCondition = null, $dataTypes = null) {}
 
     /**
      * Deletes data from a table using custom RBDM SQL syntax
@@ -321,7 +325,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param array $dataTypes 
      * @return boolean 
      */
-	public function delete($table, $whereCondition = null, $placeholders = null, $dataTypes = null) {}
+    public function delete($table, $whereCondition = null, $placeholders = null, $dataTypes = null) {}
 
     /**
      * Gets a list of columns
@@ -331,7 +335,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param mixed $columnList 
      * @return string 
      */
-	public function getColumnList($columnList) {}
+    public function getColumnList($columnList) {}
 
     /**
      * Appends a LIMIT clause to $sqlQuery argument
@@ -343,7 +347,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param int $number 
      * @return string 
      */
-	public function limit($sqlQuery, $number) {}
+    public function limit($sqlQuery, $number) {}
 
     /**
      * Generates SQL checking for the existence of a schema.table
@@ -355,7 +359,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $schemaName 
      * @return bool 
      */
-	public function tableExists($tableName, $schemaName = null) {}
+    public function tableExists($tableName, $schemaName = null) {}
 
     /**
      * Generates SQL checking for the existence of a schema.view
@@ -365,9 +369,9 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      *
      * @param string $viewName 
      * @param string $schemaName 
-     * @return boolean 
+     * @return bool 
      */
-	public function viewExists($viewName, $schemaName = null) {}
+    public function viewExists($viewName, $schemaName = null) {}
 
     /**
      * Returns a SQL modified with a FOR UPDATE clause
@@ -375,7 +379,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $sqlQuery 
      * @return string 
      */
-	public function forUpdate($sqlQuery) {}
+    public function forUpdate($sqlQuery) {}
 
     /**
      * Returns a SQL modified with a LOCK IN SHARE MODE clause
@@ -383,34 +387,27 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $sqlQuery 
      * @return string 
      */
-	public function sharedLock($sqlQuery) {}
+    public function sharedLock($sqlQuery) {}
 
     /**
      * Creates a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	array definition
-     * @return	boolean
      * @param string $tableName 
      * @param string $schemaName 
-     * @param mixed $definition 
+     * @param array $definition 
      * @return bool 
      */
-	public function createTable($tableName, $schemaName, $definition) {}
+    public function createTable($tableName, $schemaName, $definition) {}
 
     /**
      * Drops a table from a schema/database
      *
-     * @param	string tableName
-     * @param	boolean ifExists
-     * @return	boolean
      * @param string $tableName 
      * @param string $schemaName 
-     * @param mixed $ifExists 
+     * @param bool $ifExists 
      * @return bool 
      */
-	public function dropTable($tableName, $schemaName = null, $ifExists = true) {}
+    public function dropTable($tableName, $schemaName = null, $ifExists = true) {}
 
     /**
      * Creates a view
@@ -420,24 +417,21 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param	string schemaName
      * @return	boolean
      * @param string $viewName 
-     * @param mixed $definition 
+     * @param array $definition 
      * @param mixed $schemaName 
      * @return bool 
      */
-	public function createView($viewName, $definition, $schemaName = null) {}
+    public function createView($viewName, $definition, $schemaName = null) {}
 
     /**
      * Drops a view
      *
-     * @param	string viewName
-     * @param	boolean ifExists
-     * @return	boolean
      * @param string $viewName 
      * @param string $schemaName 
-     * @param mixed $ifExists 
+     * @param bool $ifExists 
      * @return bool 
      */
-	public function dropView($viewName, $schemaName = null, $ifExists = true) {}
+    public function dropView($viewName, $schemaName = null, $ifExists = true) {}
 
     /**
      * Adds a column to a table
@@ -447,7 +441,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param mixed $column 
      * @return bool 
      */
-	public function addColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column) {}
+    public function addColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column) {}
 
     /**
      * Modifies a table column based on a definition
@@ -455,9 +449,10 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $tableName 
      * @param string $schemaName 
      * @param mixed $column 
+     * @param mixed $currentColumn 
      * @return bool 
      */
-	public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column) {}
+    public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column, \Phalcon\Db\ColumnInterface $currentColumn = null) {}
 
     /**
      * Drops a column from a table
@@ -467,7 +462,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $columnName 
      * @return bool 
      */
-	public function dropColumn($tableName, $schemaName, $columnName) {}
+    public function dropColumn($tableName, $schemaName, $columnName) {}
 
     /**
      * Adds an index to a table
@@ -477,7 +472,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param mixed $index 
      * @return bool 
      */
-	public function addIndex($tableName, $schemaName, \Phalcon\Db\IndexInterface $index) {}
+    public function addIndex($tableName, $schemaName, IndexInterface $index) {}
 
     /**
      * Drop an index from a table
@@ -487,7 +482,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param mixed $indexName 
      * @return bool 
      */
-	public function dropIndex($tableName, $schemaName, $indexName) {}
+    public function dropIndex($tableName, $schemaName, $indexName) {}
 
     /**
      * Adds a primary key to a table
@@ -497,7 +492,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param mixed $index 
      * @return bool 
      */
-	public function addPrimaryKey($tableName, $schemaName, \Phalcon\Db\IndexInterface $index) {}
+    public function addPrimaryKey($tableName, $schemaName, IndexInterface $index) {}
 
     /**
      * Drops a table's primary key
@@ -506,7 +501,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $schemaName 
      * @return bool 
      */
-	public function dropPrimaryKey($tableName, $schemaName) {}
+    public function dropPrimaryKey($tableName, $schemaName) {}
 
     /**
      * Adds a foreign key to a table
@@ -516,7 +511,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param mixed $reference 
      * @return bool 
      */
-	public function addForeignKey($tableName, $schemaName, \Phalcon\Db\ReferenceInterface $reference) {}
+    public function addForeignKey($tableName, $schemaName, ReferenceInterface $reference) {}
 
     /**
      * Drops a foreign key from a table
@@ -526,7 +521,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $referenceName 
      * @return bool 
      */
-	public function dropForeignKey($tableName, $schemaName, $referenceName) {}
+    public function dropForeignKey($tableName, $schemaName, $referenceName) {}
 
     /**
      * Returns the SQL column definition from a column
@@ -534,7 +529,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param mixed $column 
      * @return string 
      */
-	public function getColumnDefinition(\Phalcon\Db\ColumnInterface $column) {}
+    public function getColumnDefinition(\Phalcon\Db\ColumnInterface $column) {}
 
     /**
      * List all tables on a database
@@ -545,7 +540,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $schemaName 
      * @return array 
      */
-	public function listTables($schemaName = null) {}
+    public function listTables($schemaName = null) {}
 
     /**
      * List all views on a database
@@ -556,7 +551,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $schemaName 
      * @return array 
      */
-	public function listViews($schemaName = null) {}
+    public function listViews($schemaName = null) {}
 
     /**
      * Lists table indexes
@@ -569,8 +564,9 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @return	Phalcon\Db\Index[]
      * @param string $table 
      * @param mixed $schema 
+     * @return Index 
      */
-	public function describeIndexes($table, $schema = null) {}
+    public function describeIndexes($table, $schema = null) {}
 
     /**
      * Lists table references
@@ -578,13 +574,11 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * print_r($connection->describeReferences('robots_parts'));
      * </code>
      *
-     * @param	string table
-     * @param	string schema
-     * @return	Phalcon\Db\Reference[]
      * @param string $table 
      * @param string $schema 
+     * @return Reference 
      */
-	public function describeReferences($table, $schema = null) {}
+    public function describeReferences($table, $schema = null) {}
 
     /**
      * Gets creation options from a table
@@ -592,13 +586,11 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * print_r($connection->tableOptions('robots'));
      * </code>
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @return	array
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
+     * @param string $tableName 
+     * @param string $schemaName 
+     * @return array 
      */
-	public function tableOptions($tableName, $schemaName = null) {}
+    public function tableOptions($tableName, $schemaName = null) {}
 
     /**
      * Creates a new savepoint
@@ -606,7 +598,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $name 
      * @return bool 
      */
-	public function createSavepoint($name) {}
+    public function createSavepoint($name) {}
 
     /**
      * Releases given savepoint
@@ -614,7 +606,7 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $name 
      * @return bool 
      */
-	public function releaseSavepoint($name) {}
+    public function releaseSavepoint($name) {}
 
     /**
      * Rollbacks given savepoint
@@ -622,29 +614,29 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * @param string $name 
      * @return bool 
      */
-	public function rollbackSavepoint($name) {}
+    public function rollbackSavepoint($name) {}
 
     /**
      * Set if nested transactions should use savepoints
      *
      * @param bool $nestedTransactionsWithSavepoints 
-     * @return \Phalcon\Db\AdapterInterface 
+     * @return AdapterInterface 
      */
-	public function setNestedTransactionsWithSavepoints($nestedTransactionsWithSavepoints) {}
+    public function setNestedTransactionsWithSavepoints($nestedTransactionsWithSavepoints) {}
 
     /**
      * Returns if nested transactions should use savepoints
      *
      * @return bool 
      */
-	public function isNestedTransactionsWithSavepoints() {}
+    public function isNestedTransactionsWithSavepoints() {}
 
     /**
      * Returns the savepoint name to use for nested transactions
      *
      * @return string 
      */
-	public function getNestedTransactionSavepointName() {}
+    public function getNestedTransactionSavepointName() {}
 
     /**
      * Returns the default identity value to be inserted in an identity column
@@ -657,57 +649,57 @@ abstract class Adapter implements \Phalcon\Events\EventsAwareInterface
      * );
      * </code>
      *
-     * @return \Phalcon\Db\RawValue 
+     * @return RawValue 
      */
-	public function getDefaultIdValue() {}
+    public function getDefaultIdValue() {}
 
     /**
      * Check whether the database system requires a sequence to produce auto-numeric values
      *
      * @return bool 
      */
-	public function supportSequences() {}
+    public function supportSequences() {}
 
     /**
      * Check whether the database system requires an explicit value for identity columns
      *
      * @return bool 
      */
-	public function useExplicitIdValue() {}
+    public function useExplicitIdValue() {}
 
     /**
      * Return descriptor used to connect to the active database
      *
      * @return array 
      */
-	public function getDescriptor() {}
+    public function getDescriptor() {}
 
     /**
      * Gets the active connection unique identifier
      *
      * @return string 
      */
-	public function getConnectionId() {}
+    public function getConnectionId() {}
 
     /**
      * Active SQL statement in the object
      *
      * @return string 
      */
-	public function getSQLStatement() {}
+    public function getSQLStatement() {}
 
     /**
      * Active SQL statement in the object without replace bound paramters
      *
      * @return string 
      */
-	public function getRealSQLStatement() {}
+    public function getRealSQLStatement() {}
 
     /**
      * Active SQL statement in the object
      *
      * @return array 
      */
-	public function getSQLBindTypes() {}
+    public function getSQLBindTypes() {}
 
 }

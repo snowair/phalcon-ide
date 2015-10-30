@@ -2,6 +2,17 @@
 
 namespace Phalcon\Logger\Adapter;
 
+/**
+ * Phalcon\Logger\Adapter\File
+ * Adapter to store logs in plain text files
+ * <code>
+ * $logger = new \Phalcon\Logger\Adapter\File("app/logs/test.log");
+ * $logger->log("This is a message");
+ * $logger->log("This is an error", \Phalcon\Logger::ERROR);
+ * $logger->error("This is another error");
+ * $logger->close();
+ * </code>
+ */
 class File extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInterface
 {
     /**
@@ -25,7 +36,7 @@ class File extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInt
     /**
      * File Path
      */
-	public function getPath() {}
+    public function getPath() {}
 
     /**
      * Phalcon\Logger\Adapter\File constructor
@@ -33,14 +44,14 @@ class File extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInt
      * @param string $name 
      * @param array $options 
      */
-	public function __construct($name, $options = null) {}
+    public function __construct($name, $options = null) {}
 
     /**
      * Returns the internal formatter
      *
      * @return \Phalcon\Logger\FormatterInterface 
      */
-	public function getFormatter() {}
+    public function getFormatter() {}
 
     /**
      * Writes the log to the file itself
@@ -49,20 +60,19 @@ class File extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInt
      * @param int $type 
      * @param int $time 
      * @param array $context 
-     * @param array $$context 
      */
-	public function logInternal($message, $type, $time, $context) {}
+    public function logInternal($message, $type, $time, $context) {}
 
     /**
      * Closes the logger
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function close() {}
+    public function close() {}
 
     /**
      * Opens the internal file handler after unserialization
      */
-	public function __wakeup() {}
+    public function __wakeup() {}
 
 }

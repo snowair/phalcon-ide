@@ -2,6 +2,11 @@
 
 namespace Phalcon\Mvc\Collection;
 
+/**
+ * Phalcon\Mvc\Collection\Document
+ * This component allows Phalcon\Mvc\Collection to return rows without an associated entity.
+ * This objects implements the ArrayAccess interface to allow access the object as object->x or array[x].
+ */
 class Document implements \ArrayAccess
 {
 
@@ -11,7 +16,7 @@ class Document implements \ArrayAccess
      * @param int $index 
      * @return boolean 
      */
-	public function offsetExists($index) {}
+    public function offsetExists($index) {}
 
     /**
      * Returns the value of a field using the ArrayAccess interfase
@@ -19,7 +24,7 @@ class Document implements \ArrayAccess
      * @param string $index 
      * @return mixed 
      */
-	public function offsetGet($index) {}
+    public function offsetGet($index) {}
 
     /**
      * Change a value using the ArrayAccess interface
@@ -27,14 +32,14 @@ class Document implements \ArrayAccess
      * @param string $index 
      * @param \Phalcon\Mvc\ModelInterface $value 
      */
-	public function offsetSet($index, $value) {}
+    public function offsetSet($index, $value) {}
 
     /**
      * Rows cannot be changed. It has only been implemented to meet the definition of the ArrayAccess interface
      *
      * @param string $offset 
      */
-	public function offsetUnset($offset) {}
+    public function offsetUnset($offset) {}
 
     /**
      * Reads an attribute value by its name
@@ -45,7 +50,7 @@ class Document implements \ArrayAccess
      * @param string $attribute 
      * @return mixed 
      */
-	public function readAttribute($attribute) {}
+    public function readAttribute($attribute) {}
 
     /**
      * Writes an attribute value by its name
@@ -56,6 +61,6 @@ class Document implements \ArrayAccess
      * @param string $attribute 
      * @param mixed $value 
      */
-	public function writeAttribute($attribute, $value) {}
+    public function writeAttribute($attribute, $value) {}
 
 }

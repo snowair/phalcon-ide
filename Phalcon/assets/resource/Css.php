@@ -2,6 +2,10 @@
 
 namespace Phalcon\Assets\Resource;
 
+/**
+ * Phalcon\Assets\Resource\Css
+ * Represents CSS resources
+ */
 class Css extends \Phalcon\Assets\Resource
 {
 
@@ -13,6 +17,6 @@ class Css extends \Phalcon\Assets\Resource
      * @param boolean $filter 
      * @param array $attributes 
      */
-	public function __construct($path, $local = true, $filter = true, $attributes = null) {}
+    public function __construct($path, $local = true, $filter = true, $attributes = null) {}
 
 }

@@ -2,10 +2,14 @@
 
 namespace Phalcon\Http\Response;
 
+/**
+ * Phalcon\Http\Response\Headers
+ * This class is a bag to manage the response headers
+ */
 class Headers implements \Phalcon\Http\Response\HeadersInterface
 {
 
-    protected $_headers;
+    protected $_headers = array();
 
 
     /**
@@ -14,7 +18,7 @@ class Headers implements \Phalcon\Http\Response\HeadersInterface
      * @param string $name 
      * @param string $value 
      */
-	public function set($name, $value) {}
+    public function set($name, $value) {}
 
     /**
      * Gets a header value from the internal bag
@@ -22,47 +26,50 @@ class Headers implements \Phalcon\Http\Response\HeadersInterface
      * @param string $name 
      * @return string 
      */
-	public function get($name) {}
+    public function get($name) {}
 
     /**
      * Sets a raw header to be sent at the end of the request
      *
      * @param string $header 
      */
-	public function setRaw($header) {}
+    public function setRaw($header) {}
 
     /**
      * Removes a header to be sent at the end of the request
      *
      * @param string $header Header name
      */
-	public function remove($header) {}
+    public function remove($header) {}
 
     /**
      * Sends the headers to the client
      *
      * @return bool 
      */
-	public function send() {}
+    public function send() {}
 
     /**
      * Reset set headers
      */
-	public function reset() {}
+    public function reset() {}
 
     /**
      * Returns the current headers as an array
      *
      * @return array 
      */
-	public function toArray() {}
+    public function toArray() {}
 
     /**
      * Restore a Phalcon\Http\Response\Headers object
      *
      * @param array $data 
-     * @return \Phalcon\Http\Response\Headers 
+     * @return Headers 
      */
-	public static function __set_state($data) {}
+    public static function __set_state($data) {}
+
+
+     function zephir_init_properties_Phalcon_Http_Response_Headers() {}
 
 }

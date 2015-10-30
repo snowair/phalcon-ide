@@ -2,6 +2,41 @@
 
 namespace Phalcon\Mvc;
 
+/**
+ * Phalcon\Mvc\Application
+ * This component encapsulates all the complex operations behind instantiating every component
+ * needed and integrating it with the rest to allow the MVC pattern to operate as desired.
+ * <code>
+ * class Application extends \Phalcon\Mvc\Application
+ * {
+ * /
+ * Register the services here to make them general or register
+ * in the ModuleDefinition to make them module-specific
+ * \/
+ * protected function _registerServices()
+ * {
+ * }
+ * /
+ * This method registers all the modules in the application
+ * \/
+ * public function main()
+ * {
+ * $this->registerModules(array(
+ * 'frontend' => array(
+ * 'className' => 'Multiple\Frontend\Module',
+ * 'path' => '../apps/frontend/Module.php'
+ * ),
+ * 'backend' => array(
+ * 'className' => 'Multiple\Backend\Module',
+ * 'path' => '../apps/backend/Module.php'
+ * )
+ * ));
+ * }
+ * }
+ * $application = new Application();
+ * $application->main();
+ * </code>
+ */
 class Application extends \Phalcon\Di\Injectable
 {
 
@@ -17,18 +52,18 @@ class Application extends \Phalcon\Di\Injectable
     /**
      * Phalcon\Mvc\Application
      *
-     * @param \Phalcon\DiInterface $dependencyInjector 
+     * @param mixed $dependencyInjector 
      */
-	public function __construct(\Phalcon\DiInterface $dependencyInjector = null) {}
+    public function __construct(\Phalcon\DiInterface $dependencyInjector = null) {}
 
     /**
      * By default. The view is implicitly buffering all the output
      * You can full disable the view component using this method
      *
-     * @param boolean $implicitView 
-     * @return \Phalcon\Mvc\Application 
+     * @param bool $implicitView 
+     * @return Application 
      */
-	public function useImplicitView($implicitView) {}
+    public function useImplicitView($implicitView) {}
 
     /**
      * Register an array of modules present in the application
@@ -46,18 +81,17 @@ class Application extends \Phalcon\Di\Injectable
      * </code>
      *
      * @param array $modules 
-     * @param boolean $merge 
-     * @param \Phalcon\Mvc\Application  
+     * @param bool $merge 
      * @return Application 
      */
-	public function registerModules($modules, $merge = false) {}
+    public function registerModules($modules, $merge = false) {}
 
     /**
      * Return the modules registered in the application
      *
      * @return array 
      */
-	public function getModules() {}
+    public function getModules() {}
 
     /**
      * Gets the module definition registered in the application via module name
@@ -65,22 +99,22 @@ class Application extends \Phalcon\Di\Injectable
      * @param string $name 
      * @return array|object 
      */
-	public function getModule($name) {}
+    public function getModule($name) {}
 
     /**
      * Sets the module name to be used if the router doesn't return a valid module
      *
      * @param string $defaultModule 
-     * @return \Phalcon\Mvc\Application 
+     * @return Application 
      */
-	public function setDefaultModule($defaultModule) {}
+    public function setDefaultModule($defaultModule) {}
 
     /**
      * Returns the default module name
      *
      * @return string 
      */
-	public function getDefaultModule() {}
+    public function getDefaultModule() {}
 
     /**
      * Handles a MVC request
@@ -88,6 +122,6 @@ class Application extends \Phalcon\Di\Injectable
      * @param string $uri 
      * @return \Phalcon\Http\ResponseInterface|boolean 
      */
-	public function handle($uri = null) {}
+    public function handle($uri = null) {}
 
 }

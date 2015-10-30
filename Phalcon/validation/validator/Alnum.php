@@ -2,16 +2,26 @@
 
 namespace Phalcon\Validation\Validator;
 
-class Alnum extends \Phalcon\Validation\Validator implements \Phalcon\Validation\ValidatorInterface
+/**
+ * Phalcon\Validation\Validator\Alnum
+ * Check for alphanumeric character(s)
+ * <code>
+ * use Phalcon\Validation\Validator\Alnum as AlnumValidator;
+ * $validator->add('username', new AlnumValidator(array(
+ * 'message' => ':field must contain only alphanumeric characters'
+ * )));
+ * </code>
+ */
+class Alnum extends \Phalcon\Validation\Validator
 {
 
     /**
      * Executes the validation
      *
-     * @param \Phalcon\Validation $validation 
+     * @param mixed $validation 
      * @param string $field 
-     * @return boolean 
+     * @return bool 
      */
-	public function validate(\Phalcon\Validation $validation, $field) {}
+    public function validate(\Phalcon\Validation $validation, $field) {}
 
 }

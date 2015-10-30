@@ -2,21 +2,25 @@
 
 namespace Phalcon\Events;
 
+/**
+ * Phalcon\Events\EventsAwareInterface
+ * This interface must for those classes that accept an EventsManager and dispatch events
+ */
 interface EventsAwareInterface
 {
 
     /**
      * Sets the events manager
      *
-     * @param \Phalcon\Events\ManagerInterface $eventsManager 
+     * @param mixed $eventsManager 
      */
-	public function setEventsManager(ManagerInterface $eventsManager);
+    public function setEventsManager(ManagerInterface $eventsManager);
 
     /**
      * Returns the internal event manager
      *
-     * @return \Phalcon\Events\ManagerInterface 
+     * @return ManagerInterface 
      */
-	public function getEventsManager();
+    public function getEventsManager();
 
 }

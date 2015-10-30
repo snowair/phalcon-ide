@@ -2,6 +2,34 @@
 
 namespace Phalcon\Mvc\Model;
 
+/**
+ * Phalcon\Mvc\Model\Transaction
+ * Transactions are protective blocks where SQL statements are only permanent if they can
+ * all succeed as one atomic action. Phalcon\Transaction is intended to be used with Phalcon_Model_Base.
+ * Phalcon Transactions should be created using Phalcon\Transaction\Manager.
+ * <code>
+ * try {
+ * $manager = new \Phalcon\Mvc\Model\Transaction\Manager();
+ * $transaction = $manager->get();
+ * $robot = new Robots();
+ * $robot->setTransaction($transaction);
+ * $robot->name = 'WALL·E';
+ * $robot->created_at = date('Y-m-d');
+ * if ($robot->save() == false) {
+ * $transaction->rollback("Can't save robot");
+ * }
+ * $robotPart = new RobotParts();
+ * $robotPart->setTransaction($transaction);
+ * $robotPart->type = 'head';
+ * if ($robotPart->save() == false) {
+ * $transaction->rollback("Can't save robot part");
+ * }
+ * $transaction->commit();
+ * } catch(Phalcon\Mvc\Model\Transaction\Failed $e) {
+ * echo 'Failed, reason: ', $e->getMessage();
+ * }
+ * </code>
+ */
 class Transaction implements \Phalcon\Mvc\Model\TransactionInterface
 {
 
@@ -34,29 +62,28 @@ class Transaction implements \Phalcon\Mvc\Model\TransactionInterface
      * @param string $service 
      * @param \Phalcon\DiInterface $$ependencyInjector 
      */
-	public function __construct(\Phalcon\DiInterface $dependencyInjector, $autoBegin = false, $service = null) {}
+    public function __construct(\Phalcon\DiInterface $dependencyInjector, $autoBegin = false, $service = null) {}
 
     /**
      * Sets transaction manager related to the transaction
      *
      * @param mixed $manager 
-     * @param \Phalcon\Mvc\Model\Transaction\ManagerInterface $$manager 
      */
-	public function setTransactionManager(\Phalcon\Mvc\Model\Transaction\ManagerInterface $manager) {}
+    public function setTransactionManager(\Phalcon\Mvc\Model\Transaction\ManagerInterface $manager) {}
 
     /**
      * Starts the transaction
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function begin() {}
+    public function begin() {}
 
     /**
      * Commits the transaction
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function commit() {}
+    public function commit() {}
 
     /**
      * Rollbacks the transaction
@@ -65,56 +92,55 @@ class Transaction implements \Phalcon\Mvc\Model\TransactionInterface
      * @param \Phalcon\Mvc\ModelInterface $rollbackRecord 
      * @return boolean 
      */
-	public function rollback($rollbackMessage = null, $rollbackRecord = null) {}
+    public function rollback($rollbackMessage = null, $rollbackRecord = null) {}
 
     /**
      * Returns the connection related to transaction
      *
      * @return \Phalcon\Db\AdapterInterface 
      */
-	public function getConnection() {}
+    public function getConnection() {}
 
     /**
      * Sets if is a reused transaction or new once
      *
-     * @param boolean $isNew 
+     * @param bool $isNew 
      */
-	public function setIsNewTransaction($isNew) {}
+    public function setIsNewTransaction($isNew) {}
 
     /**
      * Sets flag to rollback on abort the HTTP connection
      *
      * @param bool $rollbackOnAbort 
-     * @param boolean $$rollbackOnAbort 
      */
-	public function setRollbackOnAbort($rollbackOnAbort) {}
+    public function setRollbackOnAbort($rollbackOnAbort) {}
 
     /**
      * Checks whether transaction is managed by a transaction manager
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isManaged() {}
+    public function isManaged() {}
 
     /**
      * Returns validations messages from last save try
      *
      * @return array 
      */
-	public function getMessages() {}
+    public function getMessages() {}
 
     /**
      * Checks whether internal connection is under an active transaction
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isValid() {}
+    public function isValid() {}
 
     /**
      * Sets object which generates rollback action
      *
-     * @param \Phalcon\Mvc\ModelInterface $record 
+     * @param mixed $record 
      */
-	public function setRollbackedRecord(\Phalcon\Mvc\ModelInterface $record) {}
+    public function setRollbackedRecord(\Phalcon\Mvc\ModelInterface $record) {}
 
 }

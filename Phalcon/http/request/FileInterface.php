@@ -2,6 +2,10 @@
 
 namespace Phalcon\Http\Request;
 
+/**
+ * Phalcon\Http\Request\FileInterface
+ * Interface for Phalcon\Http\Request\File
+ */
 interface FileInterface
 {
 
@@ -11,28 +15,28 @@ interface FileInterface
      * @param array $file 
      * @param mixed $key 
      */
-	public function __construct($file, $key = null);
+    public function __construct($file, $key = null);
 
     /**
      * Returns the file size of the uploaded file
      *
      * @return int 
      */
-	public function getSize();
+    public function getSize();
 
     /**
      * Returns the real name of the uploaded file
      *
      * @return string 
      */
-	public function getName();
+    public function getName();
 
     /**
      * Returns the temporal name of the uploaded file
      *
      * @return string 
      */
-	public function getTempName();
+    public function getTempName();
 
     /**
      * Returns the mime type reported by the browser
@@ -40,14 +44,14 @@ interface FileInterface
      *
      * @return string 
      */
-	public function getType();
+    public function getType();
 
     /**
      * Gets the real mime type of the upload file using finfo
      *
      * @return string 
      */
-	public function getRealType();
+    public function getRealType();
 
     /**
      * Move the temporary file to a destination
@@ -55,6 +59,6 @@ interface FileInterface
      * @param string $destination 
      * @return bool 
      */
-	public function moveTo($destination);
+    public function moveTo($destination);
 
 }

@@ -2,6 +2,11 @@
 
 namespace Phalcon\Http\Response;
 
+/**
+ * Phalcon\Http\Response\Cookies
+ * This class is a bag to manage the cookies
+ * A cookies bag is automatically registered as part of the 'response' service in the DI
+ */
 class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\InjectionAwareInterface
 {
 
@@ -22,14 +27,14 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      *
      * @param mixed $dependencyInjector 
      */
-	public function setDI(\Phalcon\DiInterface $dependencyInjector) {}
+    public function setDI(\Phalcon\DiInterface $dependencyInjector) {}
 
     /**
      * Returns the internal dependency injector
      *
      * @return \Phalcon\DiInterface 
      */
-	public function getDI() {}
+    public function getDI() {}
 
     /**
      * Set if cookies in the bag must be automatically encrypted/decrypted
@@ -37,14 +42,14 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      * @param bool $useEncryption 
      * @return Cookies 
      */
-	public function useEncryption($useEncryption) {}
+    public function useEncryption($useEncryption) {}
 
     /**
      * Returns if the bag is automatically encrypting/decrypting cookies
      *
      * @return bool 
      */
-	public function isUsingEncryption() {}
+    public function isUsingEncryption() {}
 
     /**
      * Sets a cookie to be sent at the end of the request
@@ -59,7 +64,7 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      * @param boolean $httpOnly 
      * @return \Phalcon\Http\Response\Cookies 
      */
-	public function set($name, $value = null, $expire = 0, $path = "/", $secure = null, $domain = null, $httpOnly = null) {}
+    public function set($name, $value = null, $expire = 0, $path = "/", $secure = null, $domain = null, $httpOnly = null) {}
 
     /**
      * Gets a cookie from the bag
@@ -67,7 +72,7 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      * @param string $name 
      * @return \Phalcon\Http\Cookie 
      */
-	public function get($name) {}
+    public function get($name) {}
 
     /**
      * Check if a cookie is defined in the bag or exists in the _COOKIE superglobal
@@ -75,7 +80,7 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      * @param string $name 
      * @return bool 
      */
-	public function has($name) {}
+    public function has($name) {}
 
     /**
      * Deletes a cookie by its name
@@ -84,7 +89,7 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      * @param string $name 
      * @return bool 
      */
-	public function delete($name) {}
+    public function delete($name) {}
 
     /**
      * Sends the cookies to the client
@@ -92,13 +97,13 @@ class Cookies implements \Phalcon\Http\Response\CookiesInterface, \Phalcon\Di\In
      *
      * @return bool 
      */
-	public function send() {}
+    public function send() {}
 
     /**
      * Reset set cookies
      *
      * @return Cookies 
      */
-	public function reset() {}
+    public function reset() {}
 
 }

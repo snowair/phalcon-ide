@@ -2,6 +2,10 @@
 
 namespace Phalcon\Mvc\Model;
 
+/**
+ * Phalcon\Mvc\Model\ResultsetInterface
+ * Interface for Phalcon\Mvc\Model\Resultset
+ */
 interface ResultsetInterface
 {
 
@@ -10,42 +14,42 @@ interface ResultsetInterface
      *
      * @return int 
      */
-	public function getType();
+    public function getType();
 
     /**
      * Get first row in the resultset
      *
      * @return \Phalcon\Mvc\ModelInterface 
      */
-	public function getFirst();
+    public function getFirst();
 
     /**
      * Get last row in the resultset
      *
      * @return \Phalcon\Mvc\ModelInterface 
      */
-	public function getLast();
+    public function getLast();
 
     /**
      * Set if the resultset is fresh or an old one cached
      *
-     * @param boolean $isFresh 
+     * @param bool $isFresh 
      */
-	public function setIsFresh($isFresh);
+    public function setIsFresh($isFresh);
 
     /**
      * Tell if the resultset if fresh or an old one cached
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isFresh();
+    public function isFresh();
 
     /**
      * Returns the associated cache for the resultset
      *
      * @return \Phalcon\Cache\BackendInterface 
      */
-	public function getCache();
+    public function getCache();
 
     /**
      * Returns a complete resultset as an array, if the resultset has a big number of rows
@@ -53,6 +57,6 @@ interface ResultsetInterface
      *
      * @return array 
      */
-	public function toArray();
+    public function toArray();
 
 }

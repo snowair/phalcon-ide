@@ -2,6 +2,10 @@
 
 namespace Phalcon\Logger;
 
+/**
+ * Phalcon\Logger\FormatterInterface
+ * This interface must be implemented by formmaters in Phalcon\Logger
+ */
 interface FormatterInterface
 {
 
@@ -14,6 +18,6 @@ interface FormatterInterface
      * @param mixed $context 
      * @param array $$context 
      */
-	public function format($message, $type, $timestamp, $context = null);
+    public function format($message, $type, $timestamp, $context = null);
 
 }

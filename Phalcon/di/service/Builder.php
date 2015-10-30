@@ -2,6 +2,10 @@
 
 namespace Phalcon\Di\Service;
 
+/**
+ * Phalcon\Di\Service\Builder
+ * This class builds instances based on complex definitions
+ */
 class Builder
 {
 
@@ -13,16 +17,16 @@ class Builder
      * @param array $argument 
      * @return mixed 
      */
-	private function _buildParameter(\Phalcon\DiInterface $dependencyInjector, $position, $argument) {}
+    private function _buildParameter(\Phalcon\DiInterface $dependencyInjector, $position, $argument) {}
 
     /**
      * Resolves an array of parameters
      *
-     * @param \Phalcon\DiInterface $dependencyInjector 
+     * @param mixed $dependencyInjector 
      * @param array $arguments 
      * @return array 
      */
-	private function _buildParameters(\Phalcon\DiInterface $dependencyInjector, $arguments) {}
+    private function _buildParameters(\Phalcon\DiInterface $dependencyInjector, $arguments) {}
 
     /**
      * Builds a service using a complex service definition
@@ -32,6 +36,6 @@ class Builder
      * @param array $parameters 
      * @return mixed 
      */
-	public function build(\Phalcon\DiInterface $dependencyInjector, $definition, $parameters = null) {}
+    public function build(\Phalcon\DiInterface $dependencyInjector, $definition, $parameters = null) {}
 
 }

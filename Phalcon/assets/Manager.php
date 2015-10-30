@@ -2,6 +2,10 @@
 
 namespace Phalcon\Assets;
 
+/**
+ * Phalcon\Assets\Manager
+ * Manages collections of CSS/Javascript assets
+ */
 class Manager
 {
     /**
@@ -23,7 +27,7 @@ class Manager
      *
      * @param array $options 
      */
-	public function __construct($options = null) {}
+    public function __construct($options = null) {}
 
     /**
      * Sets the manager options
@@ -31,14 +35,14 @@ class Manager
      * @param array $options 
      * @return Manager 
      */
-	public function setOptions($options) {}
+    public function setOptions($options) {}
 
     /**
      * Returns the manager options
      *
      * @return array 
      */
-	public function getOptions() {}
+    public function getOptions() {}
 
     /**
      * Sets if the HTML generated must be directly printed or returned
@@ -46,7 +50,7 @@ class Manager
      * @param bool $implicitOutput 
      * @return Manager 
      */
-	public function useImplicitOutput($implicitOutput) {}
+    public function useImplicitOutput($implicitOutput) {}
 
     /**
      * Adds a Css resource to the 'css' collection
@@ -61,7 +65,7 @@ class Manager
      * @param array $attributes 
      * @return \Phalcon\Assets\Manager 
      */
-	public function addCss($path, $local = true, $filter = true, $attributes = null) {}
+    public function addCss($path, $local = true, $filter = true, $attributes = null) {}
 
     /**
      * Adds a inline Css to the 'css' collection
@@ -71,7 +75,7 @@ class Manager
      * @param array $attributes 
      * @return \Phalcon\Assets\Manager 
      */
-	public function addInlineCss($content, $filter = true, $attributes = null) {}
+    public function addInlineCss($content, $filter = true, $attributes = null) {}
 
     /**
      * Adds a javascript resource to the 'js' collection
@@ -86,7 +90,7 @@ class Manager
      * @param array $attributes 
      * @return \Phalcon\Assets\Manager 
      */
-	public function addJs($path, $local = true, $filter = true, $attributes = null) {}
+    public function addJs($path, $local = true, $filter = true, $attributes = null) {}
 
     /**
      * Adds a inline javascript to the 'js' collection
@@ -96,7 +100,7 @@ class Manager
      * @param array $attributes 
      * @return \Phalcon\Assets\Manager 
      */
-	public function addInlineJs($content, $filter = true, $attributes = null) {}
+    public function addInlineJs($content, $filter = true, $attributes = null) {}
 
     /**
      * Adds a resource by its type
@@ -108,7 +112,7 @@ class Manager
      * @param mixed $resource 
      * @return Manager 
      */
-	public function addResourceByType($type, \Phalcon\Assets\Resource $resource) {}
+    public function addResourceByType($type, \Phalcon\Assets\Resource $resource) {}
 
     /**
      * Adds a inline code by its type
@@ -117,7 +121,7 @@ class Manager
      * @param mixed $code 
      * @return Manager 
      */
-	public function addInlineCodeByType($type, Inline $code) {}
+    public function addInlineCodeByType($type, Inline $code) {}
 
     /**
      * Adds a raw resource to the manager
@@ -128,7 +132,7 @@ class Manager
      * @param mixed $resource 
      * @return Manager 
      */
-	public function addResource(\Phalcon\Assets\Resource $resource) {}
+    public function addResource(\Phalcon\Assets\Resource $resource) {}
 
     /**
      * Adds a raw inline code to the manager
@@ -136,7 +140,7 @@ class Manager
      * @param mixed $code 
      * @return Manager 
      */
-	public function addInlineCode(Inline $code) {}
+    public function addInlineCode(Inline $code) {}
 
     /**
      * Sets a collection in the Assets Manager
@@ -148,7 +152,7 @@ class Manager
      * @param mixed $collection 
      * @return Manager 
      */
-	public function set($id, \Phalcon\Assets\Collection $collection) {}
+    public function set($id, \Phalcon\Assets\Collection $collection) {}
 
     /**
      * Returns a collection by its id
@@ -159,21 +163,21 @@ class Manager
      * @param string $id 
      * @return \Phalcon\Assets\Collection 
      */
-	public function get($id) {}
+    public function get($id) {}
 
     /**
      * Returns the CSS collection of assets
      *
      * @return \Phalcon\Assets\Collection 
      */
-	public function getCss() {}
+    public function getCss() {}
 
     /**
      * Returns the CSS collection of assets
      *
      * @return \Phalcon\Assets\Collection 
      */
-	public function getJs() {}
+    public function getJs() {}
 
     /**
      * Creates/Returns a collection of resources
@@ -181,7 +185,7 @@ class Manager
      * @param string $name 
      * @return \Phalcon\Assets\Collection 
      */
-	public function collection($name) {}
+    public function collection($name) {}
 
     /**
      * Traverses a collection calling the callback to generate its HTML
@@ -190,7 +194,7 @@ class Manager
      * @param callback $callback 
      * @param string $type 
      */
-	public function output(\Phalcon\Assets\Collection $collection, $callback, $type) {}
+    public function output(\Phalcon\Assets\Collection $collection, $callback, $type) {}
 
     /**
      * Traverses a collection and generate its HTML
@@ -198,34 +202,34 @@ class Manager
      * @param \Phalcon\Assets\Collection $collection 
      * @param string $type 
      */
-	public function outputInline(\Phalcon\Assets\Collection $collection, $type) {}
+    public function outputInline(\Phalcon\Assets\Collection $collection, $type) {}
 
     /**
      * Prints the HTML for CSS resources
      *
      * @param string $collectionName 
      */
-	public function outputCss($collectionName = null) {}
+    public function outputCss($collectionName = null) {}
 
     /**
      * Prints the HTML for inline CSS
      *
      * @param string $collectionName 
      */
-	public function outputInlineCss($collectionName = null) {}
+    public function outputInlineCss($collectionName = null) {}
 
     /**
      * Prints the HTML for JS resources
      *
      * @param string $collectionName 
      */
-	public function outputJs($collectionName = null) {}
+    public function outputJs($collectionName = null) {}
 
     /**
      * Prints the HTML for inline JS
      *
      * @param string $collectionName 
      */
-	public function outputInlineJs($collectionName = null) {}
+    public function outputInlineJs($collectionName = null) {}
 
 }

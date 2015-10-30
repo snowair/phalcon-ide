@@ -2,16 +2,26 @@
 
 namespace Phalcon\Validation\Validator;
 
-class Email extends \Phalcon\Validation\Validator implements \Phalcon\Validation\ValidatorInterface
+/**
+ * Phalcon\Validation\Validator\Email
+ * Checks if a value has a correct e-mail format
+ * <code>
+ * use Phalcon\Validation\Validator\Email as EmailValidator;
+ * $validator->add('email', new EmailValidator(array(
+ * 'message' => 'The e-mail is not valid'
+ * )));
+ * </code>
+ */
+class Email extends \Phalcon\Validation\Validator
 {
 
     /**
      * Executes the validation
      *
-     * @param \Phalcon\Validation $validation 
+     * @param mixed $validation 
      * @param string $field 
-     * @return boolean 
+     * @return bool 
      */
-	public function validate(\Phalcon\Validation $validation, $field) {}
+    public function validate(\Phalcon\Validation $validation, $field) {}
 
 }

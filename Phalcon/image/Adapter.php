@@ -2,6 +2,10 @@
 
 namespace Phalcon\Image;
 
+/**
+ * Phalcon\Image\Adapter
+ * All image adapters must use this class
+ */
 abstract class Adapter
 {
 
@@ -47,24 +51,24 @@ abstract class Adapter
 
 
 
-	public function getImage() {}
+    public function getImage() {}
 
 
-	public function getRealpath() {}
+    public function getRealpath() {}
 
     /**
      * Image width
      *
      * @return int 
      */
-	public function getWidth() {}
+    public function getWidth() {}
 
     /**
      * Image height
      *
      * @return int 
      */
-	public function getHeight() {}
+    public function getHeight() {}
 
     /**
      * Image type
@@ -72,14 +76,14 @@ abstract class Adapter
      *
      * @return int 
      */
-	public function getType() {}
+    public function getType() {}
 
     /**
      * Image mime type
      *
      * @return string 
      */
-	public function getMime() {}
+    public function getMime() {}
 
     /**
      * Resize the image to the given size
@@ -87,9 +91,9 @@ abstract class Adapter
      * @param int $width 
      * @param int $height 
      * @param int $master 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function resize($width = null, $height = null, $master = 7) {}
+    public function resize($width = null, $height = null, $master = Image::AUTO) {}
 
     /**
      * This method scales the images using liquid rescaling method. Only support Imagick
@@ -102,9 +106,9 @@ abstract class Adapter
      * @param int $$height new height
      * @param int $$deltaX How much the seam can traverse on x-axis. Passing 0 causes the seams to be straight.
      * @param int $$rigidity Introduces a bias for non-straight seams. This parameter is typically 0.
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function liquidRescale($width, $height, $deltaX = 0, $rigidity = 0) {}
+    public function liquidRescale($width, $height, $deltaX = 0, $rigidity = 0) {}
 
     /**
      * Crop an image to the given size
@@ -113,33 +117,33 @@ abstract class Adapter
      * @param int $height 
      * @param int $offsetX 
      * @param int $offsetY 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function crop($width, $height, $offsetX = null, $offsetY = null) {}
+    public function crop($width, $height, $offsetX = null, $offsetY = null) {}
 
     /**
      * Rotate the image by a given amount
      *
      * @param int $degrees 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function rotate($degrees) {}
+    public function rotate($degrees) {}
 
     /**
      * Flip the image along the horizontal or vertical axis
      *
      * @param int $direction 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function flip($direction) {}
+    public function flip($direction) {}
 
     /**
      * Sharpen the image by a given amount
      *
      * @param int $amount 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function sharpen($amount) {}
+    public function sharpen($amount) {}
 
     /**
      * Add a reflection to an image
@@ -147,9 +151,9 @@ abstract class Adapter
      * @param int $height 
      * @param int $opacity 
      * @param bool $fadeIn 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function reflection($height, $opacity = 100, $fadeIn = false) {}
+    public function reflection($height, $opacity = 100, $fadeIn = false) {}
 
     /**
      * Add a watermark to an image with the specified opacity
@@ -158,9 +162,9 @@ abstract class Adapter
      * @param int $offsetX 
      * @param int $offsetY 
      * @param int $opacity 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function watermark(\Phalcon\Image\Adapter $watermark, $offsetX = 0, $offsetY = 0, $opacity = 100) {}
+    public function watermark(Adapter $watermark, $offsetX = 0, $offsetY = 0, $opacity = 100) {}
 
     /**
      * Add a text to an image with a specified opacity
@@ -172,51 +176,51 @@ abstract class Adapter
      * @param string $color 
      * @param int $size 
      * @param string $fontfile 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function text($text, $offsetX = 0, $offsetY = 0, $opacity = 100, $color = "000000", $size = 12, $fontfile = null) {}
+    public function text($text, $offsetX = 0, $offsetY = 0, $opacity = 100, $color = "000000", $size = 12, $fontfile = null) {}
 
     /**
      * Composite one image onto another
      *
-     * @param \Phalcon\Image\Adapter $watermark 
-     * @return \Phalcon\Image\Adapter 
+     * @param mixed $watermark 
+     * @return Adapter 
      */
-	public function mask(\Phalcon\Image\Adapter $watermark) {}
+    public function mask(Adapter $watermark) {}
 
     /**
      * Set the background color of an image
      *
      * @param string $color 
      * @param int $opacity 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function background($color, $opacity = 100) {}
+    public function background($color, $opacity = 100) {}
 
     /**
      * Blur image
      *
      * @param int $radius 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function blur($radius) {}
+    public function blur($radius) {}
 
     /**
      * Pixelate image
      *
      * @param int $amount 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function pixelate($amount) {}
+    public function pixelate($amount) {}
 
     /**
      * Save the image
      *
      * @param string $file 
      * @param int $quality 
-     * @return \Phalcon\Image\Adapter 
+     * @return Adapter 
      */
-	public function save($file = null, $quality = 100) {}
+    public function save($file = null, $quality = 100) {}
 
     /**
      * Render the image and return the binary string
@@ -225,6 +229,6 @@ abstract class Adapter
      * @param int $quality 
      * @return string 
      */
-	public function render($ext = null, $quality = 100) {}
+    public function render($ext = null, $quality = 100) {}
 
 }

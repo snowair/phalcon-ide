@@ -2,18 +2,22 @@
 
 namespace Phalcon\Session;
 
+/**
+ * Phalcon\Session\BagInterface
+ * Interface for Phalcon\Session\Bag
+ */
 interface BagInterface
 {
 
     /**
      * Initializes the session bag. This method must not be called directly, the class calls it when its internal data is accesed
      */
-	public function initialize();
+    public function initialize();
 
     /**
      * Destroyes the session bag
      */
-	public function destroy();
+    public function destroy();
 
     /**
      * Setter of values
@@ -21,7 +25,7 @@ interface BagInterface
      * @param string $property 
      * @param string $value 
      */
-	public function set($property, $value);
+    public function set($property, $value);
 
     /**
      * Getter of values
@@ -30,15 +34,15 @@ interface BagInterface
      * @param mixed $defaultValue 
      * @return mixed 
      */
-	public function get($property, $defaultValue = null);
+    public function get($property, $defaultValue = null);
 
     /**
      * Isset property
      *
      * @param string $property 
-     * @return boolean 
+     * @return bool 
      */
-	public function has($property);
+    public function has($property);
 
     /**
      * Setter of values
@@ -46,7 +50,7 @@ interface BagInterface
      * @param string $property 
      * @param string $value 
      */
-	public function __set($property, $value);
+    public function __set($property, $value);
 
     /**
      * Getter of values
@@ -54,14 +58,14 @@ interface BagInterface
      * @param string $property 
      * @return mixed 
      */
-	public function __get($property);
+    public function __get($property);
 
     /**
      * Isset property
      *
      * @param string $property 
-     * @return boolean 
+     * @return bool 
      */
-	public function __isset($property);
+    public function __isset($property);
 
 }

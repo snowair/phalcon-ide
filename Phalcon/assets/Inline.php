@@ -2,6 +2,13 @@
 
 namespace Phalcon\Assets;
 
+/**
+ * Phalcon\Assets\Inline
+ * Represents an inline asset
+ * <code>
+ * $inline = new \Phalcon\Assets\Inline('js', 'alert("hello world");');
+ * </code>
+ */
 class Inline
 {
 
@@ -18,16 +25,16 @@ class Inline
 
 
 
-	public function getType() {}
+    public function getType() {}
 
 
-	public function getContent() {}
+    public function getContent() {}
 
 
-	public function getFilter() {}
+    public function getFilter() {}
 
 
-	public function getAttributes() {}
+    public function getAttributes() {}
 
     /**
      * Phalcon\Assets\Inline constructor
@@ -37,7 +44,7 @@ class Inline
      * @param boolean $filter 
      * @param array $attributes 
      */
-	public function __construct($type, $content, $filter = true, $attributes = null) {}
+    public function __construct($type, $content, $filter = true, $attributes = null) {}
 
     /**
      * Sets the inline's type
@@ -45,7 +52,7 @@ class Inline
      * @param string $type 
      * @return Inline 
      */
-	public function setType($type) {}
+    public function setType($type) {}
 
     /**
      * Sets if the resource must be filtered or not
@@ -53,7 +60,7 @@ class Inline
      * @param bool $filter 
      * @return Inline 
      */
-	public function setFilter($filter) {}
+    public function setFilter($filter) {}
 
     /**
      * Sets extra HTML attributes
@@ -61,6 +68,6 @@ class Inline
      * @param array $attributes 
      * @return Inline 
      */
-	public function setAttributes($attributes) {}
+    public function setAttributes($attributes) {}
 
 }

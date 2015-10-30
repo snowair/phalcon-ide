@@ -2,6 +2,10 @@
 
 namespace Phalcon\Acl;
 
+/**
+ * Phalcon\Acl\Resource
+ * This class defines resource entity and its description
+ */
 class Resource
 {
     /**
@@ -24,19 +28,19 @@ class Resource
      *
      * @return string 
      */
-	public function getName() {}
+    public function getName() {}
 
     /**
      * Resource name
      */
-	public function __toString() {}
+    public function __toString() {}
 
     /**
      * Resource description
      *
      * @return string 
      */
-	public function getDescription() {}
+    public function getDescription() {}
 
     /**
      * Phalcon\Acl\Resource constructor
@@ -44,6 +48,6 @@ class Resource
      * @param string $name 
      * @param string $description 
      */
-	public function __construct($name, $description = null) {}
+    public function __construct($name, $description = null) {}
 
 }

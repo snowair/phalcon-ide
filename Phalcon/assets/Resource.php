@@ -2,6 +2,13 @@
 
 namespace Phalcon\Assets;
 
+/**
+ * Phalcon\Assets\Resource
+ * Represents an asset resource
+ * <code>
+ * $resource = new \Phalcon\Assets\Resource('js', 'javascripts/jquery.js');
+ * </code>
+ */
 class Resource
 {
 
@@ -30,28 +37,28 @@ class Resource
 
 
 
-	public function getType() {}
+    public function getType() {}
 
 
-	public function getPath() {}
+    public function getPath() {}
 
 
-	public function getLocal() {}
+    public function getLocal() {}
 
 
-	public function getFilter() {}
+    public function getFilter() {}
 
 
-	public function getAttributes() {}
+    public function getAttributes() {}
 
 
-	public function getSourcePath() {}
+    public function getSourcePath() {}
 
 
-	public function getTargetPath() {}
+    public function getTargetPath() {}
 
 
-	public function getTargetUri() {}
+    public function getTargetUri() {}
 
     /**
      * Phalcon\Assets\Resource constructor
@@ -62,7 +69,7 @@ class Resource
      * @param boolean $filter 
      * @param array $attributes 
      */
-	public function __construct($type, $path, $local = true, $filter = true, $attributes = null) {}
+    public function __construct($type, $path, $local = true, $filter = true, $attributes = null) {}
 
     /**
      * Sets the resource's type
@@ -70,7 +77,7 @@ class Resource
      * @param string $type 
      * @return Resource 
      */
-	public function setType($type) {}
+    public function setType($type) {}
 
     /**
      * Sets the resource's path
@@ -78,7 +85,7 @@ class Resource
      * @param string $path 
      * @return Resource 
      */
-	public function setPath($path) {}
+    public function setPath($path) {}
 
     /**
      * Sets if the resource is local or external
@@ -86,7 +93,7 @@ class Resource
      * @param bool $local 
      * @return Resource 
      */
-	public function setLocal($local) {}
+    public function setLocal($local) {}
 
     /**
      * Sets if the resource must be filtered or not
@@ -94,7 +101,7 @@ class Resource
      * @param bool $filter 
      * @return Resource 
      */
-	public function setFilter($filter) {}
+    public function setFilter($filter) {}
 
     /**
      * Sets extra HTML attributes
@@ -102,7 +109,7 @@ class Resource
      * @param array $attributes 
      * @return Resource 
      */
-	public function setAttributes($attributes) {}
+    public function setAttributes($attributes) {}
 
     /**
      * Sets a target uri for the generated HTML
@@ -110,7 +117,7 @@ class Resource
      * @param string $targetUri 
      * @return Resource 
      */
-	public function setTargetUri($targetUri) {}
+    public function setTargetUri($targetUri) {}
 
     /**
      * Sets the resource's source path
@@ -118,7 +125,7 @@ class Resource
      * @param string $sourcePath 
      * @return Resource 
      */
-	public function setSourcePath($sourcePath) {}
+    public function setSourcePath($sourcePath) {}
 
     /**
      * Sets the resource's target path
@@ -126,7 +133,7 @@ class Resource
      * @param string $targetPath 
      * @return Resource 
      */
-	public function setTargetPath($targetPath) {}
+    public function setTargetPath($targetPath) {}
 
     /**
      * Returns the content of the resource as an string
@@ -135,14 +142,14 @@ class Resource
      * @param string $basePath 
      * @return string 
      */
-	public function getContent($basePath = null) {}
+    public function getContent($basePath = null) {}
 
     /**
      * Returns the real target uri for the generated HTML
      *
      * @return string 
      */
-	public function getRealTargetUri() {}
+    public function getRealTargetUri() {}
 
     /**
      * Returns the complete location where the resource is located
@@ -150,7 +157,7 @@ class Resource
      * @param string $basePath 
      * @return string 
      */
-	public function getRealSourcePath($basePath = null) {}
+    public function getRealSourcePath($basePath = null) {}
 
     /**
      * Returns the complete location where the resource must be written
@@ -158,6 +165,6 @@ class Resource
      * @param string $basePath 
      * @return string 
      */
-	public function getRealTargetPath($basePath = null) {}
+    public function getRealTargetPath($basePath = null) {}
 
 }

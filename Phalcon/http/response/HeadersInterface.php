@@ -2,6 +2,10 @@
 
 namespace Phalcon\Http\Response;
 
+/**
+ * Phalcon\Http\Response\HeadersInterface
+ * Interface for Phalcon\Http\Response\Headers compatible bags
+ */
 interface HeadersInterface
 {
 
@@ -11,7 +15,7 @@ interface HeadersInterface
      * @param string $name 
      * @param string $value 
      */
-	public function set($name, $value);
+    public function set($name, $value);
 
     /**
      * Gets a header value from the internal bag
@@ -19,33 +23,33 @@ interface HeadersInterface
      * @param string $name 
      * @return string 
      */
-	public function get($name);
+    public function get($name);
 
     /**
      * Sets a raw header to be sent at the end of the request
      *
      * @param string $header 
      */
-	public function setRaw($header);
+    public function setRaw($header);
 
     /**
      * Sends the headers to the client
      *
      * @return bool 
      */
-	public function send();
+    public function send();
 
     /**
      * Reset set headers
      */
-	public function reset();
+    public function reset();
 
     /**
      * Restore a Phalcon\Http\Response\Headers object
      *
      * @param array $data 
-     * @return \Phalcon\Http\Response\HeadersInterface 
+     * @return HeadersInterface 
      */
-	public static function __set_state($data);
+    public static function __set_state($data);
 
 }

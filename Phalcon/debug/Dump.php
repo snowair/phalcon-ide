@@ -2,6 +2,20 @@
 
 namespace Phalcon\Debug;
 
+/**
+ * Phalcon\Debug\Dump
+ * Dumps information about a variable(s)
+ * <code>
+ * $foo = 123;
+ * echo (new \Phalcon\Debug\Dump())->variable($foo, "foo");
+ * </code>
+ * <code>
+ * $foo = "string";
+ * $bar = ["key" => "value"];
+ * $baz = new stdClass();
+ * echo (new \Phalcon\Debug\Dump())->variables($foo, $bar, $baz);
+ * </code>
+ */
 class Dump
 {
 
@@ -15,12 +29,12 @@ class Dump
 
 
 
-	public function getDetailed() {}
+    public function getDetailed() {}
 
     /**
      * @param mixed $detailed 
      */
-	public function setDetailed($detailed) {}
+    public function setDetailed($detailed) {}
 
     /**
      * Phalcon\Debug\Dump constructor
@@ -28,16 +42,16 @@ class Dump
      * @param array $styles 
      * @param boolean $detailed debug object's private and protected properties
      */
-	public function __construct($styles = null, $detailed = false) {}
+    public function __construct($styles = null, $detailed = false) {}
 
     /**
-     * Alias of vars() method
+     * Alias of variables() method
      *
      * @param mixed $variable 
      * @param ...  
      * @return string 
      */
-	public function all() {}
+    public function all() {}
 
     /**
      * Get style for type
@@ -45,7 +59,7 @@ class Dump
      * @param string $type 
      * @return string 
      */
-	protected function getStyle($type) {}
+    protected function getStyle($type) {}
 
     /**
      * Set styles for vars type
@@ -53,16 +67,16 @@ class Dump
      * @param mixed $styles 
      * @return array 
      */
-	public function setStyles($styles = null) {}
+    public function setStyles($styles = null) {}
 
     /**
-     * Alias of var() method
+     * Alias of variable() method
      *
      * @param mixed $variable 
      * @param string $name 
      * @return string 
      */
-	public function one($variable, $name = null) {}
+    public function one($variable, $name = null) {}
 
     /**
      * Prepare an HTML string of information about a single variable.
@@ -72,19 +86,19 @@ class Dump
      * @param int $tab 
      * @return string 
      */
-	protected function output($variable, $name = null, $tab = 1) {}
+    protected function output($variable, $name = null, $tab = 1) {}
 
     /**
      * Returns an HTML string of information about a single variable.
      * <code>
-     * echo (new \Phalcon\Debug\Dump())->var($foo, "foo");
+     * echo (new \Phalcon\Debug\Dump())->variable($foo, "foo");
      * </code>
      *
      * @param mixed $variable 
      * @param string $name 
      * @return string 
      */
-	public function var($variable, $name = null) {}
+    public function variable($variable, $name = null) {}
 
     /**
      * Returns an HTML string of debugging information about any number of
@@ -93,13 +107,13 @@ class Dump
      * $foo = "string";
      * $bar = ["key" => "value"];
      * $baz = new stdClass();
-     * echo (new \Phalcon\Debug\Dump())->vars($foo, $bar, $baz);
+     * echo (new \Phalcon\Debug\Dump())->variables($foo, $bar, $baz);
      * </code>
      *
      * @param mixed $variable 
      * @param ...  
      * @return string 
      */
-	public function vars() {}
+    public function variables() {}
 
 }

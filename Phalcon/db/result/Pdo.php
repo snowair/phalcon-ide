@@ -2,6 +2,17 @@
 
 namespace Phalcon\Db\Result;
 
+/**
+ * Phalcon\Db\Result\Pdo
+ * Encapsulates the resultset internals
+ * <code>
+ * $result = $connection->query("SELECTFROM robots ORDER BY name");
+ * $result->setFetchMode(Phalcon\Db::FETCH_NUM);
+ * while ($robot = $result->fetchArray()) {
+ * print_r($robot);
+ * }
+ * </code>
+ */
 class Pdo implements \Phalcon\Db\ResultInterface
 {
 
@@ -13,7 +24,7 @@ class Pdo implements \Phalcon\Db\ResultInterface
     /**
      * Active fetch mode
      */
-    protected $_fetchMode = 4;
+    protected $_fetchMode = Db::FETCH_OBJ;
 
     /**
      * Internal resultset
@@ -44,7 +55,7 @@ class Pdo implements \Phalcon\Db\ResultInterface
      * @param array $bindParams 
      * @param array $bindTypes 
      */
-	public function __construct(Db\AdapterInterface $connection, \PDOStatement $result, $sqlStatement = null, $bindParams = null, $bindTypes = null) {}
+    public function __construct(Db\AdapterInterface $connection, \PDOStatement $result, $sqlStatement = null, $bindParams = null, $bindTypes = null) {}
 
     /**
      * Allows to execute the statement again. Some database systems don't support scrollable cursors,
@@ -52,7 +63,7 @@ class Pdo implements \Phalcon\Db\ResultInterface
      *
      * @return bool 
      */
-	public function execute() {}
+    public function execute() {}
 
     /**
      * Fetches an array/object of strings that corresponds to the fetched row, or FALSE if there are no more rows.
@@ -67,7 +78,7 @@ class Pdo implements \Phalcon\Db\ResultInterface
      *
      * @return mixed 
      */
-	public function fetch() {}
+    public function fetch() {}
 
     /**
      * Returns an array of strings that corresponds to the fetched row, or FALSE if there are no more rows.
@@ -82,7 +93,7 @@ class Pdo implements \Phalcon\Db\ResultInterface
      *
      * @return mixed 
      */
-	public function fetchArray() {}
+    public function fetchArray() {}
 
     /**
      * Returns an array of arrays containing all the records in the result
@@ -94,21 +105,21 @@ class Pdo implements \Phalcon\Db\ResultInterface
      *
      * @return array 
      */
-	public function fetchAll() {}
+    public function fetchAll() {}
 
     /**
-     * Gets number of rows returned by a resulset
+     * Gets number of rows returned by a resultset
      * <code>
      * $result = $connection->query("SELECTFROM robots ORDER BY name");
-     * echo 'There are ', $result->numRows(), ' rows in the resulset';
+     * echo 'There are ', $result->numRows(), ' rows in the resultset';
      * </code>
      *
      * @return int 
      */
-	public function numRows() {}
+    public function numRows() {}
 
     /**
-     * Moves internal resulset cursor to another position letting us to fetch a certain row
+     * Moves internal resultset cursor to another position letting us to fetch a certain row
      * <code>
      * $result = $connection->query("SELECTFROM robots ORDER BY name");
      * $result->dataSeek(2); // Move to third row on result
@@ -117,7 +128,7 @@ class Pdo implements \Phalcon\Db\ResultInterface
      *
      * @param long $number 
      */
-	public function dataSeek($number) {}
+    public function dataSeek($number) {}
 
     /**
      * Changes the fetching mode affecting Phalcon\Db\Result\Pdo::fetch()
@@ -134,13 +145,13 @@ class Pdo implements \Phalcon\Db\ResultInterface
      *
      * @param int $fetchMode 
      */
-	public function setFetchMode($fetchMode) {}
+    public function setFetchMode($fetchMode) {}
 
     /**
      * Gets the internal PDO result object
      *
      * @return \PDOStatement 
      */
-	public function getInternalResult() {}
+    public function getInternalResult() {}
 
 }

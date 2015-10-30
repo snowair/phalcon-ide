@@ -2,6 +2,10 @@
 
 namespace Phalcon\Db;
 
+/**
+ * Phalcon\Db\ResultInterface
+ * Interface for Phalcon\Db\Result objects
+ */
 interface ResultInterface
 {
 
@@ -14,7 +18,7 @@ interface ResultInterface
      * @param array $bindParams 
      * @param array $bindTypes 
      */
-	public function __construct(\Phalcon\Db\AdapterInterface $connection, \PDOStatement $result, $sqlStatement = null, $bindParams = null, $bindTypes = null);
+    public function __construct(\Phalcon\Db\AdapterInterface $connection, \PDOStatement $result, $sqlStatement = null, $bindParams = null, $bindTypes = null);
 
     /**
      * Allows to executes the statement again. Some database systems don't support scrollable cursors,
@@ -22,7 +26,7 @@ interface ResultInterface
      *
      * @return boolean 
      */
-	public function execute();
+    public function execute();
 
     /**
      * Fetches an array/object of strings that corresponds to the fetched row, or FALSE if there are no more rows.
@@ -30,7 +34,7 @@ interface ResultInterface
      *
      * @return mixed 
      */
-	public function fetch();
+    public function fetch();
 
     /**
      * Returns an array of strings that corresponds to the fetched row, or FALSE if there are no more rows.
@@ -38,7 +42,7 @@ interface ResultInterface
      *
      * @return mixed 
      */
-	public function fetchArray();
+    public function fetchArray();
 
     /**
      * Returns an array of arrays containing all the records in the result
@@ -46,34 +50,34 @@ interface ResultInterface
      *
      * @return array 
      */
-	public function fetchAll();
+    public function fetchAll();
 
     /**
-     * Gets number of rows returned by a resulset
+     * Gets number of rows returned by a resultset
      *
      * @return int 
      */
-	public function numRows();
+    public function numRows();
 
     /**
-     * Moves internal resulset cursor to another position letting us to fetch a certain row
+     * Moves internal resultset cursor to another position letting us to fetch a certain row
      *
      * @param int $number 
      */
-	public function dataSeek($number);
+    public function dataSeek($number);
 
     /**
      * Changes the fetching mode affecting Phalcon\Db\Result\Pdo::fetch()
      *
      * @param int $fetchMode 
      */
-	public function setFetchMode($fetchMode);
+    public function setFetchMode($fetchMode);
 
     /**
      * Gets the internal PDO result object
      *
      * @return \PDOStatement 
      */
-	public function getInternalResult();
+    public function getInternalResult();
 
 }

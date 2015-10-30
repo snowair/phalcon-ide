@@ -2,23 +2,27 @@
 
 namespace Phalcon\Mvc\View;
 
+/**
+ * Phalcon\Mvc\View\EngineInterface
+ * Interface for Phalcon\Mvc\View engine adapters
+ */
 interface EngineInterface
 {
 
     /**
      * Phalcon\Mvc\View\Engine constructor
      *
-     * @param \Phalcon\Mvc\ViewInterface $view 
-     * @param \Phalcon\DiInterface $dependencyInjector 
+     * @param mixed $view 
+     * @param mixed $dependencyInjector 
      */
-	public function __construct($view, \Phalcon\DiInterface $dependencyInjector = null);
+    public function __construct(\Phalcon\Mvc\ViewBaseInterface $view, \Phalcon\DiInterface $dependencyInjector = null);
 
     /**
-     * Returns cached ouput on another view stage
+     * Returns cached output on another view stage
      *
      * @return array 
      */
-	public function getContent();
+    public function getContent();
 
     /**
      * Renders a partial inside another view
@@ -26,15 +30,15 @@ interface EngineInterface
      * @param string $partialPath 
      * @return string 
      */
-	public function partial($partialPath);
+    public function partial($partialPath);
 
     /**
      * Renders a view using the template engine
      *
      * @param string $path 
-     * @param array $params 
-     * @param boolean $mustClean 
+     * @param mixed $params 
+     * @param bool $mustClean 
      */
-	public function render($path, $params, $mustClean = false);
+    public function render($path, $params, $mustClean = false);
 
 }

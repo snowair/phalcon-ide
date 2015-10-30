@@ -2,6 +2,53 @@
 
 namespace Phalcon\Acl\Adapter;
 
+/**
+ * Phalcon\Acl\Adapter\Memory
+ * Manages ACL lists in memory
+ * <code>
+ * $acl = new \Phalcon\Acl\Adapter\Memory();
+ * $acl->setDefaultAction(Phalcon\Acl::DENY);
+ * //Register roles
+ * $roles = array(
+ * 'users' => new \Phalcon\Acl\Role('Users'),
+ * 'guests' => new \Phalcon\Acl\Role('Guests')
+ * );
+ * foreach ($roles as $role) {
+ * $acl->addRole($role);
+ * }
+ * //Private area resources
+ * $privateResources = array(
+ * 'companies' => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete'),
+ * 'products' => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete'),
+ * 'invoices' => array('index', 'profile')
+ * );
+ * foreach ($privateResources as $resource => $actions) {
+ * $acl->addResource(new Phalcon\Acl\Resource($resource), $actions);
+ * }
+ * //Public area resources
+ * $publicResources = array(
+ * 'index' => array('index'),
+ * 'about' => array('index'),
+ * 'session' => array('index', 'register', 'start', 'end'),
+ * 'contact' => array('index', 'send')
+ * );
+ * foreach ($publicResources as $resource => $actions) {
+ * $acl->addResource(new Phalcon\Acl\Resource($resource), $actions);
+ * }
+ * //Grant access to public areas to both users and guests
+ * foreach ($roles as $role){
+ * foreach ($publicResources as $resource => $actions) {
+ * $acl->allow($role->getName(), $resource, '*');
+ * }
+ * }
+ * //Grant access to private area to role Users
+ * foreach ($privateResources as $resource => $actions) {
+ * foreach ($actions as $action) {
+ * $acl->allow('Users', $resource, $action);
+ * }
+ * }
+ * </code>
+ */
 class Memory extends \Phalcon\Acl\Adapter
 {
     /**
@@ -57,7 +104,7 @@ class Memory extends \Phalcon\Acl\Adapter
     /**
      * Phalcon\Acl\Adapter\Memory constructor
      */
-	public function __construct() {}
+    public function __construct() {}
 
     /**
      * Adds a role to the ACL list. Second parameter allows inheriting access data from other existing role
@@ -71,15 +118,16 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param array|string $accessInherits 
      * @return bool 
      */
-	public function addRole($role, $accessInherits = null) {}
+    public function addRole($role, $accessInherits = null) {}
 
     /**
      * Do a role inherit from another existing role
      *
      * @param string $roleName 
      * @param mixed $roleToInherit 
+     * @return bool 
      */
-	public function addInherit($roleName, $roleToInherit) {}
+    public function addInherit($roleName, $roleToInherit) {}
 
     /**
      * Check whether role exist in the roles list
@@ -87,7 +135,7 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param string $roleName 
      * @return bool 
      */
-	public function isRole($roleName) {}
+    public function isRole($roleName) {}
 
     /**
      * Check whether resource exist in the resources list
@@ -95,7 +143,7 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param string $resourceName 
      * @return bool 
      */
-	public function isResource($resourceName) {}
+    public function isResource($resourceName) {}
 
     /**
      * Adds a resource to the ACL list
@@ -115,7 +163,7 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param array|string $accessList 
      * @return bool 
      */
-	public function addResource($resourceValue, $accessList) {}
+    public function addResource($resourceValue, $accessList) {}
 
     /**
      * Adds access to resources
@@ -124,7 +172,7 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param array|string $accessList 
      * @return bool 
      */
-	public function addResourceAccess($resourceName, $accessList) {}
+    public function addResourceAccess($resourceName, $accessList) {}
 
     /**
      * Removes an access from a resource
@@ -132,7 +180,7 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param string $resourceName 
      * @param array|string $accessList 
      */
-	public function dropResourceAccess($resourceName, $accessList) {}
+    public function dropResourceAccess($resourceName, $accessList) {}
 
     /**
      * Checks if a role has access to a resource
@@ -142,7 +190,7 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param mixed $access 
      * @param mixed $action 
      */
-	protected function _allowOrDeny($roleName, $resourceName, $access, $action) {}
+    protected function _allowOrDeny($roleName, $resourceName, $access, $action) {}
 
     /**
      * Allow access to a role on a resource
@@ -163,7 +211,7 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param string $resourceName 
      * @param mixed $access 
      */
-	public function allow($roleName, $resourceName, $access) {}
+    public function allow($roleName, $resourceName, $access) {}
 
     /**
      * Deny access to a role on a resource
@@ -184,7 +232,7 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param string $resourceName 
      * @param mixed $access 
      */
-	public function deny($roleName, $resourceName, $access) {}
+    public function deny($roleName, $resourceName, $access) {}
 
     /**
      * Check whether a role is allowed to access an action from a resource
@@ -200,20 +248,20 @@ class Memory extends \Phalcon\Acl\Adapter
      * @param string $access 
      * @return bool 
      */
-	public function isAllowed($roleName, $resourceName, $access) {}
+    public function isAllowed($roleName, $resourceName, $access) {}
 
     /**
      * Return an array with every role registered in the list
      *
-     * @return \Phalcon\Acl\Role[] 
+     * @return \Phalcon\Acl\Role 
      */
-	public function getRoles() {}
+    public function getRoles() {}
 
     /**
      * Return an array with every resource registered in the list
      *
-     * @return \Phalcon\Acl\Resource[] 
+     * @return \Phalcon\Acl\Resource 
      */
-	public function getResources() {}
+    public function getResources() {}
 
 }

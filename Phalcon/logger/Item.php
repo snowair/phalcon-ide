@@ -2,6 +2,10 @@
 
 namespace Phalcon\Logger;
 
+/**
+ * Phalcon\Logger\Item
+ * Represents each item in a logging transaction
+ */
 class Item
 {
     /**
@@ -34,24 +38,24 @@ class Item
      *
      * @return integer 
      */
-	public function getType() {}
+    public function getType() {}
 
     /**
      * Log message
      *
      * @return string 
      */
-	public function getMessage() {}
+    public function getMessage() {}
 
     /**
      * Log timestamp
      *
      * @return integer 
      */
-	public function getTime() {}
+    public function getTime() {}
 
 
-	public function getContext() {}
+    public function getContext() {}
 
     /**
      * Phalcon\Logger\Item constructor
@@ -65,6 +69,6 @@ class Item
      * @param integer $$time 
      * @param array $$context 
      */
-	public function __construct($message, $type, $time = 0, $context = null) {}
+    public function __construct($message, $type, $time = 0, $context = null) {}
 
 }

@@ -2,6 +2,10 @@
 
 namespace Phalcon\Mvc\Router;
 
+/**
+ * Phalcon\Mvc\Router\RouteInterface
+ * Interface for Phalcon\Mvc\Router\Route
+ */
 interface RouteInterface
 {
 
@@ -9,10 +13,10 @@ interface RouteInterface
      * Phalcon\Mvc\Router\Route constructor
      *
      * @param string $pattern 
-     * @param array $paths 
-     * @param array|string $httpMethods 
+     * @param mixed $paths 
+     * @param mixed $httpMethods 
      */
-	public function __construct($pattern, $paths = null, $httpMethods = null);
+    public function __construct($pattern, $paths = null, $httpMethods = null);
 
     /**
      * Replaces placeholders from pattern returning a valid PCRE regular expression
@@ -20,89 +24,90 @@ interface RouteInterface
      * @param string $pattern 
      * @return string 
      */
-	public function compilePattern($pattern);
+    public function compilePattern($pattern);
 
     /**
      * Set one or more HTTP methods that constraint the matching of the route
      *
-     * @param string|array $httpMethods 
+     * @param mixed $httpMethods 
      */
-	public function via($httpMethods);
+    public function via($httpMethods);
 
     /**
      * Reconfigure the route adding a new pattern and a set of paths
      *
      * @param string $pattern 
-     * @param array $paths 
+     * @param mixed $paths 
      */
-	public function reConfigure($pattern, $paths = null);
+    public function reConfigure($pattern, $paths = null);
 
     /**
      * Returns the route's name
      *
      * @return string 
      */
-	public function getName();
+    public function getName();
 
     /**
      * Sets the route's name
      *
      * @param string $name 
      */
-	public function setName($name);
+    public function setName($name);
 
     /**
      * Sets a set of HTTP methods that constraint the matching of the route
      *
-     * @param string|array $httpMethods 
+     * @param mixed $httpMethods 
+     * @return string|array 
      */
-	public function setHttpMethods($httpMethods);
+    public function setHttpMethods($httpMethods);
 
     /**
      * Returns the route's id
      *
      * @return string 
      */
-	public function getRouteId();
+    public function getRouteId();
 
     /**
      * Returns the route's pattern
      *
      * @return string 
      */
-	public function getPattern();
+    public function getPattern();
 
     /**
      * Returns the route's pattern
      *
      * @return string 
      */
-	public function getCompiledPattern();
+    public function getCompiledPattern();
 
     /**
      * Returns the paths
      *
      * @return array 
      */
-	public function getPaths();
+    public function getPaths();
 
     /**
      * Returns the paths using positions as keys and names as values
      *
      * @return array 
      */
-	public function getReversedPaths();
+    public function getReversedPaths();
 
     /**
      * Returns the HTTP methods that constraint matching the route
      *
      * @return string|array 
      */
-	public function getHttpMethods();
+    public function getHttpMethods();
 
     /**
      * Resets the internal route id generator
      */
-	public static function reset();
+    public static function reset();
 
 }

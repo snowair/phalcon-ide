@@ -2,22 +2,26 @@
 
 namespace Phalcon\Paginator\Adapter;
 
-class Model implements \Phalcon\Paginator\AdapterInterface
+/**
+ * Phalcon\Paginator\Adapter\Model
+ * This adapter allows to paginate data using a Phalcon\Mvc\Model resultset as a base
+ * <code>
+ * $paginator = new \Phalcon\Paginator\Adapter\Model(
+ * array(
+ * "data"  => Robots::find(),
+ * "limit" => 25,
+ * "page"  => $currentPage
+ * )
+ * );
+ * $paginate = $paginator->getPaginate();
+ * </code>
+ */
+class Model extends \Phalcon\Paginator\Adapter implements \Phalcon\Paginator\AdapterInterface
 {
-    /**
-     * Number of rows to show in the paginator. By default is null
-     */
-    protected $_limitRows = null;
-
     /**
      * Configuration of paginator by model
      */
     protected $_config = null;
-
-    /**
-     * Current page in paginate
-     */
-    protected $_page = null;
 
 
     /**
@@ -25,35 +29,13 @@ class Model implements \Phalcon\Paginator\AdapterInterface
      *
      * @param array $config 
      */
-	public function __construct($config) {}
-
-    /**
-     * Set the current page number
-     *
-     * @param int $page 
-     */
-	public function setCurrentPage($page) {}
-
-    /**
-     * Set current rows limit
-     *
-     * @param int $limitRows 
-     * @return Model 
-     */
-	public function setLimit($limitRows) {}
-
-    /**
-     * Get current rows limit
-     *
-     * @return int 
-     */
-	public function getLimit() {}
+    public function __construct($config) {}
 
     /**
      * Returns a slice of the resultset to show in the pagination
      *
      * @return \stdclass 
      */
-	public function getPaginate() {}
+    public function getPaginate() {}
 
 }

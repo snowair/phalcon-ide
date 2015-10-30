@@ -2,6 +2,10 @@
 
 namespace Phalcon\Mvc\Model;
 
+/**
+ * Phalcon\Mvc\Model\ValidatorInterface
+ * Interface for Phalcon\Mvc\Model validators
+ */
 interface ValidatorInterface
 {
 
@@ -10,7 +14,7 @@ interface ValidatorInterface
      *
      * @return array 
      */
-	public function getMessages();
+    public function getMessages();
 
     /**
      * Executes the validator
@@ -18,6 +22,6 @@ interface ValidatorInterface
      * @param \Phalcon\Mvc\ModelInterface $record 
      * @return boolean 
      */
-	public function validate(\Phalcon\Mvc\ModelInterface $record);
+    public function validate(\Phalcon\Mvc\ModelInterface $record);
 
 }

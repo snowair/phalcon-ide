@@ -2,6 +2,10 @@
 
 namespace Phalcon\Translate;
 
+/**
+ * Phalcon\Translate\AdapterInterface
+ * Interface for Phalcon\Translate adapters
+ */
 interface AdapterInterface
 {
 
@@ -11,10 +15,11 @@ interface AdapterInterface
      * @param	string translateKey
      * @param	array placeholders
      * @return	string
-     * @param mixed $translateKey 
+     * @param string $translateKey 
      * @param mixed $placeholders 
+     * @return string 
      */
-	public function t($translateKey, $placeholders = null);
+    public function t($translateKey, $placeholders = null);
 
     /**
      * Returns the translation related to the given key
@@ -22,10 +27,11 @@ interface AdapterInterface
      * @param	string index
      * @param	array placeholders
      * @return	string
-     * @param mixed $index 
+     * @param string $index 
      * @param mixed $placeholders 
+     * @return string 
      */
-	public function query($index, $placeholders = null);
+    public function query($index, $placeholders = null);
 
     /**
      * Check whether is defined a translation key in the internal array
@@ -33,6 +39,6 @@ interface AdapterInterface
      * @param string $index 
      * @return bool 
      */
-	public function exists($index);
+    public function exists($index);
 
 }

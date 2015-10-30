@@ -2,6 +2,19 @@
 
 namespace Phalcon\Db\Adapter;
 
+/**
+ * Phalcon\Db\Adapter\Pdo
+ * Phalcon\Db\Adapter\Pdo is the Phalcon\Db that internally uses PDO to connect to a database
+ * <code>
+ * $connection = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+ * 'host' => '192.168.0.11',
+ * 'username' => 'sigma',
+ * 'password' => 'secret',
+ * 'dbname' => 'blog',
+ * 'port' => '3306'
+ * ));
+ * </code>
+ */
 abstract class Pdo extends \Phalcon\Db\Adapter
 {
     /**
@@ -20,7 +33,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      *
      * @param array $descriptor 
      */
-	public function __construct($descriptor) {}
+    public function __construct($descriptor) {}
 
     /**
      * This method is automatically called in Phalcon\Db\Adapter\Pdo constructor.
@@ -41,7 +54,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param  $array descriptor
      * @return  
      */
-	public function connect($descriptor = null) {}
+    public function connect($descriptor = null) {}
 
     /**
      * Returns a PDO prepared statement to be executed with 'executePrepared'
@@ -53,7 +66,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param string $sqlStatement 
      * @return \PDOStatement 
      */
-	public function prepare($sqlStatement) {}
+    public function prepare($sqlStatement) {}
 
     /**
      * Executes a prepared statement binding. This function uses integer indexes starting from zero
@@ -67,7 +80,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param array $dataTypes 
      * @return \PDOStatement 
      */
-	public function executePrepared(\PDOStatement $statement, $placeholders, $dataTypes) {}
+    public function executePrepared(\PDOStatement $statement, $placeholders, $dataTypes) {}
 
     /**
      * Sends SQL statements to the database server returning the success state.
@@ -79,15 +92,15 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * </code>
      *
      * @param string $sqlStatement 
-     * @param array $bindParams 
-     * @param array $bindTypes 
-     * @return \Phalcon\Db\ResultInterface|bool 
+     * @param mixed $bindParams 
+     * @param mixed $bindTypes 
+     * @return bool|\Phalcon\Db\ResultInterface 
      */
-	public function query($sqlStatement, $bindParams = null, $bindTypes = null) {}
+    public function query($sqlStatement, $bindParams = null, $bindTypes = null) {}
 
     /**
      * Sends SQL statements to the database server returning the success state.
-     * Use this method only when the SQL statement sent to the server doesn't return any row
+     * Use this method only when the SQL statement sent to the server doesn't return any rows
      * <code>
      * //Inserting data
      * $success = $connection->execute("INSERT INTO robots VALUES (1, 'Astro Boy')");
@@ -95,11 +108,11 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * </code>
      *
      * @param string $sqlStatement 
-     * @param array $bindParams 
-     * @param array $bindTypes 
-     * @return boolean 
+     * @param mixed $bindParams 
+     * @param mixed $bindTypes 
+     * @return bool 
      */
-	public function execute($sqlStatement, $bindParams = null, $bindTypes = null) {}
+    public function execute($sqlStatement, $bindParams = null, $bindTypes = null) {}
 
     /**
      * Returns the number of affected rows by the lastest INSERT/UPDATE/DELETE executed in the database system
@@ -110,7 +123,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      *
      * @return int 
      */
-	public function affectedRows() {}
+    public function affectedRows() {}
 
     /**
      * Closes the active connection returning success. Phalcon automatically closes and destroys
@@ -118,7 +131,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      *
      * @return bool 
      */
-	public function close() {}
+    public function close() {}
 
     /**
      * Escapes a column/table/schema name
@@ -130,7 +143,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param string $identifier 
      * @return string 
      */
-	public function escapeIdentifier($identifier) {}
+    public function escapeIdentifier($identifier) {}
 
     /**
      * Escapes a value to avoid SQL injections according to the active charset in the connection
@@ -141,7 +154,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param string $str 
      * @return string 
      */
-	public function escapeString($str) {}
+    public function escapeString($str) {}
 
     /**
      * Converts bound parameters such as :name: or ?1 into PDO bind params ?
@@ -153,7 +166,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param array $params 
      * @return array 
      */
-	public function convertBoundParams($sql, $params = array()) {}
+    public function convertBoundParams($sql, $params = array()) {}
 
     /**
      * Returns the insert id for the auto_increment/serial column inserted in the lastest executed SQL statement
@@ -171,7 +184,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param string $sequenceName 
      * @return int|boolean 
      */
-	public function lastInsertId($sequenceName = null) {}
+    public function lastInsertId($sequenceName = null) {}
 
     /**
      * Starts a transaction in the connection
@@ -179,7 +192,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param bool $nesting 
      * @return bool 
      */
-	public function begin($nesting = true) {}
+    public function begin($nesting = true) {}
 
     /**
      * Rollbacks the active transaction in the connection
@@ -187,7 +200,7 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param bool $nesting 
      * @return bool 
      */
-	public function rollback($nesting = true) {}
+    public function rollback($nesting = true) {}
 
     /**
      * Commits the active transaction in the connection
@@ -195,14 +208,14 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      * @param bool $nesting 
      * @return bool 
      */
-	public function commit($nesting = true) {}
+    public function commit($nesting = true) {}
 
     /**
      * Returns the current transaction nesting level
      *
      * @return int 
      */
-	public function getTransactionLevel() {}
+    public function getTransactionLevel() {}
 
     /**
      * Checks whether the connection is under a transaction
@@ -213,20 +226,20 @@ abstract class Pdo extends \Phalcon\Db\Adapter
      *
      * @return bool 
      */
-	public function isUnderTransaction() {}
+    public function isUnderTransaction() {}
 
     /**
      * Return internal PDO handler
      *
-     * @return \PDO 
+     * @return \Pdo 
      */
-	public function getInternalHandler() {}
+    public function getInternalHandler() {}
 
     /**
      * Return the error info, if any
      *
      * @return array 
      */
-	public function getErrorInfo() {}
+    public function getErrorInfo() {}
 
 }

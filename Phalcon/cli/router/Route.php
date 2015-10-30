@@ -2,6 +2,10 @@
 
 namespace Phalcon\Cli\Router;
 
+/**
+ * Phalcon\Cli\Router\Route
+ * This class represents every route added to the router
+ */
 class Route
 {
 
@@ -44,7 +48,7 @@ class Route
      * @param string $pattern 
      * @param array $paths 
      */
-	public function __construct($pattern, $paths = null) {}
+    public function __construct($pattern, $paths = null) {}
 
     /**
      * Replaces placeholders from pattern returning a valid PCRE regular expression
@@ -52,7 +56,7 @@ class Route
      * @param string $pattern 
      * @return string 
      */
-	public function compilePattern($pattern) {}
+    public function compilePattern($pattern) {}
 
     /**
      * Extracts parameters from a string
@@ -60,7 +64,7 @@ class Route
      * @param string $pattern 
      * @return array|boolean 
      */
-	public function extractNamedParams($pattern) {}
+    public function extractNamedParams($pattern) {}
 
     /**
      * Reconfigure the route adding a new pattern and a set of paths
@@ -68,14 +72,14 @@ class Route
      * @param string $pattern 
      * @param array $paths 
      */
-	public function reConfigure($pattern, $paths = null) {}
+    public function reConfigure($pattern, $paths = null) {}
 
     /**
      * Returns the route's name
      *
      * @return string 
      */
-	public function getName() {}
+    public function getName() {}
 
     /**
      * Sets the route's name
@@ -86,9 +90,9 @@ class Route
      * </code>
      *
      * @param string $name 
-     * @return \Phalcon\Cli\Router\Route 
+     * @return Route 
      */
-	public function setName($name) {}
+    public function setName($name) {}
 
     /**
      * Sets a callback that is called if the route is matched.
@@ -98,49 +102,49 @@ class Route
      * @param callback $callback 
      * @return \Phalcon\Cli\Router\Route 
      */
-	public function beforeMatch($callback) {}
+    public function beforeMatch($callback) {}
 
     /**
      * Returns the 'before match' callback if any
      *
      * @return mixed 
      */
-	public function getBeforeMatch() {}
+    public function getBeforeMatch() {}
 
     /**
      * Returns the route's id
      *
      * @return string 
      */
-	public function getRouteId() {}
+    public function getRouteId() {}
 
     /**
      * Returns the route's pattern
      *
      * @return string 
      */
-	public function getPattern() {}
+    public function getPattern() {}
 
     /**
      * Returns the route's compiled pattern
      *
      * @return string 
      */
-	public function getCompiledPattern() {}
+    public function getCompiledPattern() {}
 
     /**
      * Returns the paths
      *
      * @return array 
      */
-	public function getPaths() {}
+    public function getPaths() {}
 
     /**
      * Returns the paths using positions as keys and names as values
      *
      * @return array 
      */
-	public function getReversedPaths() {}
+    public function getReversedPaths() {}
 
     /**
      * Adds a converter to perform an additional transformation for certain parameter
@@ -149,32 +153,32 @@ class Route
      * @param callable $converter 
      * @return \Phalcon\Cli\Router\Route 
      */
-	public function convert($name, $converter) {}
+    public function convert($name, $converter) {}
 
     /**
      * Returns the router converter
      *
      * @return array 
      */
-	public function getConverters() {}
+    public function getConverters() {}
 
     /**
      * Resets the internal route id generator
      */
-	public static function reset() {}
+    public static function reset() {}
 
     /**
      * Set the routing delimiter
      *
      * @param string $delimiter 
      */
-	public static function delimiter($delimiter = null) {}
+    public static function delimiter($delimiter = null) {}
 
     /**
      * Get routing delimiter
      *
      * @return string 
      */
-	public static function getDelimiter() {}
+    public static function getDelimiter() {}
 
 }

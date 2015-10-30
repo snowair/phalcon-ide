@@ -2,6 +2,33 @@
 
 namespace Phalcon\Cache\Frontend;
 
+/**
+ * Phalcon\Cache\Frontend\Base64
+ * Allows to cache data converting/deconverting them to base64.
+ * This adapter uses the base64_encode/base64_decode PHP's functions
+ * <code>
+ * <?php
+ * // Cache the files for 2 days using a Base64 frontend
+ * $frontCache = new \Phalcon\Cache\Frontend\Base64(array(
+ * "lifetime" => 172800
+ * ));
+ * //Create a MongoDB cache
+ * $cache = new \Phalcon\Cache\Backend\Mongo($frontCache, array(
+ * 'server' => "mongodb://localhost",
+ * 'db' => 'caches',
+ * 'collection' => 'images'
+ * ));
+ * // Try to get cached image
+ * $cacheKey = 'some-image.jpg.cache';
+ * $image    = $cache->get($cacheKey);
+ * if ($image === null) {
+ * // Store the image in the cache
+ * $cache->save($cacheKey, file_get_contents('tmp-dir/some-image.jpg'));
+ * }
+ * header('Content-Type: image/jpeg');
+ * echo $image;
+ * </code>
+ */
 class Base64 implements \Phalcon\Cache\FrontendInterface
 {
 
@@ -13,38 +40,38 @@ class Base64 implements \Phalcon\Cache\FrontendInterface
      *
      * @param array $frontendOptions 
      */
-	public function __construct($frontendOptions = null) {}
+    public function __construct($frontendOptions = null) {}
 
     /**
      * Returns the cache lifetime
      *
-     * @return integer 
+     * @return int 
      */
-	public function getLifetime() {}
+    public function getLifetime() {}
 
     /**
      * Check whether if frontend is buffering output
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isBuffering() {}
+    public function isBuffering() {}
 
     /**
-     * Starts output frontend. Actually, does nothing
+     * Starts output frontend. Actually, does nothing in this adapter
      */
-	public function start() {}
+    public function start() {}
 
     /**
      * Returns output cached content
      *
      * @return string 
      */
-	public function getContent() {}
+    public function getContent() {}
 
     /**
      * Stops output frontend
      */
-	public function stop() {}
+    public function stop() {}
 
     /**
      * Serializes data before storing them
@@ -52,7 +79,7 @@ class Base64 implements \Phalcon\Cache\FrontendInterface
      * @param mixed $data 
      * @return string 
      */
-	public function beforeStore($data) {}
+    public function beforeStore($data) {}
 
     /**
      * Unserializes data after retrieval
@@ -60,6 +87,6 @@ class Base64 implements \Phalcon\Cache\FrontendInterface
      * @param mixed $data 
      * @return mixed 
      */
-	public function afterRetrieve($data) {}
+    public function afterRetrieve($data) {}
 
 }

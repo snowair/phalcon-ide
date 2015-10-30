@@ -2,6 +2,10 @@
 
 namespace Phalcon\Assets;
 
+/**
+ * Phalcon\Assets\FilterInterface
+ * Interface for custom Phalcon\Assets filters
+ */
 interface FilterInterface
 {
 
@@ -11,6 +15,6 @@ interface FilterInterface
      * @param string $content 
      * @return string 
      */
-	public function filter($content);
+    public function filter($content);
 
 }

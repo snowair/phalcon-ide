@@ -2,6 +2,10 @@
 
 namespace Phalcon\Mvc\View\Engine;
 
+/**
+ * Phalcon\Mvc\View\Engine\Php
+ * Adapter to use PHP itself as templating engine
+ */
 class Php extends \Phalcon\Mvc\View\Engine implements \Phalcon\Mvc\View\EngineInterface
 {
 
@@ -9,9 +13,9 @@ class Php extends \Phalcon\Mvc\View\Engine implements \Phalcon\Mvc\View\EngineIn
      * Renders a view using the template engine
      *
      * @param string $path 
-     * @param array $params 
-     * @param boolean $mustClean 
+     * @param mixed $params 
+     * @param bool $mustClean 
      */
-	public function render($path, $params, $mustClean = false) {}
+    public function render($path, $params, $mustClean = false) {}
 
 }

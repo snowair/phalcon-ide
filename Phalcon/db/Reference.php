@@ -2,6 +2,18 @@
 
 namespace Phalcon\Db;
 
+/**
+ * Phalcon\Db\Reference
+ * Allows to define reference constraints on tables
+ * <code>
+ * $reference = new \Phalcon\Db\Reference("field_fk", array(
+ * 'referencedSchema' => "invoicing",
+ * 'referencedTable' => "products",
+ * 'columns' => array("product_type", "product_code"),
+ * 'referencedColumns' => array("type", "code")
+ * ));
+ * </code>
+ */
 class Reference implements \Phalcon\Db\ReferenceInterface
 {
     /**
@@ -58,48 +70,48 @@ class Reference implements \Phalcon\Db\ReferenceInterface
      *
      * @return string 
      */
-	public function getName() {}
+    public function getName() {}
 
 
-	public function getSchemaName() {}
+    public function getSchemaName() {}
 
 
-	public function getReferencedSchema() {}
+    public function getReferencedSchema() {}
 
     /**
      * Referenced Table
      *
      * @return string 
      */
-	public function getReferencedTable() {}
+    public function getReferencedTable() {}
 
     /**
      * Local reference columns
      *
      * @return array 
      */
-	public function getColumns() {}
+    public function getColumns() {}
 
     /**
      * Referenced Columns
      *
      * @return array 
      */
-	public function getReferencedColumns() {}
+    public function getReferencedColumns() {}
 
     /**
      * ON DELETE
      *
      * @return array 
      */
-	public function getOnDelete() {}
+    public function getOnDelete() {}
 
     /**
      * ON UPDATE
      *
      * @return array 
      */
-	public function getOnUpdate() {}
+    public function getOnUpdate() {}
 
     /**
      * Phalcon\Db\Reference constructor
@@ -107,7 +119,7 @@ class Reference implements \Phalcon\Db\ReferenceInterface
      * @param string $name 
      * @param array $definition 
      */
-	public function __construct($name, $definition) {}
+    public function __construct($name, $definition) {}
 
     /**
      * Restore a Phalcon\Db\Reference object from export
@@ -115,6 +127,6 @@ class Reference implements \Phalcon\Db\ReferenceInterface
      * @param array $data 
      * @return Reference 
      */
-	public static function __set_state($data) {}
+    public static function __set_state($data) {}
 
 }

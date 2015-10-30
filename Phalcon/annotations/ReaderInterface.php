@@ -2,6 +2,10 @@
 
 namespace Phalcon\Annotations;
 
+/**
+ * Phalcon\Annotations\Reader
+ * Parses docblocks returning an array with the found annotations
+ */
 interface ReaderInterface
 {
 
@@ -11,7 +15,7 @@ interface ReaderInterface
      * @param string $className 
      * @return array 
      */
-	public function parse($className);
+    public function parse($className);
 
     /**
      * Parses a raw doc block returning the annotations found
@@ -21,6 +25,6 @@ interface ReaderInterface
      * @param mixed $line 
      * @return array 
      */
-	public static function parseDocBlock($docBlock, $file = null, $line = null);
+    public static function parseDocBlock($docBlock, $file = null, $line = null);
 
 }

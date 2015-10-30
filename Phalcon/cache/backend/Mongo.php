@@ -2,6 +2,26 @@
 
 namespace Phalcon\Cache\Backend;
 
+/**
+ * Phalcon\Cache\Backend\Mongo
+ * Allows to cache output fragments, PHP data or raw data to a MongoDb backend
+ * <code>
+ * // Cache data for 2 days
+ * $frontCache = new \Phalcon\Cache\Frontend\Base64(array(
+ * "lifetime" => 172800
+ * ));
+ * //Create a MongoDB cache
+ * $cache = new \Phalcon\Cache\Backend\Mongo($frontCache, array(
+ * 'server' => "mongodb://localhost",
+ * 'db' => 'caches',
+ * 'collection' => 'images'
+ * ));
+ * //Cache arbitrary data
+ * $cache->save('my-data', file_get_contents('some-image.jpg'));
+ * //Get data
+ * $data = $cache->get('my-data');
+ * </code>
+ */
 class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInterface
 {
 
@@ -14,14 +34,14 @@ class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInte
      * @param \Phalcon\Cache\FrontendInterface $frontend 
      * @param array $options 
      */
-	public function __construct(\Phalcon\Cache\FrontendInterface $frontend, $options = null) {}
+    public function __construct(\Phalcon\Cache\FrontendInterface $frontend, $options = null) {}
 
     /**
      * Returns a MongoDb collection based on the backend parameters
      *
      * @return MongoCollection 
      */
-	protected final function _getCollection() {}
+    protected final function _getCollection() {}
 
     /**
      * Returns a cached content
@@ -30,7 +50,7 @@ class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInte
      * @param long $lifetime 
      * @return mixed 
      */
-	public function get($keyName, $lifetime = null) {}
+    public function get($keyName, $lifetime = null) {}
 
     /**
      * Stores cached content into the file backend and stops the frontend
@@ -40,7 +60,7 @@ class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInte
      * @param long $lifetime 
      * @param boolean $stopBuffer 
      */
-	public function save($keyName = null, $content = null, $lifetime = null, $stopBuffer = true) {}
+    public function save($keyName = null, $content = null, $lifetime = null, $stopBuffer = true) {}
 
     /**
      * Deletes a value from the cache by its key
@@ -48,7 +68,7 @@ class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInte
      * @param int|string $keyName 
      * @return boolean 
      */
-	public function delete($keyName) {}
+    public function delete($keyName) {}
 
     /**
      * Query the existing cached keys
@@ -56,7 +76,7 @@ class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInte
      * @param string $prefix 
      * @return array 
      */
-	public function queryKeys($prefix = null) {}
+    public function queryKeys($prefix = null) {}
 
     /**
      * Checks if cache exists and it isn't expired
@@ -65,14 +85,14 @@ class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInte
      * @param long $lifetime 
      * @return boolean 
      */
-	public function exists($keyName = null, $lifetime = null) {}
+    public function exists($keyName = null, $lifetime = null) {}
 
     /**
      * gc
      *
      * @return collection->remove(...) 
      */
-	public function gc() {}
+    public function gc() {}
 
     /**
      * Increment of a given key by $value
@@ -81,7 +101,7 @@ class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInte
      * @param long $value 
      * @return mixed 
      */
-	public function increment($keyName, $value = 1) {}
+    public function increment($keyName, $value = 1) {}
 
     /**
      * Decrement of a given key by $value
@@ -92,13 +112,13 @@ class Mongo extends \Phalcon\Cache\Backend implements \Phalcon\Cache\BackendInte
      * @param long $$value 
      * @return mixed 
      */
-	public function decrement($keyName, $value = 1) {}
+    public function decrement($keyName, $value = 1) {}
 
     /**
      * Immediately invalidates all existing items.
      *
      * @return bool 
      */
-	public function flush() {}
+    public function flush() {}
 
 }

@@ -2,6 +2,10 @@
 
 namespace Phalcon\Logger\Formatter;
 
+/**
+ * Phalcon\Logger\Formatter\Firephp
+ * Formats messages so that they can be sent to FirePHP
+ */
 class Firephp extends \Phalcon\Logger\Formatter implements \Phalcon\Logger\FormatterInterface
 {
 
@@ -15,40 +19,39 @@ class Firephp extends \Phalcon\Logger\Formatter implements \Phalcon\Logger\Forma
      * Returns the string meaning of a logger constant
      *
      * @param int $type 
-     * @param integer $$type 
      * @return string 
      */
-	public function getTypeString($type) {}
+    public function getTypeString($type) {}
 
     /**
      * Returns the string meaning of a logger constant
      *
      * @param bool $isShow 
-     * @return this 
+     * @return Firephp 
      */
-	public function setShowBacktrace($isShow = null) {}
+    public function setShowBacktrace($isShow = null) {}
 
     /**
      * Returns the string meaning of a logger constant
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function getShowBacktrace() {}
+    public function getShowBacktrace() {}
 
     /**
      * Returns the string meaning of a logger constant
      *
      * @param bool $isEnable 
-     * @return this 
+     * @return Firephp 
      */
-	public function enableLabels($isEnable = null) {}
+    public function enableLabels($isEnable = null) {}
 
     /**
      * Returns the labels enabled
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function labelsEnabled() {}
+    public function labelsEnabled() {}
 
     /**
      * Applies a format to a message before sending it to the log
@@ -63,6 +66,6 @@ class Firephp extends \Phalcon\Logger\Formatter implements \Phalcon\Logger\Forma
      * @param array $$context 
      * @return string 
      */
-	public function format($message, $type, $timestamp, $context = null) {}
+    public function format($message, $type, $timestamp, $context = null) {}
 
 }

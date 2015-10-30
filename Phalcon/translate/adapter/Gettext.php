@@ -2,6 +2,11 @@
 
 namespace Phalcon\Translate\Adapter;
 
+/**
+ * Class Gettext
+ *
+ * @package Phalcon\Translate\Adapter
+ */
 class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\AdapterInterface, \ArrayAccess
 {
     /**
@@ -30,7 +35,7 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
      *
      * @param array $options 
      */
-	public function __construct($options) {}
+    public function __construct($options) {}
 
     /**
      * Returns the translation related to the given key
@@ -40,7 +45,7 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
      * @param string $domain 
      * @return string 
      */
-	public function query($index, $placeholders = null) {}
+    public function query($index, $placeholders = null) {}
 
     /**
      * Check whether is defined a translation key in the internal array
@@ -48,7 +53,7 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
      * @param string $index 
      * @return bool 
      */
-	public function exists($index) {}
+    public function exists($index) {}
 
     /**
      * The plural version of gettext().
@@ -61,7 +66,7 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
      * @param string $domain 
      * @return string 
      */
-	public function nquery($msgid1, $msgid2, $count, $placeholders = null, $domain = null) {}
+    public function nquery($msgid1, $msgid2, $count, $placeholders = null, $domain = null) {}
 
     /**
      * Changes the current domain (i.e. the translation file). The passed domain must be one
@@ -71,37 +76,35 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
      * @param string $domain 
      * @return string the new current domain.
      */
-	public function setDomain($domain) {}
+    public function setDomain($domain) {}
 
     /**
      * Sets the default domain
      *
      * @return string the new current domain.
      */
-	public function resetDomain() {}
+    public function resetDomain() {}
 
     /**
      * Sets the domain default to search within when calls are made to gettext()
      *
      * @param string $domain 
-     * @return void 
      */
-	public function setDefaultDomain($domain) {}
+    public function setDefaultDomain($domain) {}
 
     /**
      * Gets the default domain
      *
      * @return string 
      */
-	public function getDefaultDomain() {}
+    public function getDefaultDomain() {}
 
     /**
      * Sets the path for a domain
      *
      * @param mixed $directory 
-     * @return string 
      */
-	public function setDirectory($directory) {}
+    public function setDirectory($directory) {}
 
     /**
      * Gets the path for a domain
@@ -109,44 +112,43 @@ class Gettext extends \Phalcon\Translate\Adapter implements \Phalcon\Translate\A
      * @param mixed $directory 
      * @return string|array 
      */
-	public function getDirectory($directory) {}
+    public function getDirectory($directory) {}
 
     /**
      * Sets locale information
      *
      * @param int $category 
      * @param string $locale 
-     * @return string|boolean 
+     * @return string|bool 
      */
-	public function setLocale($category, $locale) {}
+    public function setLocale($category, $locale) {}
 
     /**
      * Gets locale
      *
      * @return string 
      */
-	public function getLocale() {}
+    public function getLocale() {}
 
     /**
      * Gets locale category
      *
      * @return int 
      */
-	public function getCategory() {}
+    public function getCategory() {}
 
     /**
      * Validator for constructor
      *
      * @param array $options 
-     * @return void 
      */
-	protected function prepareOptions($options) {}
+    protected function prepareOptions($options) {}
 
     /**
      * Gets default options
      *
      * @return array 
      */
-	protected function getOptionsDefault() {}
+    protected function getOptionsDefault() {}
 
 }

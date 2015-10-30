@@ -2,6 +2,16 @@
 
 namespace Phalcon\Logger\Adapter;
 
+/**
+ * Phalcon\Logger\Adapter\Stream
+ * Sends logs to a valid PHP stream
+ * <code>
+ * $logger = new \Phalcon\Logger\Adapter\Stream("php://stderr");
+ * $logger->log("This is a message");
+ * $logger->log("This is an error", \Phalcon\Logger::ERROR);
+ * $logger->error("This is another error");
+ * </code>
+ */
 class Stream extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterInterface
 {
     /**
@@ -18,14 +28,14 @@ class Stream extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterI
      * @param string $name 
      * @param array $options 
      */
-	public function __construct($name, $options = null) {}
+    public function __construct($name, $options = null) {}
 
     /**
      * Returns the internal formatter
      *
-     * @return \Phalcon\Logger\Formatter\Line 
+     * @return \Phalcon\Logger\FormatterInterface 
      */
-	public function getFormatter() {}
+    public function getFormatter() {}
 
     /**
      * Writes the log to the stream itself
@@ -34,15 +44,14 @@ class Stream extends \Phalcon\Logger\Adapter implements \Phalcon\Logger\AdapterI
      * @param int $type 
      * @param int $time 
      * @param array $context 
-     * @param array $$context 
      */
-	public function logInternal($message, $type, $time, $context) {}
+    public function logInternal($message, $type, $time, $context) {}
 
     /**
      * Closes the logger
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function close() {}
+    public function close() {}
 
 }

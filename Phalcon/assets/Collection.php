@@ -2,6 +2,10 @@
 
 namespace Phalcon\Assets;
 
+/**
+ * Phalcon\Assets\Collection
+ * Represents a collection of resources
+ */
 class Collection implements \Countable, \Iterator
 {
 
@@ -42,40 +46,40 @@ class Collection implements \Countable, \Iterator
 
 
 
-	public function getPrefix() {}
+    public function getPrefix() {}
 
 
-	public function getLocal() {}
+    public function getLocal() {}
 
 
-	public function getResources() {}
+    public function getResources() {}
 
 
-	public function getCodes() {}
+    public function getCodes() {}
 
 
-	public function getPosition() {}
+    public function getPosition() {}
 
 
-	public function getFilters() {}
+    public function getFilters() {}
 
 
-	public function getAttributes() {}
+    public function getAttributes() {}
 
 
-	public function getJoin() {}
+    public function getJoin() {}
 
 
-	public function getTargetUri() {}
+    public function getTargetUri() {}
 
 
-	public function getTargetPath() {}
+    public function getTargetPath() {}
 
 
-	public function getTargetLocal() {}
+    public function getTargetLocal() {}
 
 
-	public function getSourcePath() {}
+    public function getSourcePath() {}
 
     /**
      * Adds a resource to the collection
@@ -83,7 +87,7 @@ class Collection implements \Countable, \Iterator
      * @param mixed $resource 
      * @return Collection 
      */
-	public function add(\Phalcon\Assets\Resource $resource) {}
+    public function add(\Phalcon\Assets\Resource $resource) {}
 
     /**
      * Adds a inline code to the collection
@@ -91,28 +95,28 @@ class Collection implements \Countable, \Iterator
      * @param mixed $code 
      * @return Collection 
      */
-	public function addInline(\Phalcon\Assets\Inline $code) {}
+    public function addInline(\Phalcon\Assets\Inline $code) {}
 
     /**
      * Adds a CSS resource to the collection
      *
      * @param string $path 
-     * @param boolean $local 
-     * @param boolean $filter 
-     * @param array $attributes 
-     * @return \Phalcon\Assets\Collection 
+     * @param mixed $local 
+     * @param bool $filter 
+     * @param mixed $attributes 
+     * @return Collection 
      */
-	public function addCss($path, $local = null, $filter = false, $attributes = null) {}
+    public function addCss($path, $local = null, $filter = false, $attributes = null) {}
 
     /**
      * Adds a inline CSS to the collection
      *
      * @param string $content 
-     * @param boolean $filter 
-     * @param array $attributes 
-     * @return \Phalcon\Assets\Collection 
+     * @param bool $filter 
+     * @param mixed $attributes 
+     * @return Collection 
      */
-	public function addInlineCss($content, $filter = false, $attributes = null) {}
+    public function addInlineCss($content, $filter = false, $attributes = null) {}
 
     /**
      * Adds a javascript resource to the collection
@@ -123,7 +127,7 @@ class Collection implements \Countable, \Iterator
      * @param array $attributes 
      * @return \Phalcon\Assets\Collection 
      */
-	public function addJs($path, $local = null, $filter = false, $attributes = null) {}
+    public function addJs($path, $local = null, $filter = false, $attributes = null) {}
 
     /**
      * Adds a inline javascript to the collection
@@ -133,45 +137,45 @@ class Collection implements \Countable, \Iterator
      * @param array $attributes 
      * @return \Phalcon\Assets\Collection 
      */
-	public function addInlineJs($content, $filter = false, $attributes = null) {}
+    public function addInlineJs($content, $filter = false, $attributes = null) {}
 
     /**
      * Returns the number of elements in the form
      *
      * @return int 
      */
-	public function count() {}
+    public function count() {}
 
     /**
      * Rewinds the internal iterator
      */
-	public function rewind() {}
+    public function rewind() {}
 
     /**
      * Returns the current resource in the iterator
      *
      * @return \Phalcon\Assets\Resource 
      */
-	public function current() {}
+    public function current() {}
 
     /**
      * Returns the current position/key in the iterator
      *
      * @return int 
      */
-	public function key() {}
+    public function key() {}
 
     /**
      * Moves the internal iteration pointer to the next position
      */
-	public function next() {}
+    public function next() {}
 
     /**
      * Check if the current element in the iterator is valid
      *
      * @return bool 
      */
-	public function valid() {}
+    public function valid() {}
 
     /**
      * Sets the target path of the file for the filtered/join output
@@ -179,7 +183,7 @@ class Collection implements \Countable, \Iterator
      * @param string $targetPath 
      * @return Collection 
      */
-	public function setTargetPath($targetPath) {}
+    public function setTargetPath($targetPath) {}
 
     /**
      * Sets a base source path for all the resources in this collection
@@ -187,7 +191,7 @@ class Collection implements \Countable, \Iterator
      * @param string $sourcePath 
      * @return Collection 
      */
-	public function setSourcePath($sourcePath) {}
+    public function setSourcePath($sourcePath) {}
 
     /**
      * Sets a target uri for the generated HTML
@@ -195,7 +199,7 @@ class Collection implements \Countable, \Iterator
      * @param string $targetUri 
      * @return Collection 
      */
-	public function setTargetUri($targetUri) {}
+    public function setTargetUri($targetUri) {}
 
     /**
      * Sets a common prefix for all the resources
@@ -203,7 +207,7 @@ class Collection implements \Countable, \Iterator
      * @param string $prefix 
      * @return Collection 
      */
-	public function setPrefix($prefix) {}
+    public function setPrefix($prefix) {}
 
     /**
      * Sets if the collection uses local resources by default
@@ -211,7 +215,7 @@ class Collection implements \Countable, \Iterator
      * @param bool $local 
      * @return Collection 
      */
-	public function setLocal($local) {}
+    public function setLocal($local) {}
 
     /**
      * Sets extra HTML attributes
@@ -219,7 +223,7 @@ class Collection implements \Countable, \Iterator
      * @param array $attributes 
      * @return Collection 
      */
-	public function setAttributes($attributes) {}
+    public function setAttributes($attributes) {}
 
     /**
      * Sets an array of filters in the collection
@@ -227,7 +231,7 @@ class Collection implements \Countable, \Iterator
      * @param array $filters 
      * @return Collection 
      */
-	public function setFilters($filters) {}
+    public function setFilters($filters) {}
 
     /**
      * Sets the target local
@@ -235,7 +239,7 @@ class Collection implements \Countable, \Iterator
      * @param bool $targetLocal 
      * @return Collection 
      */
-	public function setTargetLocal($targetLocal) {}
+    public function setTargetLocal($targetLocal) {}
 
     /**
      * Sets if all filtered resources in the collection must be joined in a single result file
@@ -243,7 +247,7 @@ class Collection implements \Countable, \Iterator
      * @param bool $join 
      * @return Collection 
      */
-	public function join($join) {}
+    public function join($join) {}
 
     /**
      * Returns the complete location where the joined/filtered collection must be written
@@ -251,7 +255,7 @@ class Collection implements \Countable, \Iterator
      * @param string $basePath 
      * @return string 
      */
-	public function getRealTargetPath($basePath) {}
+    public function getRealTargetPath($basePath) {}
 
     /**
      * Adds a filter to the collection
@@ -259,9 +263,9 @@ class Collection implements \Countable, \Iterator
      * @param mixed $filter 
      * @return Collection 
      */
-	public function addFilter(\Phalcon\Assets\FilterInterface $filter) {}
+    public function addFilter(\Phalcon\Assets\FilterInterface $filter) {}
 
 
-	public function __construct() {}
+     function zephir_init_properties_Phalcon_Assets_Collection() {}
 
 }

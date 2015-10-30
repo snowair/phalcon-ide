@@ -2,29 +2,31 @@
 
 namespace Phalcon\Session;
 
+/**
+ * Phalcon\Session\AdapterInterface
+ * Interface for Phalcon\Session adapters
+ */
 interface AdapterInterface
 {
 
     /**
      * Starts session, optionally using an adapter
-     *
-     * @param array $options 
      */
-	public function start();
+    public function start();
 
     /**
      * Sets session options
      *
      * @param array $options 
      */
-	public function setOptions($options);
+    public function setOptions($options);
 
     /**
      * Get internal options
      *
      * @return array 
      */
-	public function getOptions();
+    public function getOptions();
 
     /**
      * Gets a session variable from an application context
@@ -33,7 +35,7 @@ interface AdapterInterface
      * @param mixed $defaultValue 
      * @return mixed 
      */
-	public function get($index, $defaultValue = null);
+    public function get($index, $defaultValue = null);
 
     /**
      * Sets a session variable in an application context
@@ -41,42 +43,42 @@ interface AdapterInterface
      * @param string $index 
      * @param string $value 
      */
-	public function set($index, $value);
+    public function set($index, $value);
 
     /**
      * Check whether a session variable is set in an application context
      *
      * @param string $index 
-     * @return boolean 
+     * @return bool 
      */
-	public function has($index);
+    public function has($index);
 
     /**
      * Removes a session variable from an application context
      *
      * @param string $index 
      */
-	public function remove($index);
+    public function remove($index);
 
     /**
      * Returns active session id
      *
      * @return string 
      */
-	public function getId();
+    public function getId();
 
     /**
      * Check whether the session has been started
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isStarted();
+    public function isStarted();
 
     /**
      * Destroys the active session
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function destroy();
+    public function destroy();
 
 }

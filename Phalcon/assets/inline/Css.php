@@ -2,6 +2,10 @@
 
 namespace Phalcon\Assets\Inline;
 
+/**
+ * Phalcon\Assets\Inline\Css
+ * Represents inline CSS
+ */
 class Css extends \Phalcon\Assets\Inline
 {
 
@@ -12,6 +16,6 @@ class Css extends \Phalcon\Assets\Inline
      * @param boolean $filter 
      * @param array $attributes 
      */
-	public function __construct($content, $filter = true, $attributes = null) {}
+    public function __construct($content, $filter = true, $attributes = null) {}
 
 }

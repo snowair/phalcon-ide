@@ -2,6 +2,12 @@
 
 namespace Phalcon\Db;
 
+/**
+ * Phalcon\Db\Index
+ * Allows to define indexes to be used on tables. Indexes are a common way
+ * to enhance database performance. An index allows the database server to find
+ * and retrieve specific rows much faster than it could do without an index
+ */
 class Index implements \Phalcon\Db\IndexInterface
 {
     /**
@@ -31,21 +37,21 @@ class Index implements \Phalcon\Db\IndexInterface
      *
      * @return string 
      */
-	public function getName() {}
+    public function getName() {}
 
     /**
      * Index columns
      *
      * @return array 
      */
-	public function getColumns() {}
+    public function getColumns() {}
 
     /**
      * Index type
      *
      * @return string 
      */
-	public function getType() {}
+    public function getType() {}
 
     /**
      * Phalcon\Db\Index constructor
@@ -54,7 +60,7 @@ class Index implements \Phalcon\Db\IndexInterface
      * @param array $columns 
      * @param mixed $type 
      */
-	public function __construct($name, $columns, $type = null) {}
+    public function __construct($name, $columns, $type = null) {}
 
     /**
      * Restore a Phalcon\Db\Index object from export
@@ -62,6 +68,6 @@ class Index implements \Phalcon\Db\IndexInterface
      * @param array $data 
      * @return Index 
      */
-	public static function __set_state($data) {}
+    public static function __set_state($data) {}
 
 }

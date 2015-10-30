@@ -2,6 +2,18 @@
 
 namespace Phalcon\Db\Adapter\Pdo;
 
+/**
+ * Phalcon\Db\Adapter\Pdo\Oracle
+ * Specific functions for the Oracle database system
+ * <code>
+ * $config = array(
+ * "dbname" => "//localhost/dbname",
+ * "username" => "oracle",
+ * "password" => "oracle"
+ * );
+ * $connection = new \Phalcon\Db\Adapter\Pdo\Oracle($config);
+ * </code>
+ */
 class Oracle extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInterface
 {
 
@@ -18,7 +30,7 @@ class Oracle extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      * @param array $descriptor 
      * @return boolean 
      */
-	public function connect($descriptor = null) {}
+    public function connect($descriptor = null) {}
 
     /**
      * Returns an array of Phalcon\Db\Column objects describing a table
@@ -26,9 +38,9 @@ class Oracle extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      *
      * @param string $table 
      * @param string $schema 
-     * @return \Phalcon\Db\Column[] 
+     * @return \Phalcon\Db\Column 
      */
-	public function describeColumns($table, $schema = null) {}
+    public function describeColumns($table, $schema = null) {}
 
     /**
      * Returns the insert id for the auto_increment/serial column inserted in the lastest executed SQL statement
@@ -46,27 +58,27 @@ class Oracle extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      * @param string $sequenceName 
      * @return int 
      */
-	public function lastInsertId($sequenceName = null) {}
+    public function lastInsertId($sequenceName = null) {}
 
     /**
      * Check whether the database system requires an explicit value for identity columns
      *
      * @return bool 
      */
-	public function useExplicitIdValue() {}
+    public function useExplicitIdValue() {}
 
     /**
      * Return the default identity value to insert in an identity column
      *
      * @return \Phalcon\Db\RawValue 
      */
-	public function getDefaultIdValue() {}
+    public function getDefaultIdValue() {}
 
     /**
      * Check whether the database system requires a sequence to produce auto-numeric values
      *
      * @return bool 
      */
-	public function supportSequences() {}
+    public function supportSequences() {}
 
 }

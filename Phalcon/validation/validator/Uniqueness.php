@@ -2,16 +2,34 @@
 
 namespace Phalcon\Validation\Validator;
 
-class Uniqueness extends \Phalcon\Validation\Validator implements \Phalcon\Validation\ValidatorInterface
+/**
+ * Phalcon\Validation\Validator\Uniqueness
+ * Check that a field is unique in the related table
+ * <code>
+ * use Phalcon\Validation\Validator\Uniqueness as UniquenessValidator;
+ * $validator->add('username', new UniquenessValidator(array(
+ * 'model' => 'Users',
+ * 'message' => ':field must be unique'
+ * )));
+ * </code>
+ * Different attribute from the field
+ * <code>
+ * $validator->add('username', new UniquenessValidator(array(
+ * 'model' => 'Users',
+ * 'attribute' => 'nick'
+ * )));
+ * </code>
+ */
+class Uniqueness extends \Phalcon\Validation\Validator
 {
 
     /**
      * Executes the validation
      *
-     * @param \Phalcon\Validation $validation 
+     * @param mixed $validation 
      * @param string $field 
-     * @return boolean 
+     * @return bool 
      */
-	public function validate(\Phalcon\Validation $validation, $field) {}
+    public function validate(\Phalcon\Validation $validation, $field) {}
 
 }

@@ -2,6 +2,7 @@
 
 namespace Phalcon\Mvc\Model\MetaData;
 
+
 interface StrategyInterface
 {
 
@@ -12,7 +13,7 @@ interface StrategyInterface
      * @param \Phalcon\DiInterface $dependencyInjector 
      * @return array 
      */
-	public function getMetaData(\Phalcon\Mvc\ModelInterface $model, \Phalcon\DiInterface $dependencyInjector);
+    public function getMetaData(\Phalcon\Mvc\ModelInterface $model, \Phalcon\DiInterface $dependencyInjector);
 
     /**
      * Read the model's column map, this can't be inferred
@@ -22,6 +23,6 @@ interface StrategyInterface
      * @param \Phalcon\DiInterface $dependencyInjector 
      * @return array 
      */
-	public function getColumnMaps(\Phalcon\Mvc\ModelInterface $model, \Phalcon\DiInterface $dependencyInjector);
+    public function getColumnMaps(\Phalcon\Mvc\ModelInterface $model, \Phalcon\DiInterface $dependencyInjector);
 
 }

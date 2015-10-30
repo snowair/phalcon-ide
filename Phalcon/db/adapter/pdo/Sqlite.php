@@ -2,6 +2,16 @@
 
 namespace Phalcon\Db\Adapter\Pdo;
 
+/**
+ * Phalcon\Db\Adapter\Pdo\Sqlite
+ * Specific functions for the Sqlite database system
+ * <code>
+ * $config = array(
+ * "dbname" => "/tmp/test.sqlite"
+ * );
+ * $connection = new \Phalcon\Db\Adapter\Pdo\Sqlite($config);
+ * </code>
+ */
 class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInterface
 {
 
@@ -19,7 +29,7 @@ class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      * @param array $$descriptor 
      * @return boolean 
      */
-	public function connect($descriptor = null) {}
+    public function connect($descriptor = null) {}
 
     /**
      * Returns an array of Phalcon\Db\Column objects describing a table
@@ -29,9 +39,9 @@ class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      *
      * @param string $table 
      * @param string $schema 
-     * @return \Phalcon\Db\Column[] 
+     * @return \Phalcon\Db\Column 
      */
-	public function describeColumns($table, $schema = null) {}
+    public function describeColumns($table, $schema = null) {}
 
     /**
      * Lists table indexes
@@ -43,7 +53,7 @@ class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      * @param mixed $schema 
      * @return \Phalcon\Db\IndexInterface 
      */
-	public function describeIndexes($table, $schema = null) {}
+    public function describeIndexes($table, $schema = null) {}
 
     /**
      * Lists table references
@@ -55,13 +65,13 @@ class Sqlite extends \Phalcon\Db\Adapter\Pdo implements \Phalcon\Db\AdapterInter
      * @param mixed $schema 
      * @return \Phalcon\Db\ReferenceInterface 
      */
-	public function describeReferences($table, $schema = null) {}
+    public function describeReferences($table, $schema = null) {}
 
     /**
      * Check whether the database system requires an explicit value for identity columns
      *
      * @return bool 
      */
-	public function useExplicitIdValue() {}
+    public function useExplicitIdValue() {}
 
 }

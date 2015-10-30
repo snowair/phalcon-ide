@@ -2,6 +2,10 @@
 
 namespace Phalcon\Db;
 
+/**
+ * Phalcon\Db\Adapter\Pdo\Mysql
+ * Interface for Phalcon\Db adapters
+ */
 interface AdapterInterface
 {
 
@@ -10,7 +14,7 @@ interface AdapterInterface
      *
      * @param array $descriptor 
      */
-	public function __construct(array $descriptor);
+    public function __construct($descriptor);
 
     /**
      * Returns the first row in a SQL query result
@@ -20,7 +24,7 @@ interface AdapterInterface
      * @param int $placeholders 
      * @return array 
      */
-	public function fetchOne($sqlQuery, $fetchMode = 2, $placeholders = null);
+    public function fetchOne($sqlQuery, $fetchMode = 2, $placeholders = null);
 
     /**
      * Dumps the complete result of a query into an array
@@ -30,7 +34,7 @@ interface AdapterInterface
      * @param int $placeholders 
      * @return array 
      */
-	public function fetchAll($sqlQuery, $fetchMode = 2, $placeholders = null);
+    public function fetchAll($sqlQuery, $fetchMode = 2, $placeholders = null);
 
     /**
      * Inserts data into a table using custom RBDM SQL syntax
@@ -43,7 +47,7 @@ interface AdapterInterface
      * @param  $array dataTypes
      * @return  
      */
-	public function insert($table, $values, $fields = null, $dataTypes = null);
+    public function insert($table, $values, $fields = null, $dataTypes = null);
 
     /**
      * Updates data on a table using custom RBDM SQL syntax
@@ -57,7 +61,7 @@ interface AdapterInterface
      * @param  $array dataTypes
      * @return  
      */
-	public function update($table, $fields, $values, $whereCondition = null, $dataTypes = null);
+    public function update($table, $fields, $values, $whereCondition = null, $dataTypes = null);
 
     /**
      * Deletes data from a table using custom RBDM SQL syntax
@@ -68,7 +72,7 @@ interface AdapterInterface
      * @param array $dataTypes 
      * @return boolean 
      */
-	public function delete($table, $whereCondition = null, $placeholders = null, $dataTypes = null);
+    public function delete($table, $whereCondition = null, $placeholders = null, $dataTypes = null);
 
     /**
      * Gets a list of columns
@@ -77,7 +81,7 @@ interface AdapterInterface
      * @return	string
      * @param mixed $columnList 
      */
-	public function getColumnList($columnList);
+    public function getColumnList($columnList);
 
     /**
      * Appends a LIMIT clause to sqlQuery argument
@@ -88,217 +92,179 @@ interface AdapterInterface
      * @param  $int number
      * @return  
      */
-	public function limit($sqlQuery, $number);
+    public function limit($sqlQuery, $number);
 
     /**
      * Generates SQL checking for the existence of a schema.table
      *
      * @param string $tableName 
      * @param string $schemaName 
-     * @return string 
+     * @return bool 
      */
-	public function tableExists($tableName, $schemaName = null);
+    public function tableExists($tableName, $schemaName = null);
 
     /**
      * Generates SQL checking for the existence of a schema.view
      *
      * @param string $viewName 
      * @param string $schemaName 
-     * @return string 
+     * @return bool 
      */
-	public function viewExists($viewName, $schemaName = null);
+    public function viewExists($viewName, $schemaName = null);
 
     /**
      * Returns a SQL modified with a FOR UPDATE clause
      *
-     * @param	string sqlQuery
-     * @return	string
      * @param string $sqlQuery 
+     * @return string 
      */
-	public function forUpdate($sqlQuery);
+    public function forUpdate($sqlQuery);
 
     /**
      * Returns a SQL modified with a LOCK IN SHARE MODE clause
      *
-     * @param	string sqlQuery
-     * @return	string
-     * @param mixed $sqlQuery 
+     * @param string $sqlQuery 
+     * @return string 
      */
-	public function sharedLock($sqlQuery);
+    public function sharedLock($sqlQuery);
 
     /**
      * Creates a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	array definition
-     * @return	boolean
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
-     * @param mixed $definition 
+     * @param string $tableName 
+     * @param string $schemaName 
+     * @param array $definition 
+     * @return bool 
      */
-	public function createTable($tableName, $schemaName, $definition);
+    public function createTable($tableName, $schemaName, $definition);
 
     /**
      * Drops a table from a schema/database
      *
-     * @param	string tableName
-     * @param	boolean ifExists
-     * @return	boolean
-     * @param mixed $tableName 
+     * @param string $tableName 
      * @param string $schemaName 
-     * @param mixed $ifExists 
+     * @param bool $ifExists 
+     * @return bool 
      */
-	public function dropTable($tableName, $schemaName = null, $ifExists = true);
+    public function dropTable($tableName, $schemaName = null, $ifExists = true);
 
     /**
      * Creates a view
      *
-     * @param	string tableName
-     * @param	array definition
-     * @param	string schemaName
-     * @return	boolean
-     * @param mixed $viewName 
-     * @param mixed $definition 
-     * @param mixed $schemaName 
+     * @param string $viewName 
+     * @param array $definition 
+     * @param string $schemaName 
+     * @return bool 
      */
-	public function createView($viewName, $definition, $schemaName = null);
+    public function createView($viewName, $definition, $schemaName = null);
 
     /**
      * Drops a view
      *
-     * @param	string viewName
-     * @param	boolean ifExists
-     * @return	boolean
-     * @param mixed $viewName 
+     * @param string $viewName 
      * @param string $schemaName 
-     * @param mixed $ifExists 
+     * @param bool $ifExists 
+     * @return bool 
      */
-	public function dropView($viewName, $schemaName = null, $ifExists = true);
+    public function dropView($viewName, $schemaName = null, $ifExists = true);
 
     /**
      * Adds a column to a table
      *
-     * @param	string tableName
-     * @param	Phalcon\Db\ColumnInterface column
-     * @return	boolean
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
+     * @param string $tableName 
+     * @param string $schemaName 
      * @param mixed $column 
-     * @param  $string schemaName
+     * @return bool 
      */
-	public function addColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column);
+    public function addColumn($tableName, $schemaName, ColumnInterface $column);
 
     /**
      * Modifies a table column based on a definition
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	Phalcon\Db\ColumnInterface column
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
+     * @param string $tableName 
+     * @param string $schemaName 
      * @param mixed $column 
-     * @return  
+     * @param mixed $currentColumn 
+     * @return bool 
      */
-	public function modifyColumn($tableName, $schemaName, \Phalcon\Db\ColumnInterface $column);
+    public function modifyColumn($tableName, $schemaName, ColumnInterface $column, ColumnInterface $currentColumn = null);
 
     /**
      * Drops a column from a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	string columnName
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
-     * @param mixed $columnName 
-     * @return  
+     * @param string $tableName 
+     * @param string $schemaName 
+     * @param string $columnName 
+     * @return bool 
      */
-	public function dropColumn($tableName, $schemaName, $columnName);
+    public function dropColumn($tableName, $schemaName, $columnName);
 
     /**
      * Adds an index to a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	Phalcon\Db\IndexInterface index
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
+     * @param string $tableName 
+     * @param string $schemaName 
      * @param mixed $index 
-     * @return  
+     * @return bool 
      */
-	public function addIndex($tableName, $schemaName, \Phalcon\Db\IndexInterface $index);
+    public function addIndex($tableName, $schemaName, IndexInterface $index);
 
     /**
      * Drop an index from a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	string indexName
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
-     * @param mixed $indexName 
-     * @return  
+     * @param string $tableName 
+     * @param string $schemaName 
+     * @param string $indexName 
+     * @return bool 
      */
-	public function dropIndex($tableName, $schemaName, $indexName);
+    public function dropIndex($tableName, $schemaName, $indexName);
 
     /**
      * Adds a primary key to a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	Phalcon\Db\IndexInterface index
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
+     * @param string $tableName 
+     * @param string $schemaName 
      * @param mixed $index 
-     * @return  
+     * @return bool 
      */
-	public function addPrimaryKey($tableName, $schemaName, \Phalcon\Db\IndexInterface $index);
+    public function addPrimaryKey($tableName, $schemaName, IndexInterface $index);
 
     /**
      * Drops primary key from a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
-     * @return  
+     * @param string $tableName 
+     * @param string $schemaName 
+     * @return bool 
      */
-	public function dropPrimaryKey($tableName, $schemaName);
+    public function dropPrimaryKey($tableName, $schemaName);
 
     /**
      * Adds a foreign key to a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	Phalcon\Db\ReferenceInterface reference
-     * @return	boolean true
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
+     * @param string $tableName 
+     * @param string $schemaName 
      * @param mixed $reference 
+     * @return bool 
      */
-	public function addForeignKey($tableName, $schemaName, \Phalcon\Db\ReferenceInterface $reference);
+    public function addForeignKey($tableName, $schemaName, ReferenceInterface $reference);
 
     /**
      * Drops a foreign key from a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @param	string referenceName
-     * @return	boolean true
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
-     * @param mixed $referenceName 
+     * @param string $tableName 
+     * @param string $schemaName 
+     * @param string $referenceName 
+     * @return bool 
      */
-	public function dropForeignKey($tableName, $schemaName, $referenceName);
+    public function dropForeignKey($tableName, $schemaName, $referenceName);
 
     /**
      * Returns the SQL column definition from a column
      *
-     * @param	Phalcon\Db\ColumnInterface column
-     * @return	string
      * @param mixed $column 
+     * @return string 
      */
-	public function getColumnDefinition(\Phalcon\Db\ColumnInterface $column);
+    public function getColumnDefinition(ColumnInterface $column);
 
     /**
      * List all tables on a database
@@ -306,7 +272,7 @@ interface AdapterInterface
      * @param string $schemaName 
      * @return array 
      */
-	public function listTables($schemaName = null);
+    public function listTables($schemaName = null);
 
     /**
      * List all views on a database
@@ -314,70 +280,70 @@ interface AdapterInterface
      * @param string $schemaName 
      * @return array 
      */
-	public function listViews($schemaName = null);
+    public function listViews($schemaName = null);
 
     /**
      * Return descriptor used to connect to the active database
      *
      * @return array 
      */
-	public function getDescriptor();
+    public function getDescriptor();
 
     /**
      * Gets the active connection unique identifier
      *
      * @return string 
      */
-	public function getConnectionId();
+    public function getConnectionId();
 
     /**
      * Active SQL statement in the object
      *
      * @return string 
      */
-	public function getSQLStatement();
+    public function getSQLStatement();
 
     /**
      * Active SQL statement in the object without replace bound paramters
      *
      * @return string 
      */
-	public function getRealSQLStatement();
+    public function getRealSQLStatement();
 
     /**
      * Active SQL statement in the object
      *
      * @return array 
      */
-	public function getSQLVariables();
+    public function getSQLVariables();
 
     /**
      * Active SQL statement in the object
      *
      * @return array 
      */
-	public function getSQLBindTypes();
+    public function getSQLBindTypes();
 
     /**
      * Returns type of database system the adapter is used for
      *
      * @return string 
      */
-	public function getType();
+    public function getType();
 
     /**
      * Returns the name of the dialect used
      *
      * @return string 
      */
-	public function getDialectType();
+    public function getDialectType();
 
     /**
      * Returns internal dialect instance
      *
-     * @return \Phalcon\Db\DialectInterface 
+     * @return DialectInterface 
      */
-	public function getDialect();
+    public function getDialect();
 
     /**
      * This method is automatically called in Phalcon\Db\Adapter\Pdo constructor.
@@ -387,43 +353,43 @@ interface AdapterInterface
      * @param  $array descriptor
      * @return  
      */
-	public function connect($descriptor = null);
+    public function connect($descriptor = null);
 
     /**
      * Sends SQL statements to the database server returning the success state.
      * Use this method only when the SQL statement sent to the server return rows
      *
      * @param string $sqlStatement 
-     * @param array $placeholders 
-     * @param array $dataTypes 
-     * @return \Phalcon\Db\ResultInterface 
+     * @param mixed $placeholders 
+     * @param mixed $dataTypes 
+     * @return bool|ResultInterface 
      */
-	public function query($sqlStatement, $placeholders = null, $dataTypes = null);
+    public function query($sqlStatement, $placeholders = null, $dataTypes = null);
 
     /**
      * Sends SQL statements to the database server returning the success state.
-     * Use this method only when the SQL statement sent to the server don't return any row
+     * Use this method only when the SQL statement sent to the server doesn't return any rows
      *
      * @param string $sqlStatement 
-     * @param array $placeholders 
-     * @param array $dataTypes 
-     * @return boolean 
+     * @param mixed $placeholders 
+     * @param mixed $dataTypes 
+     * @return bool 
      */
-	public function execute($sqlStatement, $placeholders = null, $dataTypes = null);
+    public function execute($sqlStatement, $placeholders = null, $dataTypes = null);
 
     /**
      * Returns the number of affected rows by the last INSERT/UPDATE/DELETE reported by the database system
      *
      * @return int 
      */
-	public function affectedRows();
+    public function affectedRows();
 
     /**
      * Closes active connection returning success. Phalcon automatically closes and destroys active connections within Phalcon\Db\Pool
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function close();
+    public function close();
 
     /**
      * Escapes a column/table/schema name
@@ -431,7 +397,7 @@ interface AdapterInterface
      * @param string $identifier 
      * @return string 
      */
-	public function escapeIdentifier($identifier);
+    public function escapeIdentifier($identifier);
 
     /**
      * Escapes a value to avoid SQL injections
@@ -439,7 +405,7 @@ interface AdapterInterface
      * @param string $str 
      * @return string 
      */
-	public function escapeString($str);
+    public function escapeString($str);
 
     /**
      * Returns insert id for the auto_increment column inserted in the last SQL statement
@@ -447,153 +413,147 @@ interface AdapterInterface
      * @param string $sequenceName 
      * @return int 
      */
-	public function lastInsertId($sequenceName = null);
+    public function lastInsertId($sequenceName = null);
 
     /**
      * Starts a transaction in the connection
      *
      * @param bool $nesting 
-     * @return boolean 
+     * @return bool 
      */
-	public function begin($nesting = true);
+    public function begin($nesting = true);
 
     /**
      * Rollbacks the active transaction in the connection
      *
      * @param bool $nesting 
-     * @return boolean 
+     * @return bool 
      */
-	public function rollback($nesting = true);
+    public function rollback($nesting = true);
 
     /**
      * Commits the active transaction in the connection
      *
      * @param bool $nesting 
-     * @return boolean 
+     * @return bool 
      */
-	public function commit($nesting = true);
+    public function commit($nesting = true);
 
     /**
      * Checks whether connection is under database transaction
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function isUnderTransaction();
+    public function isUnderTransaction();
 
     /**
      * Return internal PDO handler
      *
-     * @return \PDO 
+     * @return \Pdo 
      */
-	public function getInternalHandler();
+    public function getInternalHandler();
 
     /**
      * Lists table indexes
      *
-     * @param	string table
-     * @param	string schema
-     * @return	Phalcon\Db\IndexInterface[]
-     * @param mixed $table 
-     * @param mixed $schema 
+     * @param string $table 
+     * @param string $schema 
+     * @return IndexInterface 
      */
-	public function describeIndexes($table, $schema = null);
+    public function describeIndexes($table, $schema = null);
 
     /**
      * Lists table references
      *
-     * @param	string table
-     * @param	string schema
-     * @return	Phalcon\Db\ReferenceInterface[]
-     * @param mixed $table 
-     * @param mixed $schema 
+     * @param string $table 
+     * @param string $schema 
+     * @return ReferenceInterface 
      */
-	public function describeReferences($table, $schema = null);
+    public function describeReferences($table, $schema = null);
 
     /**
      * Gets creation options from a table
      *
-     * @param	string tableName
-     * @param	string schemaName
-     * @return	array
-     * @param mixed $tableName 
-     * @param mixed $schemaName 
+     * @param string $tableName 
+     * @param string $schemaName 
+     * @return array 
      */
-	public function tableOptions($tableName, $schemaName = null);
+    public function tableOptions($tableName, $schemaName = null);
 
     /**
      * Check whether the database system requires an explicit value for identity columns
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function useExplicitIdValue();
+    public function useExplicitIdValue();
 
     /**
      * Return the default identity value to insert in an identity column
      *
-     * @return \Phalcon\Db\RawValue 
+     * @return RawValue 
      */
-	public function getDefaultIdValue();
+    public function getDefaultIdValue();
 
     /**
      * Check whether the database system requires a sequence to produce auto-numeric values
      *
-     * @return boolean 
+     * @return bool 
      */
-	public function supportSequences();
+    public function supportSequences();
 
     /**
      * Creates a new savepoint
      *
      * @param string $name 
-     * @return boolean 
+     * @return bool 
      */
-	public function createSavepoint($name);
+    public function createSavepoint($name);
 
     /**
      * Releases given savepoint
      *
      * @param string $name 
-     * @return boolean 
+     * @return bool 
      */
-	public function releaseSavepoint($name);
+    public function releaseSavepoint($name);
 
     /**
      * Rollbacks given savepoint
      *
      * @param string $name 
-     * @return boolean 
+     * @return bool 
      */
-	public function rollbackSavepoint($name);
+    public function rollbackSavepoint($name);
 
     /**
      * Set if nested transactions should use savepoints
      *
-     * @param boolean $nestedTransactionsWithSavepoints 
-     * @return \Phalcon\Db\AdapterInterface 
+     * @param bool $nestedTransactionsWithSavepoints 
+     * @return AdapterInterface 
      */
-	public function setNestedTransactionsWithSavepoints($nestedTransactionsWithSavepoints);
+    public function setNestedTransactionsWithSavepoints($nestedTransactionsWithSavepoints);
 
     /**
      * Returns if nested transactions should use savepoints
      *
      * @return bool 
      */
-	public function isNestedTransactionsWithSavepoints();
+    public function isNestedTransactionsWithSavepoints();
 
     /**
      * Returns the savepoint name to use for nested transactions
      *
      * @return string 
      */
-	public function getNestedTransactionSavepointName();
+    public function getNestedTransactionSavepointName();
 
     /**
      * Returns an array of Phalcon\Db\Column objects describing a table
      *
      * @param string $table 
      * @param string $schema 
-     * @return \Phalcon\Db\ColumnInterface[] 
+     * @return ColumnInterface 
      */
-	public function describeColumns($table, $schema = null);
+    public function describeColumns($table, $schema = null);
 
 }

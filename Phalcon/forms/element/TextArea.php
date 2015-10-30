@@ -2,6 +2,10 @@
 
 namespace Phalcon\Forms\Element;
 
+/**
+ * Phalcon\Forms\Element\TextArea
+ * Component TEXTAREA for forms
+ */
 class TextArea extends \Phalcon\Forms\Element implements \Phalcon\Forms\ElementInterface
 {
 
@@ -11,6 +15,6 @@ class TextArea extends \Phalcon\Forms\Element implements \Phalcon\Forms\ElementI
      * @param array $attributes 
      * @return string 
      */
-	public function render($attributes = null) {}
+    public function render($attributes = null) {}
 
 }

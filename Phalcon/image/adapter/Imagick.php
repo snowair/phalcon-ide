@@ -2,6 +2,17 @@
 
 namespace Phalcon\Image\Adapter;
 
+/**
+ * Phalcon\Image\Adapter\Imagick
+ * Image manipulation support. Allows images to be resized, cropped, etc.
+ * <code>
+ * $image = new Phalcon\Image\Adapter\Imagick("upload/test.jpg");
+ * $image->resize(200, 200)->rotate(90)->crop(100, 100);
+ * if ($image->save()) {
+ * echo 'success';
+ * }
+ * </code>
+ */
 class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterInterface
 {
 
@@ -14,18 +25,18 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
     /**
      * Checks if Imagick is enabled
      *
-     * @return boolean 
+     * @return bool 
      */
-	public static function check() {}
+    public static function check() {}
 
     /**
-     * \Phalcon\Image\Imagick constructor
+     * \Phalcon\Image\Adapter\Imagick constructor
      *
      * @param string $file 
      * @param int $width 
      * @param int $height 
      */
-	public function __construct($file, $width = null, $height = null) {}
+    public function __construct($file, $width = null, $height = null) {}
 
     /**
      * Execute a resize.
@@ -33,7 +44,7 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $width 
      * @param int $height 
      */
-	protected function _resize($width, $height) {}
+    protected function _resize($width, $height) {}
 
     /**
      * This method scales the images using liquid rescaling method. Only support Imagick
@@ -47,7 +58,7 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $$deltaX How much the seam can traverse on x-axis. Passing 0 causes the seams to be straight.
      * @param int $$rigidity Introduces a bias for non-straight seams. This parameter is typically 0.
      */
-	protected function _liquidRescale($width, $height, $deltaX, $rigidity) {}
+    protected function _liquidRescale($width, $height, $deltaX, $rigidity) {}
 
     /**
      * Execute a crop.
@@ -57,28 +68,28 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $offsetX 
      * @param int $offsetY 
      */
-	protected function _crop($width, $height, $offsetX, $offsetY) {}
+    protected function _crop($width, $height, $offsetX, $offsetY) {}
 
     /**
      * Execute a rotation.
      *
      * @param int $degrees 
      */
-	protected function _rotate($degrees) {}
+    protected function _rotate($degrees) {}
 
     /**
      * Execute a flip.
      *
      * @param int $direction 
      */
-	protected function _flip($direction) {}
+    protected function _flip($direction) {}
 
     /**
      * Execute a sharpen.
      *
      * @param int $amount 
      */
-	protected function _sharpen($amount) {}
+    protected function _sharpen($amount) {}
 
     /**
      * Execute a reflection.
@@ -87,7 +98,7 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $opacity 
      * @param bool $fadeIn 
      */
-	protected function _reflection($height, $opacity, $fadeIn) {}
+    protected function _reflection($height, $opacity, $fadeIn) {}
 
     /**
      * Execute a watermarking.
@@ -97,7 +108,7 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $offsetY 
      * @param int $opacity 
      */
-	protected function _watermark(\Phalcon\Image\Adapter $image, $offsetX, $offsetY, $opacity) {}
+    protected function _watermark(\Phalcon\Image\Adapter $image, $offsetX, $offsetY, $opacity) {}
 
     /**
      * Execute a text
@@ -112,15 +123,15 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $size 
      * @param string $fontfile 
      */
-	protected function _text($text, $offsetX, $offsetY, $opacity, $r, $g, $b, $size, $fontfile) {}
+    protected function _text($text, $offsetX, $offsetY, $opacity, $r, $g, $b, $size, $fontfile) {}
 
     /**
      * Composite one image onto another
      *
      * @param mixed $image 
-     * @param \Phalcon\Image\Adapter $$mask mask Image instance
+     * @param Adapter $$mask mask Image instance
      */
-	protected function _mask(\Phalcon\Image\Adapter $image) {}
+    protected function _mask(\Phalcon\Image\Adapter $image) {}
 
     /**
      * Execute a background.
@@ -130,7 +141,7 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $b 
      * @param int $opacity 
      */
-	protected function _background($r, $g, $b, $opacity) {}
+    protected function _background($r, $g, $b, $opacity) {}
 
     /**
      * Blur image
@@ -138,7 +149,7 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $radius 
      * @param int $$radius Blur radius
      */
-	protected function _blur($radius) {}
+    protected function _blur($radius) {}
 
     /**
      * Pixelate image
@@ -146,7 +157,7 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $amount 
      * @param int $$amount amount to pixelate
      */
-	protected function _pixelate($amount) {}
+    protected function _pixelate($amount) {}
 
     /**
      * Execute a save.
@@ -154,7 +165,7 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param string $file 
      * @param int $quality 
      */
-	protected function _save($file, $quality) {}
+    protected function _save($file, $quality) {}
 
     /**
      * Execute a render.
@@ -163,19 +174,19 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $quality 
      * @return string 
      */
-	protected function _render($extension, $quality) {}
+    protected function _render($extension, $quality) {}
 
     /**
      * Destroys the loaded image to free up resources.
      */
-	public function __destruct() {}
+    public function __destruct() {}
 
     /**
      * Get instance
      *
      * @return \Imagick 
      */
-	public function getInternalImInstance() {}
+    public function getInternalImInstance() {}
 
     /**
      * Sets the limit for a particular resource in megabytes
@@ -183,6 +194,6 @@ class Imagick extends \Phalcon\Image\Adapter implements \Phalcon\Image\AdapterIn
      * @param int $type Refer to the list of resourcetype constants (@see http://php.net/manual/ru/imagick.constants.php#imagick.constants.resourcetypes.)
      * @param int $limit The resource limit. The unit depends on the type of the resource being limited.
      */
-	public function setResourceLimit($type, $limit) {}
+    public function setResourceLimit($type, $limit) {}
 
 }

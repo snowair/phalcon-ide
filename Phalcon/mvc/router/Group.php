@@ -2,7 +2,36 @@
 
 namespace Phalcon\Mvc\Router;
 
-class Group
+/**
+ * Phalcon\Mvc\Router\Group
+ * Helper class to create a group of routes with common attributes
+ * <code>
+ * $router = new \Phalcon\Mvc\Router();
+ * //Create a group with a common module and controller
+ * $blog = new Group(array(
+ * 'module' => 'blog',
+ * 'controller' => 'index'
+ * ));
+ * //All the routes start with /blog
+ * $blog->setPrefix('/blog');
+ * //Add a route to the group
+ * $blog->add('/save', array(
+ * 'action' => 'save'
+ * ));
+ * //Add another route to the group
+ * $blog->add('/edit/{id}', array(
+ * 'action' => 'edit'
+ * ));
+ * //This route maps to a controller different than the default
+ * $blog->add('/blog', array(
+ * 'controller' => 'about',
+ * 'action' => 'index'
+ * ));
+ * //Add the group to the router
+ * $router->mount($blog);
+ * </code>
+ */
+class Group implements \Phalcon\Mvc\Router\GroupInterface
 {
 
     protected $_prefix;
@@ -23,87 +52,78 @@ class Group
     /**
      * Phalcon\Mvc\Router\Group constructor
      *
-     * @param array $paths 
+     * @param mixed $paths 
      */
-	public function __construct($paths = null) {}
+    public function __construct($paths = null) {}
 
     /**
      * Set a hostname restriction for all the routes in the group
      *
      * @param string $hostname 
-     * @return \Phalcon\Mvc\Router\Group 
+     * @return GroupInterface 
      */
-	public function setHostname($hostname) {}
+    public function setHostname($hostname) {}
 
     /**
      * Returns the hostname restriction
      *
      * @return string 
      */
-	public function getHostname() {}
+    public function getHostname() {}
 
     /**
      * Set a common uri prefix for all the routes in this group
      *
      * @param string $prefix 
-     * @return \Phalcon\Mvc\Router\Group 
+     * @return GroupInterface 
      */
-	public function setPrefix($prefix) {}
+    public function setPrefix($prefix) {}
 
     /**
      * Returns the common prefix for all the routes
      *
      * @return string 
      */
-	public function getPrefix() {}
+    public function getPrefix() {}
 
     /**
-     * Set a before-match condition for the whole group
+     * Sets a callback that is called if the route is matched.
+     * The developer can implement any arbitrary conditions here
+     * If the callback returns false the route is treated as not matched
      *
      * @param callable $beforeMatch 
-     * @return \Phalcon\Mvc\Router\Group 
+     * @return GroupInterface 
      */
-	public function beforeMatch($beforeMatch) {}
+    public function beforeMatch($beforeMatch) {}
 
     /**
-     * Returns the before-match condition if any
+     * Returns the 'before match' callback if any
      *
-     * @return string 
+     * @return callable 
      */
-	public function getBeforeMatch() {}
+    public function getBeforeMatch() {}
 
     /**
      * Set common paths for all the routes in the group
      *
-     * @param array $paths 
-     * @return \Phalcon\Mvc\Router\Group 
+     * @param mixed $paths 
+     * @return GroupInterface 
      */
-	public function setPaths($paths) {}
+    public function setPaths($paths) {}
 
     /**
      * Returns the common paths defined for this group
      *
      * @return array|string 
      */
-	public function getPaths() {}
+    public function getPaths() {}
 
     /**
      * Returns the routes added to the group
      *
-     * @return \Phalcon\Mvc\Router\Route[] 
+     * @return RouteInterface 
      */
-	public function getRoutes() {}
-
-    /**
-     * Adds a route applying the common attributes
-     *
-     * @param string $pattern 
-     * @param array $paths 
-     * @param array $httpMethods 
-     * @param string $patten 
-     * @return \Phalcon\Mvc\Router\Route 
-     */
-	protected function _addRoute($pattern, $paths = null, $httpMethods = null) {}
+    public function getRoutes() {}
 
     /**
      * Adds a route to the router on any HTTP method
@@ -112,11 +132,11 @@ class Group
      * </code>
      *
      * @param string $pattern 
-     * @param string/array $paths 
-     * @param string $httpMethods 
-     * @return \Phalcon\Mvc\Router\Route 
+     * @param mixed $paths 
+     * @param mixed $httpMethods 
+     * @return RouteInterface 
      */
-	public function add($pattern, $paths = null, $httpMethods = null) {}
+    public function add($pattern, $paths = null, $httpMethods = null) {}
 
     /**
      * Adds a route to the router that only match if the HTTP method is GET
@@ -125,7 +145,7 @@ class Group
      * @param string/array $paths 
      * @return \Phalcon\Mvc\Router\Route 
      */
-	public function addGet($pattern, $paths = null) {}
+    public function addGet($pattern, $paths = null) {}
 
     /**
      * Adds a route to the router that only match if the HTTP method is POST
@@ -134,7 +154,7 @@ class Group
      * @param string/array $paths 
      * @return \Phalcon\Mvc\Router\Route 
      */
-	public function addPost($pattern, $paths = null) {}
+    public function addPost($pattern, $paths = null) {}
 
     /**
      * Adds a route to the router that only match if the HTTP method is PUT
@@ -143,7 +163,7 @@ class Group
      * @param string/array $paths 
      * @return \Phalcon\Mvc\Router\Route 
      */
-	public function addPut($pattern, $paths = null) {}
+    public function addPut($pattern, $paths = null) {}
 
     /**
      * Adds a route to the router that only match if the HTTP method is PATCH
@@ -152,7 +172,7 @@ class Group
      * @param string/array $paths 
      * @return \Phalcon\Mvc\Router\Route 
      */
-	public function addPatch($pattern, $paths = null) {}
+    public function addPatch($pattern, $paths = null) {}
 
     /**
      * Adds a route to the router that only match if the HTTP method is DELETE
@@ -161,7 +181,7 @@ class Group
      * @param string/array $paths 
      * @return \Phalcon\Mvc\Router\Route 
      */
-	public function addDelete($pattern, $paths = null) {}
+    public function addDelete($pattern, $paths = null) {}
 
     /**
      * Add a route to the router that only match if the HTTP method is OPTIONS
@@ -170,7 +190,7 @@ class Group
      * @param string/array $paths 
      * @return \Phalcon\Mvc\Router\Route 
      */
-	public function addOptions($pattern, $paths = null) {}
+    public function addOptions($pattern, $paths = null) {}
 
     /**
      * Adds a route to the router that only match if the HTTP method is HEAD
@@ -179,11 +199,21 @@ class Group
      * @param string/array $paths 
      * @return \Phalcon\Mvc\Router\Route 
      */
-	public function addHead($pattern, $paths = null) {}
+    public function addHead($pattern, $paths = null) {}
 
     /**
      * Removes all the pre-defined routes
      */
-	public function clear() {}
+    public function clear() {}
+
+    /**
+     * Adds a route applying the common attributes
+     *
+     * @param string $pattern 
+     * @param mixed $paths 
+     * @param mixed $httpMethods 
+     * @return RouteInterface 
+     */
+    protected function _addRoute($pattern, $paths = null, $httpMethods = null) {}
 
 }

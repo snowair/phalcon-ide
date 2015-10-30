@@ -2,6 +2,10 @@
 
 namespace Phalcon\Db;
 
+/**
+ * Phalcon\Db\Reference
+ * Interface for Phalcon\Db\Reference
+ */
 interface ReferenceInterface
 {
 
@@ -11,70 +15,70 @@ interface ReferenceInterface
      * @param string $referenceName 
      * @param array $definition 
      */
-	public function __construct($referenceName, $definition);
+    public function __construct($referenceName, $definition);
 
     /**
      * Gets the index name
      *
      * @return string 
      */
-	public function getName();
+    public function getName();
 
     /**
      * Gets the schema where referenced table is
      *
      * @return string 
      */
-	public function getSchemaName();
+    public function getSchemaName();
 
     /**
      * Gets the schema where referenced table is
      *
      * @return string 
      */
-	public function getReferencedSchema();
+    public function getReferencedSchema();
 
     /**
      * Gets local columns which reference is based
      *
      * @return array 
      */
-	public function getColumns();
+    public function getColumns();
 
     /**
      * Gets the referenced table
      *
      * @return string 
      */
-	public function getReferencedTable();
+    public function getReferencedTable();
 
     /**
      * Gets referenced columns
      *
      * @return array 
      */
-	public function getReferencedColumns();
+    public function getReferencedColumns();
 
     /**
      * Gets the referenced on delete
      *
      * @return string 
      */
-	public function getOnDelete();
+    public function getOnDelete();
 
     /**
      * Gets the referenced on update
      *
      * @return string 
      */
-	public function getOnUpdate();
+    public function getOnUpdate();
 
     /**
      * Restore a Phalcon\Db\Reference object from export
      *
      * @param array $data 
-     * @return \Phalcon\Db\ReferenceInterface 
+     * @return ReferenceInterface 
      */
-	public static function __set_state($data);
+    public static function __set_state($data);
 
 }

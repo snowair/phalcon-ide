@@ -2,6 +2,10 @@
 
 namespace Phalcon\Mvc\Micro;
 
+/**
+ * Phalcon\Mvc\Micro\LazyLoader
+ * Lazy-Load of handlers for Mvc\Micro using auto-loading
+ */
 class LazyLoader
 {
 
@@ -16,7 +20,7 @@ class LazyLoader
      *
      * @param string $definition 
      */
-	public function __construct($definition) {}
+    public function __construct($definition) {}
 
     /**
      * Initializes the internal handler, calling functions on it
@@ -25,6 +29,6 @@ class LazyLoader
      * @param array $arguments 
      * @return mixed 
      */
-	public function __call($method, $arguments) {}
+    public function __call($method, $arguments) {}
 
 }
